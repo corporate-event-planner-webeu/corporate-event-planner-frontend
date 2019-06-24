@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Login from './components/Login';
+import Dashboard from './containers/Dashboard';
+
+import {Route} from 'react-router-dom';
+
 
 function App() {
   return (
@@ -8,7 +13,8 @@ function App() {
         {/* <p>
           🎉 Corporate Event Planner!
         </p> */}
-        <Login />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route path="/login" component={Login} />
     </AppWrapper>
   );
 }
