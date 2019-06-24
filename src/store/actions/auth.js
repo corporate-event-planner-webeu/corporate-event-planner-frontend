@@ -7,7 +7,8 @@ export const login = (email, password) => (dispatch) => {
 
     axios.post('https://corporate-event-planner-webeu.herokuapp.com/api/auth/login', credentials)
         .then(res => {
-            dispatch({ type: types.SUCCESSFUL_LOGIN, payload: res.token, message: 'login successful' }) 
+            console.log(res)
+            dispatch({ type: types.SUCCESSFUL_LOGIN, payload: res.data.token, message: 'login successful' }) 
         })
         .catch(err => {
             console.log("Auth failed")
@@ -18,7 +19,7 @@ export const signup = (credentials) => (dispatch) => {
 
    return axios.post('https://corporate-event-planner-webeu.herokuapp.com/api/auth/register', credentials)
         .then(res => {
-            dispatch({ type: types.SUCCESSFUL_SIGNIN, payload: res.token, message: 'Registration successful' }) 
+            dispatch({ type: types.SUCCESSFUL_SIGNIN, message: 'Registration successful' }) 
         })
         .catch(err => {
             console.log("Signup failed")
