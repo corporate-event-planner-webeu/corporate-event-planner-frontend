@@ -1,4 +1,4 @@
-import { SUCCESSFUL_LOGIN, SUCCESSFUL_SIGNIN } from '../actions/actionTypes';
+import { SUCCESSFUL_LOGIN, SUCCESSFUL_SIGNIN } from '../store/actions/actionTypes';
 import {set} from '../utils/localStorage';
 
 export const setToken = store => next => action => {

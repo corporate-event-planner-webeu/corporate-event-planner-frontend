@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
 
-import { signup } from "../actions/auth";
+import { signup } from "../store/actions/auth";
 
 class Signup extends Component {
   state = {
@@ -20,7 +20,7 @@ class Signup extends Component {
       last_name: this.state.lastName,
       password: this.state.password,
       company: this.state.companyName,
-      role: 'user'
+      role: "user"
     };
 
     await this.setState({
@@ -31,11 +31,9 @@ class Signup extends Component {
       password: ""
     });
 
-    this.props.signup(credential)
-    .then(() => {
-      this.props.history.push('/login')
-    })
-  
+    this.props.signup(credential).then(() => {
+      this.props.history.push("/login");
+    });
   };
 
   handleChange = async e => {
@@ -61,7 +59,7 @@ class Signup extends Component {
             value={this.state.lastName}
             placeholder="Last name"
           />
-           <input
+          <input
             onChange={this.handleChange}
             type="text"
             name="companyName"
@@ -82,7 +80,9 @@ class Signup extends Component {
             value={this.state.password}
             placeholder="Password"
           />
-          <ButtonStyled type="button" onClick={this.handleSubmit}>Sign Up Now</ButtonStyled>
+          <ButtonStyled type="button" onClick={this.handleSubmit}>
+            Sign Up Now
+          </ButtonStyled>
         </form>
       </SignUpStyled>
     );

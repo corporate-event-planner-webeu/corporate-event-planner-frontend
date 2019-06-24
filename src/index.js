@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from 'redux';
-import rootReducer from './reducers';
+import rootReducer from './store/reducers';
 import thunk from 'redux-thunk';
 import { setToken } from './middlewares/auth';
 
