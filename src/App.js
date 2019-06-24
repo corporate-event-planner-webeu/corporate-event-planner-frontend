@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Dashboard from './containers/Dashboard';
+import Login from './views/Login';
+import Signup from './views/Signup';
+import Dashboard from './views/Dashboard';
 
 import {Route} from 'react-router-dom';
 

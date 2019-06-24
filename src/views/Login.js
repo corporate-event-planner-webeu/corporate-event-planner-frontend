@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from '../actions/auth';
-// import { setToken } from '../middlewares/auth';
+import { login } from '../store/actions/auth';
 import styled from 'styled-components';
 
 const LoginWrapperStyled = styled.form`
@@ -36,7 +35,10 @@ class Login extends React.Component {
         const email = this.emailRef.current.value;
         const password = this.passRef.current.value;
 
-        this.props.login(email, password);
+        this.props.login(email, password)
+            .then(() => {
+                this.props.history.push('/dashboard')
+            })
     }
 
     render(){
