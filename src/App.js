@@ -1,13 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Dashboard from './containers/Dashboard';
+
+import {Route} from 'react-router-dom';
+
 
 function App() {
   return (
     <AppWrapper>
-        <p>
+        {/* <p>
           🎉 Corporate Event Planner!
-        </p>
+        </p> */}
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
     </AppWrapper>
   );
 }
