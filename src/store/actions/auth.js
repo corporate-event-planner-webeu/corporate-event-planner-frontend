@@ -5,13 +5,12 @@ import * as types from './actionTypes';
 export const login = (email, password) => (dispatch) => {
     const credentials = { email, password };
 
-    axios.post('https://corporate-event-planner-webeu.herokuapp.com/api/auth/login', credentials)
+    return axios.post('https://corporate-event-planner-webeu.herokuapp.com/api/auth/login', credentials)
         .then(res => {
-            console.log(res)
             dispatch({ type: types.SUCCESSFUL_LOGIN, payload: res.data.token, message: 'login successful' }) 
         })
         .catch(err => {
-            console.log("Auth failed")
+            dispatch({ type: types.ERROR_LOGIN, message: err })
         })
 };
 
@@ -22,6 +21,6 @@ export const signup = (credentials) => (dispatch) => {
             dispatch({ type: types.SUCCESSFUL_SIGNIN, message: 'Registration successful' }) 
         })
         .catch(err => {
-            console.log("Signup failed")
+            dispatch({ type: types.ERROR_SIGNIN, message: err })
         })
 }
