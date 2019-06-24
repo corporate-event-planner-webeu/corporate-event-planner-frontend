@@ -1,19 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import Login from './components/Login';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import Signup from './components/Signup';
+import Dashboard from './containers/Dashboard';
+
+import {Route} from 'react-router-dom';
 
 
 function App() {
   return (
     <AppWrapper>
-      <BrowserRouter>
-        <Route 
-          path='/login'
-          component={Login}/>
-      </BrowserRouter>
-       
-       
+        {/* <p>
+          🎉 Corporate Event Planner!
+        </p> */}
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
     </AppWrapper>
   );
 }
