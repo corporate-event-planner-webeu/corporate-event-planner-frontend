@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Signup () {
+
+export default function Signup (credentials) {
+    const credentials = { first_name, last_name, email, password, company, role };
+    
     return(
         <SignUpStyled>
             <h3>Sign Up Here</h3>
@@ -34,11 +37,6 @@ const SignUpStyled = styled.form`
         width: 220px;
         height: 30px;
     }
-    /* button {
-        width: 220px;
-        font-size: 20px;
-        background: white;
-    } */
 `;
 
 const ButtonStyled = styled.button`

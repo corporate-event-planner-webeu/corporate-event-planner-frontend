@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../actions/auth';
-import { setToken } from '../middlewares/auth';
+// import { setToken } from '../middlewares/auth';
 import styled from 'styled-components';
 
 const LoginWrapperStyled = styled.form`
