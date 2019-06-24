@@ -1,6 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
+  handleSubmit = async () => {
+    const credential = {
+      email: this.state.email,
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      password: this.state.password,
+      company: this.state.companyName,
+      role: 'user'
+    };
+    await this.props.signup(credential);
+    await this.setState({
+      firstName: "",
+      lastName: "",
+      companyName: "",
+      email: "",
+      password: ""
+    });
+  };
   handleChange = async e => {
     await this.setState({ [e.target.name]: e.target.value });
   };
