@@ -1,21 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { login } from '../actions/auth';
+import { setToken } from '../middlewares/auth';
 import styled from 'styled-components';
-
-export default class Login extends React.Component {
-
-    render(){
-        return(
-            <div>
-                <LoginWrapperStyled> 
-                    <h3>Log In Here</h3> 
-                    <input type="text" name="Email" placeholder="Email" required />
-                    <input type="passowrd" name="password" placeholder="Password" required />
-                    <ButtonStyled>Log in</ButtonStyled>
-                </LoginWrapperStyled>
-            </div>
-        )
-    }
-}
 
 const LoginWrapperStyled = styled.form`
     border: 1px solid white;
@@ -35,8 +22,39 @@ const LoginWrapperStyled = styled.form`
     }
 `; 
 
-const ButtonStyled = styled.button`
-        width: 220px;
-        font-size: 20px;
-        background: white;
-`;
+// const ButtonStyled = styled.button`
+//         width: 220px;
+//         font-size: 20px;
+//         background: white;
+// `;
+
+class Login extends React.Component {
+    emailRef = React.createRef();
+    passRef = React.createRef();
+
+    onLogin = () => {
+        const email = this.emailRef.current.value;
+        const password = this.passRef.current.value;
+
+        this.props.login(email, password);
+    }
+
+    render(){
+        return(
+            <div>
+                <LoginWrapperStyled> 
+                    <h3>Log In Here</h3> 
+                    <input type="text" name="Email" ref={this.emailRef} placeholder="Email" required />
+                    <input type="passowrd" name="password" ref={this.passRef} placeholder="Password" required />
+                    <button onClick={this.onLogin}>Log in</button>
+                </LoginWrapperStyled>
+            </div>
+        )
+    }
+}
+
+
+export default connect(
+    null,
+    { login }
+)(Login);

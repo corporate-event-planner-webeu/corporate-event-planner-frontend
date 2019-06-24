@@ -7,7 +7,7 @@ export const login = (email, password) => (dispatch) => {
 
     axios.post('https://corporate-event-planner-webeu.herokuapp.com/api/auth/login', credentials)
         .then(res => {
-            dispatch({ type: types.SUCCESSFUL_LOGIN, payload: res.token, message: 'login successful' }) 
+            dispatch({ type: types.SUCCESSFUL_LOGIN, payload: res.token, message: 'login successful' }) ;
         })
         .catch(err => {
             console.log("Auth failed")
