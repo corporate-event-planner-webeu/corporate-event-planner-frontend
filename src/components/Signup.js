@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 export default function Signup (credentials) {
-    const { first_name, last_name, email, password, company, role } = credentials;
+    // const { first_name, last_name, email, password, company, role } = credentials;
 
     return(
         <SignUpStyled>

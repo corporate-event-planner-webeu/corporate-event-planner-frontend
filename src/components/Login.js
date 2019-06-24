@@ -37,6 +37,7 @@ class Login extends React.Component {
         const password = this.passRef.current.value;
 
         this.props.login(email, password);
+        console.log(email, password);
     }
 
     render(){
@@ -46,7 +47,7 @@ class Login extends React.Component {
                     <h3>Log In Here</h3> 
                     <input type="text" name="Email" ref={this.emailRef} placeholder="Email" required />
                     <input type="passowrd" name="password" ref={this.passRef} placeholder="Password" required />
-                    <button onClick={this.onLogin}>Log in</button>
+                    <button type="button" onClick={this.onLogin}>Log in</button>
                 </LoginWrapperStyled>
             </div>
         )

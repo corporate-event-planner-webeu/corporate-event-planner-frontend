@@ -3,19 +3,24 @@ import * as types from './actionTypes';
 
 
 export const login = (email, password) => (dispatch) => {
-    const credentialsEmailPW = { email, password };
+    const credentials = { email, password };
+    console.log(credentials);
 
-    axios.post('https://corporate-event-planner-webeu.herokuapp.com/api/auth/login', credentialsEmailPW)
+    return axios
+        .post(
+            'https://corporate-event-planner-webeu.herokuapp.com/api/auth/login',
+             credentials
+        )
         .then(res => {
-            dispatch({ 
-                type: types.SUCCESSFUL_LOGIN, 
-                payload: res.token, 
-                message: 'login successful' 
-            }) ;
+          dispatch({ 
+            type: types.SUCCESSFUL_LOGIN, 
+            payload: res.data.token, 
+            message: 'Login Successful'
+          }) ;
         })
         .catch(err => {
              console.log("Auth failed")
-        })
+        }); 
     };
 
 
@@ -28,7 +33,7 @@ export const signup = credentials => dispatch => {
       .then(res => {
         dispatch({
           type: types.SUCCESSFUL_SIGNIN,
-          payload: res.token,
+          payload: res.data.token,
           message: "Registration successful"
         });
       })
