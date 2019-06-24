@@ -72,7 +72,7 @@ const todoReducer = (state = initialState, action) => {
         error: false,
         markingTodo: true,
         message: action.message,
-        todos: action.message
+        todos: action.payload
       };
     default:
       return state;
