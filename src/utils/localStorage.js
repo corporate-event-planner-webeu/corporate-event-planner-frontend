@@ -1,6 +1,6 @@
 export const set = (name, value) => {
     let savedValue;
-    if(typeof(value !== 'string')) {
+    if(typeof(value) !== 'string') {
         savedValue = JSON.stringify(value); 
     } else {
         savedValue = value;
