@@ -20,7 +20,7 @@ export const login = (email, password) => (dispatch) => {
 
 
 export const signup = credentials => dispatch => {
-    axios
+    return axios
       .post(
         "https://corporate-event-planner-webeu.herokuapp.com/api/auth/register",
         credentials
