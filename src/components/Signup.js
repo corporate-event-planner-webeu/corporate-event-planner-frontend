@@ -9,10 +9,10 @@ export default function Signup (credentials) {
         <SignUpStyled>
             <h3>Sign Up Here</h3>
             <form>
-                <input type="text" name="name" placeholder="Firt name" />
+                <input type="text" name="name" placeholder="First name" />
                 <input type="text" name="name" placeholder="Last name" />
                 <input type="text" name="email" placeholder="Email" />
-                <input type="text" name="name" placeholder="Password" />
+                <input type="password" name="name" placeholder="Password" />
                 <ButtonStyled>Sign Up Now</ButtonStyled>
             </form>
         </SignUpStyled>

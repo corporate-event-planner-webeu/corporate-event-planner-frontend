@@ -4,11 +4,11 @@ import * as types from './actionTypes';
 
 export const login = (email, password) => (dispatch) => {
     const credentials = { email, password };
-    console.log(credentials);
+    const userLoginApi = 'https://corporate-event-planner-webeu.herokuapp.com/api/auth/login';
 
     return axios
         .post(
-            'https://corporate-event-planner-webeu.herokuapp.com/api/auth/login',
+            userLoginApi,
              credentials
         )
         .then(res => {
@@ -25,9 +25,10 @@ export const login = (email, password) => (dispatch) => {
 
 
 export const signup = credentials => dispatch => {
+    const userRegisterApi = 'https://corporate-event-planner-webeu.herokuapp.com/api/auth/register';
     return axios
       .post(
-        "https://corporate-event-planner-webeu.herokuapp.com/api/auth/register",
+        userRegisterApi,
         credentials
       )
       .then(res => {
