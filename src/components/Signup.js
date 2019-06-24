@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Signup () {
-    return(
+  handleChange = async e => {
+    await this.setState({ [e.target.name]: e.target.value });
+  };
         <SignUpStyled>
             <h3>Sign Up Here</h3>
             <form>
