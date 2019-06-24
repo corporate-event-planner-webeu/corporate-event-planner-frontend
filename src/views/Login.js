@@ -35,7 +35,10 @@ class Login extends React.Component {
         const email = this.emailRef.current.value;
         const password = this.passRef.current.value;
 
-        this.props.login(email, password);
+        this.props.login(email, password)
+            .then(() => {
+                this.props.history.push('/dashboard')
+            })
     }
 
     render(){
