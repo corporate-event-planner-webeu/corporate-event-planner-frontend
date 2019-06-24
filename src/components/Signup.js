@@ -22,7 +22,7 @@ class Signup extends Component {
       company: this.state.companyName,
       role: 'user'
     };
-    await this.props.signup(credential);
+
     await this.setState({
       firstName: "",
       lastName: "",
@@ -30,6 +30,12 @@ class Signup extends Component {
       email: "",
       password: ""
     });
+
+    this.props.signup(credential)
+    .then(() => {
+      this.props.history.push('/login')
+    })
+  
   };
 
   handleChange = async e => {
