@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import Login from './components/Login';
 
 function App() {
   return (
     <AppWrapper>
-        <p>
+        {/* <p>
           🎉 Corporate Event Planner!
-        </p>
+        </p> */}
+        <Login />
     </AppWrapper>
   );
 }
