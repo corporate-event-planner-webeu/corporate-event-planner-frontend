@@ -6,12 +6,9 @@ export default class Login extends React.Component {
         return(
             <LoginWrapperStyled> 
                 <h3>Log in here</h3>
-                <div>
-                <input type="text" name="name" placeholder="Name" required />
-                </div>
-                <div>
+                <input type="text" name="Email" placeholder="Email" required />
                 <input type="passowrd" name="password" placeholder="Password" required />
-                </div>
+                <button>Log in </button>
             </LoginWrapperStyled>
         )
     }
@@ -19,8 +16,12 @@ export default class Login extends React.Component {
 
 const LoginWrapperStyled = styled.form`
     border: 3px solid black;
-    padding: 100px;
+    padding: 50px;
     background: #efefef;
     color: black;
     
+    button{
+        font-size:13px;
+    }
+
 `; 

@@ -1,14 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import Login from './components/Login';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+
 
 function App() {
   return (
     <AppWrapper>
-        {/* <p>
-          🎉 Corporate Event Planner!
-        </p> */}
-        <Login />
+      <BrowserRouter>
+        <Route 
+          path='/login'
+          component={Login}/>
+      </BrowserRouter>
+       
+       
     </AppWrapper>
   );
 }
