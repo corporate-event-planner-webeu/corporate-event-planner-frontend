@@ -1,42 +1,72 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export default function Navigation() {
+export function Navigation() {
     return(
         <HeaderStyled>
             <h2>Event Planner</h2>
-            {/* <img class="menu-button" src="https://cdn3.iconfinder.com/data/icons/mobile-friendly-ui/100/menu-512.png" ></img> */}
                <MenuStyled>
                 <ul>
-                    <li>home</li>
-                    <li>about</li>
-                    <li>log in</li>
-                    <li>sign up</li>
+                    <Link className="link" to='/'>Home</Link>
+                    <Link className="link" to='/'>About</Link>
+                    <Link className="link " to='./login'>Log In</Link>
+                    <Link className="link " to='./signup'>Sign up</Link>
                 </ul>
                 </MenuStyled>
         </HeaderStyled>
     )
 }
+
+export function NavigationLoggedin(){
+    return(
+        <HeaderStyled>
+            <h2>Event Planner</h2>
+               <MenuStyled>
+                <ul>
+                    <Link className="link" to='./dashboard'>Home</Link>
+                    <Link className="link" to='/'>About</Link>
+                    <Link className="link" to='/'>Log Out</Link>
+                 </ul>
+                </MenuStyled>
+        </HeaderStyled>
+    )
+}
+
 const HeaderStyled = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    background-color: #efefef;
-    color: black;
-    margin:0;
-    padding:40px;
+    justify-content: space-between;
+    background-color: rgb(19, 28, 36);
+    color: white;
+    height: 60px;
+    h2{
+        margin: 15px 0;
+        padding-left: 20px;
+        font-size: 2.5rem;
+    }
 `;
 
 const MenuStyled = styled.div`
     ul{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        margin: 12px 0;
     }
-        
-    li{
-    list-style-type: none;
-    margin: 20x;
-    padding: 20px;
-}
+    .link{
+        align-content: center;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        padding-right: 40px;
+        padding-left: 40px;
+        font-size: 2rem;
+    }
+     .login {
+        width: 20%;
+        padding: 5px 0px 5px 0px;
+        padding-bottom:0;
+    }
+    .link:hover{
+        color: yellow;
+    }
 `;
+

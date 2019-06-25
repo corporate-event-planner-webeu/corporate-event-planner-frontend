@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-
+import { Navigation } from '../components/Navigation';
 import { signup } from "../store/actions/auth";
 
 class Signup extends Component {
@@ -42,49 +42,52 @@ class Signup extends Component {
 
   render() {
     return (
-      <SignUpStyled>
-        <h3>Sign Up Here</h3>
-        <form>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="firstName"
-            value={this.state.firstName}
-            placeholder="First name"
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="lastName"
-            value={this.state.lastName}
-            placeholder="Last name"
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="companyName"
-            value={this.state.companyName}
-            placeholder="Company name"
-          />
-          <input
-            onChange={this.handleChange}
-            type="text"
-            name="email"
-            value={this.state.email}
-            placeholder="Email"
-          />
-          <input
-            onChange={this.handleChange}
-            type="password"
-            name="password"
-            value={this.state.password}
-            placeholder="Password"
-          />
-          <ButtonStyled type="button" onClick={this.handleSubmit}>
-            Sign Up Now
-          </ButtonStyled>
-        </form>
-      </SignUpStyled>
+      <div>
+        <Navigation />
+        <SignUpStyled>
+          <h3>Sign Up Here</h3>
+          <form>
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="firstName"
+              value={this.state.firstName}
+              placeholder="First name"
+            />
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="lastName"
+              value={this.state.lastName}
+              placeholder="Last name"
+            />
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="companyName"
+              value={this.state.companyName}
+              placeholder="Company name"
+            />
+            <input
+              onChange={this.handleChange}
+              type="text"
+              name="email"
+              value={this.state.email}
+              placeholder="Email"
+            />
+            <input
+              onChange={this.handleChange}
+              type="password"
+              name="password"
+              value={this.state.password}
+              placeholder="Password"
+            />
+            <ButtonStyled type="button" onClick={this.handleSubmit}>
+              Sign Up Now
+            </ButtonStyled>
+          </form>
+        </SignUpStyled>
+      </div>
     );
   }
 }
