@@ -12,7 +12,7 @@ import { setToken } from './middlewares/auth';
 
 const store = createStore(rootReducer, compose(
     applyMiddleware(thunk, setToken),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
 ReactDOM.render(
