@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Navigation from '../components/Navigation';
+import Footer from'../components/Footer';
 
 export default function LandingPage() {
     return (
+        <div>
+            <Navigation />
         <Hometyled>
-            {/* <Navigation /> */}
             <div>
                 <h1>Corporate Event Planner</h1>
                 <p>An easy way to keep track of all the details and and people to coordinate the event </p>
@@ -15,6 +18,8 @@ export default function LandingPage() {
                 <Link className="link" to='./signup'>Sign Up Now!</Link> </LinkStyled>
             </div>
         </Hometyled>
+        <Footer/>
+        </div>
     )
 }
 
