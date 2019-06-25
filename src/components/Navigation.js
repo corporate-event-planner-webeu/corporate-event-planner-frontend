@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {Link} from 'react-router-dom';
 
 export default function Navigation() {
     return(
@@ -7,12 +8,11 @@ export default function Navigation() {
             <h2>Event Planner</h2>
             {/* <img class="menu-button" src="https://cdn3.iconfinder.com/data/icons/mobile-friendly-ui/100/menu-512.png" ></img> */}
                <MenuStyled>
-                <ul>
-                    <li>home</li>
-                    <li>about</li>
-                    <li>log in</li>
-                    <li>sign up</li>
-                </ul>
+                {/* <ul> */}
+                    <Link className="link" to='/'>Home</Link>
+                    <Link className="link" to='/'>About</Link>
+                    <Link className="link" to='./login'>Log In</Link> 
+                {/* </ul> */}
                 </MenuStyled>
         </HeaderStyled>
     )
@@ -20,23 +20,33 @@ export default function Navigation() {
 const HeaderStyled = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     background-color: #efefef;
     color: black;
-    margin:0;
-    padding:40px;
+    margin:0px;
+    padding-left: 5px;
+    padding-right:5px;
+
+    
 `;
 
 const MenuStyled = styled.div`
-    ul{
+    /* ul{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+    } */
+    .link{
+        align-content: center;
+        text-decoration: none;
+        color: black;
+        text-align: center;
+        /* border: 1px solid black; */
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 50px;
+        margin-top: 20px;
+        width: 80%;
     }
-        
-    li{
-    list-style-type: none;
-    margin: 20x;
-    padding: 20px;
-}
 `;
+
