@@ -22,35 +22,37 @@ const HeaderStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    vertical-align: center;
-    background-color: rgb(233,236,240);
-    color: black;
+    background-color: rgb(19, 28, 36);
+    color: white;
     /* margin:0px; */
-    /* height: 100%; */
+    height: 60px;
     /* padding-left: 5px;
     padding-right:5px; */
-        h2{
-            padding-left: 20px;
-        }
+    h2{
+        margin: 15px 0;
+        padding-left: 20px;
+        font-size: 2.5rem;
+    }
 `;
 
 const MenuStyled = styled.div`
     ul{
-        margin-top: 35px;
+        margin: 15px 0;
     }
     .link{
         align-content: center;
         text-decoration: none;
-        color: black;
+        color: white;
         text-align: center;
         padding-right: 40px;
         /* padding-bottom: 20px; */
         padding-left: 40px;
-        margin-top: 40px;
+        /* margin-top: 40px; */
+        font-size: 2rem;
     }
      .login {
-        border: 1px solid black; 
-        border-radius: 10px; 
+        /* border: 1px solid black;  */
+        /* border-radius: 10px;  */
         width: 20%;
         padding: 5px 0px 5px 0px;
         padding-bottom:0;
