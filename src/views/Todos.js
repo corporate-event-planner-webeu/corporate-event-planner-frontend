@@ -13,6 +13,9 @@ const TodoDiv = styled.div`
   font-size: 15px;
   padding: 10px;
   background: #fff;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
 `;
 
 export default class Todos extends Component {

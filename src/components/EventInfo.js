@@ -11,7 +11,10 @@ const EventInfoDiv = styled.div`
   width: 90%;
   background: #fff;
   color: #36454f;
-  padding: 1.0rem;
+  padding: 1rem;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
 
   h3 {
     text-align: left;
