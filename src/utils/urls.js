@@ -1,0 +1,1 @@
+export const baseUrl = 'https://corporate-event-planner-webeu.herokuapp.com/api';
