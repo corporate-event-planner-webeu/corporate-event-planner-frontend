@@ -24,7 +24,7 @@ export default function LandingPage() {
 }
 
 const Homestyled = styled.div`
-    margin-top: 0;
+    width: 100%;
     padding: 70px;
     background: linear-gradient(rgba(10, 10, 10), rgba(30, 30, 30, 0.1)), url("https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
     
