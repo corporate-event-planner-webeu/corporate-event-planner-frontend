@@ -3,6 +3,10 @@ import AddEvent from '../components/AddEvent';
 import Event from '../components/Event';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { getAllEvents } from '../store/actions/event';
+import { connect } from 'react-redux';
+import {getUserId}from '../utils/jwtDecode';
+import DOMAIN from '../utils/path';
 
 const MainDiv = styled.div`
   justify-content: space-between;
@@ -27,7 +31,16 @@ const EventsMainDiv = styled.div`
   }
 `;
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
+
+    componentDidMount() {
+      const user = getUserId();
+      const userId = user.subject;
+
+      const url = `${DOMAIN}/api/events/?user_id=${userId}`;
+      this.props.getAllEvents(url);
+    }
+
     render() {
         return (
           <MainDiv>
@@ -41,3 +54,5 @@ export default class Dashboard extends Component {
         );
     }
 }
+
+export default connect(null, {getAllEvents})(Dashboard)
