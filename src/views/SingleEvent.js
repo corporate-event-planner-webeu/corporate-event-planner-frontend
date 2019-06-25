@@ -10,10 +10,12 @@ const SingleEvent = styled.div`
   padding: 1rem;
   border: 2px solid white;
   min-height: 100vh;
+  background-color: rgb(233,236,240);
+  color: rgb(138, 146, 152);
 `;
 
 const EventInfoDiv = styled.div`
-  width: 30%;
+  width: 35%;
 `;
 
 const TodosDiv = styled.div`

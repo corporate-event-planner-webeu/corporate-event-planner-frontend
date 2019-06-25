@@ -6,11 +6,15 @@ import headerImage from "../assets/events-img.jpg";
 const EventInfoDiv = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid green;
-  width: 100%;
+  border-top: 2px solid rgb(81, 183, 176);
+  border-bottom: 2px solid rgb(81, 183, 176);
+  width: 90%;
+  background: #fff;
+  color: #36454f;
+  padding: 1.0rem;
 
-  h3{
-      text-align: left;
+  h3 {
+    text-align: left;
   }
   p {
     font-size: 14px;
