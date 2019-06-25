@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-    </AppWrapper>
+     </AppWrapper>
   );
 }
 
@@ -27,9 +27,9 @@ export default App;
 
 const AppWrapper = styled.div`
   text-align: center;
-  background-color: #282c34;
+  /* background-color: #282c34; */
   min-height: 100vh;
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
