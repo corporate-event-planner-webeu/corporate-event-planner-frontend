@@ -13,7 +13,7 @@ export const getAllEvents = url => dispatch => {
   dispatch({ type: FETCHING_EVENT });
   axiosWithAuth()
     .get(url)
-    .then(res => dispatch({ type: SUCCESS_EVENT, message: "Event fetched" }))
+    .then(res => dispatch({ type: SUCCESS_EVENT, payload: res.data, message: "Event fetched" }))
     .catch(err => dispatch({ type: ERROR_EVENT }));
 };
 
