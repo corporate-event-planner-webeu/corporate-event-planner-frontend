@@ -37,7 +37,7 @@ class Dashboard extends Component {
       const user = getUserId();
       const userId = user.subject;
 
-      const url = `${DOMAIN}/api/events/?user_id=${userId}`;
+      const url = `${DOMAIN}/api/events/?user_id=1`;
       this.props.getAllEvents(url);
     }
 
@@ -46,13 +46,33 @@ class Dashboard extends Component {
           <MainDiv>
             <AddEvent />
             <EventsMainDiv>
-              <Link to="/events/1">
-                <Event />
-              </Link>
+              {this.props.events.length === 0 ? (
+                <div>
+                  <h2>No event found</h2>
+                </div>
+              ) : (
+                ""
+              )}
+              {this.props.events.map(event => {
+                return (
+                  <Link
+                    key={event.id}
+                    to={`/events/${event.id}`}
+                  >
+                    <Event />
+                  </Link>
+                );
+              })}
             </EventsMainDiv>
           </MainDiv>
         );
     }
 }
 
-export default connect(null, {getAllEvents})(Dashboard)
+const mapStateToProps = (state) => {
+  return {
+    events: state.events.events
+  }
+}
+
+export default connect(mapStateToProps, {getAllEvents})(Dashboard)
