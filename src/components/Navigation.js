@@ -12,7 +12,6 @@ export function Navigation() {
                     <Link className="link" to='/'>About</Link>
                     <Link className="link " to='./login'>Log In</Link>
                     <Link className="link " to='./signup'>Sign up</Link>
-
                 </ul>
                 </MenuStyled>
         </HeaderStyled>
@@ -27,7 +26,7 @@ export function NavigationLoggedin(){
                 <ul>
                     <Link className="link" to='/'>Home</Link>
                     <Link className="link" to='/'>About</Link>
-                    <Link className="link " to='/'>Log Out</Link>
+                    <Link className="link" to='/'>Log Out</Link>
                  </ul>
                 </MenuStyled>
         </HeaderStyled>
