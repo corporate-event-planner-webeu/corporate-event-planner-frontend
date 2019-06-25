@@ -6,7 +6,7 @@ const NewTodoDiv = styled.div`
   width: 100%;
   display: flex;
   input {
-    padding: 1rem;
+    padding: 2.0rem;
     flex: 8;
     max-height: 10px;
     font-size: 14px;
@@ -20,8 +20,8 @@ const NewTodoDiv = styled.div`
   }
 
   button {
-    padding: 1rem;
-    max-height: 43.5px;
+    padding: .8rem;
+    max-height: 41.5px;
     background: rgb(81, 183, 176);
     color: white;
     flex: 1;
