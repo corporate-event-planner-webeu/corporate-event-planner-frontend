@@ -11,16 +11,18 @@ const EventInfoDiv = styled.div`
   width: 90%;
   background: #fff;
   color: #36454f;
-  padding: 1rem;
+  padding: 2rem;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
 
   h3 {
+    font-size: 15px;
+    font-weight: bold;
     text-align: left;
   }
   p {
-    font-size: 14px;
+    font-size: 13px;
     text-align: left;
   }
 `;
@@ -34,7 +36,7 @@ const HeaderImage = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  padding: 1rem;
+  padding: 1.5rem;
 `;
 
 const PeriodDiv = styled.div`
