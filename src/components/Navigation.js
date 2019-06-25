@@ -24,7 +24,7 @@ export function NavigationLoggedin(){
             <h2>Event Planner</h2>
                <MenuStyled>
                 <ul>
-                    <Link className="link" to='/'>Home</Link>
+                    <Link className="link" to='./dashboard'>Home</Link>
                     <Link className="link" to='/'>About</Link>
                     <Link className="link" to='/'>Log Out</Link>
                  </ul>
