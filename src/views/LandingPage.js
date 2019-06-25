@@ -8,7 +8,7 @@ export default function LandingPage() {
     return (
         <div>
             <Navigation />
-        <Hometyled>
+        <Homestyled>
             <div>
                 <h1>Corporate Event Planner</h1>
                 <p>An easy way to keep track of all the details and and people to coordinate the event </p>
@@ -17,13 +17,13 @@ export default function LandingPage() {
                 <Link className="link" to='./login'>Log In</Link> 
                 <Link className="link" to='./signup'>Sign Up Now!</Link> </LinkStyled>
             </div>
-        </Hometyled>
+        </Homestyled>
         <Footer/>
         </div>
     )
 }
 
-const Hometyled = styled.div`
+const Homestyled = styled.div`
     margin-top: 0;
     padding: 70px;
     background: linear-gradient(rgba(10, 10, 10), rgba(30, 30, 30, 0.1)), url("https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
