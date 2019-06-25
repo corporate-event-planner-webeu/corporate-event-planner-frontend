@@ -1,34 +1,34 @@
-import React, { Component } from "react";
+import React, { Component,Suspense } from "react";
+
 import EventInfo from "../components/EventInfo";
-import Todos from "./Todos";
 import Vendors from "./Vendors";
 import styled from "styled-components";
 import {connect} from 'react-redux';
 
 import {getAllEvents} from '../store/actions/event';
 import DOMAIN from "../utils/path";
+const Todos = React.lazy(() => import("./Todos"));
 
 
 class Event extends Component {
-  state = {
-    event: null
-  }
   
   async componentDidMount() {
     const eventID = this.props.match.params.id;
     const url = `${DOMAIN}/api/events/${eventID}`;
-    await getAllEvents(url);
-    await this.setState({event: this.props.events})
+    await this.props.getAllEvents(url);
   }
+
 
   render() {
     return (
       <SingleEvent>
         <EventInfoDiv>
-          <EventInfo events={this.props.events} />
+          <EventInfo event={this.props.events} />
         </EventInfoDiv>
         <TodosDiv>
-          <Todos />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Todos todos={this.props.events.tasks} fetchingEvents={this.props.fetchingEvents} />
+          </Suspense>
         </TodosDiv>
         <VendorsDiv>
           <Vendors />
@@ -40,7 +40,8 @@ class Event extends Component {
 
 const mapStateToProps = state => {
   return {
-    events: state.events.events
+    events: state.events.events,
+    fetchingEvents: state.events.fetchingEvents
   };
 };
 
