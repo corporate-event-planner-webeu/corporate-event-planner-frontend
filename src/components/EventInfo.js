@@ -12,6 +12,7 @@ const EventInfoDiv = styled.div`
   background: #fff;
   color: #36454f;
   padding: 2rem;
+  margin-left: 2.0rem;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
@@ -22,7 +23,7 @@ const EventInfoDiv = styled.div`
     text-align: left;
   }
   p {
-    font-size: 13px;
+    font-size: 14px;
     text-align: left;
   }
 `;
