@@ -2,6 +2,41 @@ import React, { Component } from 'react';
 import Vendor from '../components/Vendor';
 import NewVendor from '../components/NewVendor';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { createVendor, deleteVendor } from '../store/actions/vendor';
+import DOMAIN from "../utils/path";
+
+
+class Vendors extends Component {
+    handleSubmit = (data) => {
+        const id = this.props.id ? this.props.id : 0;
+        const url = `${DOMAIN}/api/vendors/?event_id=${id}`;
+        this.props.createVendor(url, data);
+        this.props.getVendor();
+    }
+
+    handleDelete = (id) => {
+        const url = `${DOMAIN}/api/vendors/${id}`;
+        this.props.deleteVendor(url).then(()=>{
+            this.props.getVendor();
+        })
+    }
+
+    render() {
+        return (
+            <VendorDiv>
+                <NewVendor handleSubmit={this.handleSubmit} />
+                {this.props.vendors.map(vendor => (
+                    <Vendor vendor={vendor} key={vendor.id} handleDelete={this.handleDelete}/> 
+                ))}
+              
+            </VendorDiv>
+        )
+    }
+}
+
+export default connect(null, {createVendor, deleteVendor})(Vendors)
+
 
 const VendorDiv = styled.div`
   display: flex;
@@ -16,14 +51,3 @@ const VendorDiv = styled.div`
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
 `;
-
-export default class Vendors extends Component {
-    render() {
-        return (
-            <VendorDiv>
-                <NewVendor />
-               <Vendor /> 
-            </VendorDiv>
-        )
-    }
-}

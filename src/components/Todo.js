@@ -12,7 +12,6 @@ const TodoDiv = styled.div`
     text-align: left;
     margin-left: 1rem;
     ${props => (props.completed === 1 ? `text-decoration: line-through`: `text-decoration: none`)}
-
   }
 `;
 

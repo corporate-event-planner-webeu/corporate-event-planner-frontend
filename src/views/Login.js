@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../store/actions/auth";
-import { Navigation } from "../components/Navigation";
 import styled from "styled-components";
 
 class Login extends React.Component {
@@ -62,8 +61,14 @@ const LoginWrapperStyled = styled.form`
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 2px;
     padding-left: 10px;
-    margin: 10px;
+    margin:10px;
     width: 220px;
-    height: 30px;
+    height: 50px;
+    font-size: 2rem;
   }
+  button {
+        height: 50px;
+        width: 100px;
+        font-size: 2rem;
+    }
 `;

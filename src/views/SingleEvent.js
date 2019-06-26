@@ -6,6 +6,7 @@ import styled from "styled-components";
 import {connect} from 'react-redux';
 import {getAllEvents} from '../store/actions/event';
 import {getAllTodos} from '../store/actions/todo';
+import { getAllVendors } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
 const Todos = React.lazy(() => import("./Todos"));
 
@@ -15,6 +16,7 @@ class Event extends Component {
     id: null,
     event: {},
     todos: [],
+    vendors: [],
     fetchingEvents: false
   };
 
@@ -40,6 +42,17 @@ class Event extends Component {
     });
 
     await this.getTodo();
+    await this.getVendor();
+  }
+  
+  getVendor = () => {
+    const id = this.state.id ? this.state.id : 0;
+    const url = `${DOMAIN}/api/vendors/?event_id=${id}`;
+    this.props.getAllVendors(url).then(() => {
+      this.setState({
+        vendors: this.props.vendors
+      })
+    })
   }
 
   render() {
@@ -61,7 +74,7 @@ class Event extends Component {
           </Suspense>
         </TodosDiv>
         <VendorsDiv>
-          <Vendors />
+          <Vendors getVendor={this.getVendor} vendors={this.state.vendors} id={this.state.id} />
         </VendorsDiv>
       </SingleEvent>
     );
@@ -72,14 +85,16 @@ const mapStateToProps = state => {
   return {
     events: state.events.events,
     todos: state.todos.todos,
+    vendors: state.vendors.vendors,
     fetchingEvents: state.events.fetchingEvents,
-    fetchingTodo: state.todos.fetchingTodo
+    fetchingTodo: state.todos.fetchingTodo,
+    fetchingVendors: state.vendors.fetchingVendors,
   };
 };
 
 
 
-export default connect(mapStateToProps, {getAllEvents, getAllTodos})(Event)
+export default connect(mapStateToProps, {getAllVendors, getAllEvents, getAllTodos})(Event)
 
 const SingleEvent = styled.div`
   display: flex;

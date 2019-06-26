@@ -11,32 +11,32 @@ import {
 
 export const getAllVendors = url => dispatch => {
   dispatch({ type: FETCHING_VENDOR });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(url)
-    .then(res => dispatch({ type: SUCCESS_VENDOR, message: "Vendor list fetched" }))
+    .then(res => dispatch({ type: SUCCESS_VENDOR, payload: res.data, message: "Vendor list fetched" }))
     .catch(err => dispatch({ type: ERROR_VENDOR }));
 };
 
 export const createVendor = (url, data) => dispatch => {
   dispatch({ type: ADDING_VENDOR });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(url, data)
-    .then(res => dispatch({ type: SUCCESS_VENDOR, message: "Vendor Created" }))
+    .then(res => dispatch({ type: SUCCESS_VENDOR, payload: res.data, message: "Vendor Created" }))
     .catch(err => dispatch({ type: ERROR_VENDOR }));
 };
 
 export const deleteVendor = url => dispatch => {
   dispatch({ type: DELETING_VENDOR });
-  axiosWithAuth()
+  return axiosWithAuth()
     .delete(url)
-    .then(res => dispatch({ type: SUCCESS_VENDOR, message: "Vendor Deleted" }))
+    .then(res => dispatch({ type: SUCCESS_VENDOR, payload: res.data, message: "Vendor Deleted" }))
     .catch(err => dispatch({ type: ERROR_VENDOR }));
 };
 
 export const markVendorAsPaid = url => dispatch => {
   dispatch({ type: MARKING_VENDOR_AS_PAID });
-  axiosWithAuth()
+  return axiosWithAuth()
     .put(url)
-    .then(res => dispatch({ type: SUCCESS_VENDOR, message: "Vendor Paid" }))
+    .then(res => dispatch({ type: SUCCESS_VENDOR, payload: res.data, message: "Vendor Paid" }))
     .catch(err => dispatch({ type: ERROR_VENDOR }));
 };
