@@ -22,7 +22,7 @@ export default function LandingPage() {
                 }}
             
             /> */}
-           
+            <Navigation/>
             <Homestyled>
                 <div className="text-wrapper">
                     <div className="text">

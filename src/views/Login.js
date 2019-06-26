@@ -25,7 +25,7 @@ class Login extends React.Component {
                 <Navigation />
                 <LoginWrapperStyled> 
                     <h3>Log In Here</h3> 
-                    <input type="text" name="Email" ref={this.emailRef} placeholder="Email" required />
+                    <input type="email" name="Email" ref={this.emailRef} placeholder="Email" required />
                     <input type="password" name="password" ref={this.passRef} placeholder="Password" required />
                     <button type="button" onClick={this.onLogin}>Log in</button>
                 </LoginWrapperStyled>

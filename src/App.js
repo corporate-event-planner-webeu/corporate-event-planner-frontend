@@ -6,7 +6,7 @@ import Signup from './views/Signup';
 import Dashboard from './views/Dashboard';
 import SingleEvent from './views/SingleEvent';
 import LandingPage from './views/LandingPage';
-import { NavigationLoggedin, Navigation} from './components/Navigation';
+import { Navigation } from './components/Navigation';
 
 import {Route, Redirect} from 'react-router-dom';
 
@@ -14,30 +14,13 @@ import {Route, Redirect} from 'react-router-dom';
 function App() {
   return (
     <AppWrapper>
-          <Route 
-                exact path="/"
-                render={() => {
-                   if(localStorage.getItem('userToken')){
-                       return(
-                         <div>
-                        <NavigationLoggedin />
-                        </div>
-                       );
-                   };
-                   return (
-                    <Navigation />
-                  //  <Redirect to='login' />
-                   )
-                }}
-            
-            />
             <Route 
                 exact path="/dashboard"
                 render={() => {
                    if(localStorage.getItem('userToken')){
                        return(
                          <div>
-                        <NavigationLoggedin />
+                        <Navigation />
                         <Dashboard />
                         </div>
                        );

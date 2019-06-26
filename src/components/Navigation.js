@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
 export function Navigation() {
     return(
@@ -8,26 +8,29 @@ export function Navigation() {
             <h2>Event Planner</h2>
                <MenuStyled>
                 <ul>
-                    <Link className="link" to='/'>Home</Link>
-                    <Link className="link" to='/'>About</Link>
-                    <Link className="link " to='./login'>Log In</Link>
-                    <Link className="link " to='./signup'>Sign up</Link>
+                     <Route 
+                        excat path="/"
+                        render={() => {
+                            if(localStorage.getItem('userToken')){
+                                return (
+                                    <div>
+                                        <Link className="link" to='./dashboard'>Home</Link>
+                                        <Link className="link" to='/'>About</Link>
+                                        <Link className="link" to='/'>Log Out</Link>
+                                    </div>
+                                );
+                            };
+                            return (
+                                <div>
+                                    <Link className="link" to='/'>Home</Link>
+                                    <Link className="link" to='/'>About</Link>
+                                    <Link className="link" to='./login'>Log In</Link>
+                                    <Link className="link" to='./signup'>Sign up</Link> 
+                                </div>
+                            )
+                        }}
+                    /> 
                 </ul>
-                </MenuStyled>
-        </HeaderStyled>
-    )
-}
-
-export function NavigationLoggedin(){
-    return(
-        <HeaderStyled>
-            <h2>Event Planner</h2>
-               <MenuStyled>
-                <ul>
-                    <Link className="link" to='./dashboard'>Home</Link>
-                    <Link className="link" to='/'>About</Link>
-                    <Link className="link" to='/'>Log Out</Link>
-                 </ul>
                 </MenuStyled>
         </HeaderStyled>
     )
