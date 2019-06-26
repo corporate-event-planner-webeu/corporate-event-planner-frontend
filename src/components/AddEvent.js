@@ -1,12 +1,100 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
 
+
+export default class AddEvent extends Component {
+    state = {
+      title: '',
+      description: '',
+      budget: '',
+      attendees: '',
+      date: '',
+      time: ''
+    }
+
+    handleChange = (e) => {
+      this.setState({[e.target.name]: e.target.value})
+    }
+
+    handleSubmit = () => {
+      const data = {
+        event_title: this.state.title, 
+        event_description: this.state.description, 
+        event_date: this.state.date, 
+        event_time: this.state.time,
+        attendees: this.state.attendees,
+        budget: this.state.budget,
+      }
+      this.props.handleSubmit(data);
+      this.setState({
+        title: '',
+        description: '',
+        date: '',
+        time: '',
+        attendees: '',
+        budget: ''
+      });
+    }
+
+    render() {
+        return (
+          <AddEventDiv>
+            <p>Create Event</p>
+            <input
+              name="title"
+              value={this.state.title}
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Event Title"
+            />
+            <input
+              name="description"
+              value={this.state.description}
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Event Description"
+            />
+            <input
+              name="budget"
+              value={this.state.budget}
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Budget"
+            />
+            <input
+              name="attendees"
+              value={this.state.attendees}
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Number of Attendees"
+            />
+            <input
+              name="date"
+              value={this.state.date}
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Event Date"
+            />
+            <input
+              name="time"
+              value={this.state.time}
+              onChange={this.handleChange}
+              type="text"
+              placeholder="Event Time"
+            />
+            <button onClick={this.handleSubmit}>Create Event</button>
+          </AddEventDiv>
+        );
+    }
+}
+
+
 const AddEventDiv = styled.div`
   border-top: 2px solid teal;
   display: flex;
   flex-direction: column;
   max-height: 450px;
-  margin: 2.0rem;
+  margin: 2rem;
   margin-right: 0;
   width: 25%;
   background: #fff;
@@ -48,19 +136,3 @@ const AddEventDiv = styled.div`
     margin: 1.4rem;
   }
 `;
-export default class AddEvent extends Component {
-    render() {
-        return (
-            <AddEventDiv>
-                <p>Create Event</p>
-                <input type="text" placeholder="Event Title" />
-                <input type="text" placeholder="Event Description" />
-                <input type="text" placeholder="Budget" />
-                <input type="text" placeholder="Number of Attendees" />
-                <input type="text" placeholder="Event Date" />
-                <input type="text" placeholder="Event Time" />
-                <button>Create Event</button>
-            </AddEventDiv>
-        )
-    }
-}

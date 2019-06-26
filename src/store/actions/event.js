@@ -11,17 +11,17 @@ import {
 
 export const getAllEvents = url => dispatch => {
   dispatch({ type: FETCHING_EVENT });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(url)
-    .then(res => dispatch({ type: SUCCESS_EVENT, message: "Event fetched" }))
+    .then(res => dispatch({ type: SUCCESS_EVENT, payload: res.data, message: "Event fetched" }))
     .catch(err => dispatch({ type: ERROR_EVENT }));
 };
 
 export const createEvent = (url, data) => dispatch => {
   dispatch({ type: ADDING_EVENT });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(url, data)
-    .then(res => dispatch({ type: SUCCESS_EVENT, message: "Event Created" }))
+    .then(res => dispatch({ type: SUCCESS_EVENT, payload: res.data, message: "Event Created" }))
     .catch(err => dispatch({ type: ERROR_EVENT }));
 };
 
@@ -29,7 +29,7 @@ export const deleteEvent = url => dispatch => {
   dispatch({ type: DELETING_EVENT });
   axiosWithAuth()
     .delete(url)
-    .then(res => dispatch({ type: SUCCESS_EVENT, message: "Event Deleted" }))
+    .then(res => dispatch({ type: SUCCESS_EVENT, payload: res.data, message: "Event Deleted" }))
     .catch(err => dispatch({ type: ERROR_EVENT }));
 };
 
