@@ -14,10 +14,10 @@ const VendorDiv = styled.div`
   }
 `;
 
-export default function Vendor() {
+export default function Vendor(props) {
     return (
         <VendorDiv>
-            <p>Noble and sons</p>
+            <p>{props.vendor.vendor_name}</p>
         </VendorDiv>
     )
 }
