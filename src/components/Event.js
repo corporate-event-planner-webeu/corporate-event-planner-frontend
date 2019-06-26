@@ -41,7 +41,7 @@ const EventStatusDiv = styled.div`
     font-size: 14px;
     font-weight: bold;
     vertical-align: top;
-    ${props => (props.completed ? `color: Teal` : `color : Orange`)}
+    ${props => (props.completed === 1 ? `color: Teal` : `color : Orange`)}
   }
 `;
 
@@ -51,12 +51,13 @@ export default class Event extends Component {
           <EventDiv>
             <img src={img} alt="" />
             <EventSummaryDiv>
-              <h2>Bringing Developers Together</h2>
-              <p>22/03/2019</p>
-              <p>3:45pm</p>
+              <h2>{this.props.title}</h2>
+              <p>{this.props.date}</p>
+              <p>{this.props.time}</p>
             </EventSummaryDiv>
-            <EventStatusDiv>
-                <p>PENDING</p>
+            <EventStatusDiv completed={this.props.completed} >
+              {this.props.completed === 0 ? <p>PENDING</p> : <p>COMPLETED</p> }
+                
             </EventStatusDiv>
           </EventDiv>
         );
