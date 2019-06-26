@@ -61,7 +61,7 @@ class Dashboard extends Component {
               {this.state.events.map(event => {
                 return (
                   
-                  <Event key={event.id} handleDelete={this.handleDelete} id={event.id} title={event.event_title} date={event.event_date} time={event.event_time} completed={event.completed} />
+                  <Event key={event.id} image_url={event.image_url} handleDelete={this.handleDelete} id={event.id} title={event.event_title} date={event.event_date} time={event.event_time} completed={event.completed} />
                  
                 );
               })}
