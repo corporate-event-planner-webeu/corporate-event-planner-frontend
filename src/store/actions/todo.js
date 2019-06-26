@@ -42,7 +42,7 @@ export const updateTodo = (url, data) => dispatch => {
 
 export const deleteTodo = url => dispatch => {
   dispatch({ type: DELETING_TODO });
-  axiosWithAuth()
+  return axiosWithAuth()
     .delete(url)
     .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Deleted" }))
     .catch(err => dispatch({ type: ERROR_TODO }));

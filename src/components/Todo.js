@@ -20,6 +20,12 @@ export default function Todo(props) {
   return (
     <TodoDiv>
       <p>{props.todo.task_name}</p>
+      <div>
+        <button onClick={() => props.handleDelete(props.todo.id)}>
+          Delete
+        </button>
+        <button>Edit</button>
+      </div>
     </TodoDiv>
   );
 }

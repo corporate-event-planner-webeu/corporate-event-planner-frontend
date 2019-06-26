@@ -3,7 +3,7 @@ import Todo from "../components/Todo";
 import NewTodo from "../components/NewTodo";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { createTodo, deleteTodo } from "../store/actions/todo";
+import { createTodo, deleteTodo, markTodoComplete } from "../store/actions/todo";
 import DOMAIN from "../utils/path";
 
 class Todos extends Component {
@@ -14,8 +14,19 @@ class Todos extends Component {
     this.props.getTodo();
   };
 
+  handleDelete = async (id) => {
+    const url = `${DOMAIN}/api/tasks/${id}`;
+    this.props.deleteTodo(url).then(()=>{
+        this.props.getTodo();
+    })
+  }
+
+  handleComplete = (id, data) => {
+    const url = `${DOMAIN}/api/tasks/${id}`;
+    this.props.markTodoComplete(url, data)
+  }
+
   render() {
-    console.log(this.props.todos);
     return (
       <TodoDiv>
         <NewTodo handleNewTodo={this.handleNewTodo} />
@@ -23,7 +34,7 @@ class Todos extends Component {
         {this.props.fetchingTodo ? (
           <div>Loading...</div>
         ) : (
-          this.props.todos.map(todo => <Todo deleteTodo={deleteTodo} key={todo.id} todo={todo} />)
+          this.props.todos.map(todo => <Todo handleDelete={this.handleDelete} handleComplete={this.handleComplete} key={todo.id} todo={todo} />)
         )}
       </TodoDiv>
     );
@@ -39,7 +50,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { createTodo,deleteTodo }
+  { createTodo,deleteTodo, markTodoComplete }
 )(Todos);
 
 const TodoDiv = styled.div`
