@@ -23,7 +23,7 @@ export default class Todos extends Component {
     return (
       <TodoDiv>
         <NewTodo />
-        {this.props.fetchingEvents ? <div>Loading...</div> : this.props.todos.map(todo => <Todo key={todo.id} todo={todo} />)}
+        {/* {this.props.fetchingEvents ? <div>Loading...</div> : this.props.todos.map(todo => <Todo key={todo.id} todo={todo} />)} */}
       </TodoDiv>
     );
   }
