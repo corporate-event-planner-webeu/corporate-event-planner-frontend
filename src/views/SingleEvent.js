@@ -11,11 +11,18 @@ const Todos = React.lazy(() => import("./Todos"));
 
 
 class Event extends Component {
-  
-  async componentDidMount() {
+  state = {
+    event: {},
+    fetchingEvents: false
+  }
+
+  componentDidMount() {
     const eventID = this.props.match.params.id;
     const url = `${DOMAIN}/api/events/${eventID}`;
-    await this.props.getAllEvents(url);
+    this.props.getAllEvents(url)
+      .then(() => {
+        this.setState({event: this.props.events, fetchingEvents: this.props.fetchingEvents})
+      })
   }
 
 
@@ -23,11 +30,11 @@ class Event extends Component {
     return (
       <SingleEvent>
         <EventInfoDiv>
-          <EventInfo event={this.props.events} />
+          <EventInfo event={this.state.event} fetchingEvents={this.state.fetchingEvents} />
         </EventInfoDiv>
         <TodosDiv>
           <Suspense fallback={<div>Loading...</div>}>
-            <Todos todos={this.props.events.tasks} fetchingEvents={this.props.fetchingEvents} />
+            <Todos />
           </Suspense>
         </TodosDiv>
         <VendorsDiv>
