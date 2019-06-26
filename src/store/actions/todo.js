@@ -12,9 +12,10 @@ import {
 
 export const getAllTodos = url => dispatch => {
   dispatch({ type: FETCHING_TODO });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(url)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todofetched" }))
+    .then(res => {console.log(res) 
+      dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todofetched" })})
     .catch(err => dispatch({ type: ERROR_TODO }));
 };
 
