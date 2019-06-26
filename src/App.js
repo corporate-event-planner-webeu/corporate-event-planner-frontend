@@ -34,7 +34,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/events/:id" component={SingleEvent} />
+          <PrivateRoute path="/events/:id" component={SingleEvent} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </AppWrapper>
     </div>
