@@ -1,7 +1,34 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
-import headerImage from "../assets/events-img.jpg";
+export default class EventInfo extends Component {
+
+  render() {
+    return (
+      <EventInfoDiv>
+        <HeaderImage>
+          <img src={this.props.event.image_url} alt="header" />
+        </HeaderImage>
+        <ContentDiv>
+          <h3>{this.props.event.event_title}</h3>
+          <p>
+            {this.props.event.event_description}
+          </p>
+          <PeriodDiv>
+            <p>{this.props.event.event_date}</p> &nbsp; &nbsp;
+            <p>{this.props.event.event_time}</p>
+          </PeriodDiv>
+          <p>Gbagada Express way</p>
+          <p>Attendees: {this.props.event.attendees}</p>
+          <p>{this.props.event.budget}</p>
+        </ContentDiv> 
+      </EventInfoDiv>
+    );
+  }
+}
+
+
+
 
 const EventInfoDiv = styled.div`
   display: flex;
@@ -11,7 +38,8 @@ const EventInfoDiv = styled.div`
   width: 90%;
   background: #fff;
   color: #36454f;
-  padding: 1rem;
+  padding: 2rem;
+  margin-left: 2rem;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
@@ -40,34 +68,3 @@ const ContentDiv = styled.div`
 const PeriodDiv = styled.div`
   display: flex;
 `;
-
-export default function EventInfo(props) {
-  return (
-    <EventInfoDiv>
-      <HeaderImage>
-        <img src={headerImage} alt="header" />
-      </HeaderImage>
-      <ContentDiv>
-        <h3>Bringing developers together</h3>
-        <p>
-          Africa Youth and Talent Summit heads into its 3rd year after a
-          successful 2017 & 2018 edition that saw over 1,000 attendees majorly
-          from Africa countries including, Ghana, Kenya, Nigeria, Somalia, Togo,
-          and Zimbabwe and had a global online reach of 2 million. The annual
-          Summit is arguably Africa's largest Youth and Talent Development
-          Platform. The summit returns to Nigeria on 20th July 2019. AYTS
-          week-long programming focuses on youth, personal development, ideas,
-          trends, insights, business agriculture, and best practices to
-          transform communities across Africa.
-        </p>
-        <PeriodDiv>
-          <p>21/03/2019</p> &nbsp; &nbsp;
-          <p>9:00am</p>
-        </PeriodDiv>
-        <p>Gbagada Express way</p>
-        <p>Attendees: 800persons</p>
-        <p>200,000</p>
-      </ContentDiv>
-    </EventInfoDiv>
-  );
-}

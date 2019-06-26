@@ -14,10 +14,10 @@ const TodoDiv = styled.div`
   }
 `;
 
-export default function Todo() {
+export default function Todo(props) {
   return (
     <TodoDiv>
-      <p>Pay vendor</p>
+      <p>{props.todo.task_name}</p>
     </TodoDiv>
   );
 }
