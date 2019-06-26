@@ -20,9 +20,9 @@ export default class EventInfo extends Component {
             <p>{this.props.event.event_time}</p>
           </PeriodDiv>
           <p>Gbagada Express way</p>
-          <p>Attendees: 800persons</p>
+          <p>Attendees: {this.props.event.attendees}</p>
           <p>{this.props.event.budget}</p>
-        </ContentDiv>
+        </ContentDiv> 
       </EventInfoDiv>
     );
   }
