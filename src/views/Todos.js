@@ -10,7 +10,7 @@ class Todos extends Component {
   handleNewTodo = async data => {
     const id = this.props.id ? this.props.id : 0;
     const url = `${DOMAIN}/api/tasks/?event_id=${id}`;
-    await this.props.createTodo(url, data)
+    await this.props.createTodo(url, data);
     this.props.getTodo();
   };
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AddEvent from '../components/AddEvent';
 import Event from '../components/Event';
 import styled from 'styled-components';
-import { getAllEvents,createEvent,deleteEvent } from '../store/actions/event';
+import { getAllEvents,createEvent,deleteEvent,uploadImage } from '../store/actions/event';
 import { connect } from 'react-redux';
 import {getUserId}from '../utils/jwtDecode';
 import DOMAIN from '../utils/path';
@@ -44,7 +44,7 @@ class Dashboard extends Component {
     render() {
         return (
           <MainDiv>
-            <AddEvent handleSubmit={this.handleSubmit} />
+            <AddEvent uploadImage={this.props.uploadImage} imageurl={this.props.imageurl} uploadingImage={this.props.uploadingImage} handleSubmit={this.handleSubmit} />
             <EventsMainDiv>
               {this.props.fetchingEvents ? (
                 <div>
@@ -74,11 +74,13 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   return {
     events: state.events.events,
-    fetchingEvents: state.events.fetchingEvents
+    fetchingEvents: state.events.fetchingEvents,
+    imageurl: state.events.imageurl,
+    uploadingImage: state.events.uploadingImage
   }
 }
 
-export default connect(mapStateToProps, {getAllEvents, createEvent, deleteEvent})(Dashboard)
+export default connect(mapStateToProps, {getAllEvents, createEvent, deleteEvent, uploadImage})(Dashboard)
 
 
 const MainDiv = styled.div`
