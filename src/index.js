@@ -8,10 +8,10 @@ import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from 'redux';
 import rootReducer from './store/reducers';
 import thunk from 'redux-thunk';
-import { setToken } from './middlewares/auth';
+import { setToken,redirectAuth } from './middlewares/auth';
 
 const store = createStore(rootReducer, compose(
-    applyMiddleware(thunk, setToken),
+    applyMiddleware(thunk, setToken, redirectAuth),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ));
 
