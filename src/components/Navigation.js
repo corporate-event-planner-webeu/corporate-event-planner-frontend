@@ -2,38 +2,48 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, Route } from 'react-router-dom';
 
-export function Navigation() {
-    return(
-        <HeaderStyled>
-            <h2>Event Planner</h2>
-               <MenuStyled>
-                <ul>
-                     <Route 
-                        excat path="/"
-                        render={() => {
-                            if(localStorage.getItem('userToken')){
+export class Navigation extends React.Component{
+
+    onLogout = () => {
+        localStorage.removeItem('userToken');
+        this.props.history.push('/')
+    
+    }
+
+    render(){
+        console.log(this.props);
+        return (
+            <HeaderStyled>
+                <h2>Event Planner</h2>
+                <MenuStyled>
+                    <ul>
+                        <Route 
+                            excat path="/"
+                            render={() => {
+                                if(localStorage.getItem('userToken')){
+                                    return (
+                                        <div>
+                                            <Link className="link" to='./dashboard'>Home</Link>
+                                            <Link className="link" to='/'>About</Link>
+                                            <a href='/'className="link" onClick={this.onLogout}>Log Out</a>
+                                        </div>
+                                    );
+                                };
                                 return (
                                     <div>
-                                        <Link className="link" to='./dashboard'>Home</Link>
+                                        <Link className="link" to='/'>Home</Link>
                                         <Link className="link" to='/'>About</Link>
-                                        <Link className="link" to='/'>Log Out</Link>
+                                        <Link className="link" to='./login'>Log In</Link>
+                                        <Link className="link" to='./signup'>Sign up</Link> 
                                     </div>
-                                );
-                            };
-                            return (
-                                <div>
-                                    <Link className="link" to='/'>Home</Link>
-                                    <Link className="link" to='/'>About</Link>
-                                    <Link className="link" to='./login'>Log In</Link>
-                                    <Link className="link" to='./signup'>Sign up</Link> 
-                                </div>
-                            )
-                        }}
-                    /> 
-                </ul>
-                </MenuStyled>
-        </HeaderStyled>
-    )
+                                )
+                            }}
+                        /> 
+                    </ul>
+                    </MenuStyled>
+            </HeaderStyled>            
+        )
+    }
 }
 
 const HeaderStyled = styled.div`
