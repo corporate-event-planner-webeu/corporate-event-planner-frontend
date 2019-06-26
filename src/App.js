@@ -3,14 +3,12 @@ import styled from 'styled-components';
 
 import Login from './views/Login';
 import Signup from './views/Signup';
-// import Dashboard from './views/Dashboard';
+import Dashboard from './views/Dashboard';
 import SingleEvent from './views/SingleEvent';
 import LandingPage from './views/LandingPage';
 import { Navigation } from './components/Navigation';
 import PrivateRoute from './components/PrivateRoute';
-import {Route, Redirect } from 'react-router-dom';
-import Dashboard from './views/Dashboard';
-
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
@@ -37,7 +35,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/events/:id" component={SingleEvent} />
-          <PrivateRoute  />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </AppWrapper>
     </div>
   );
