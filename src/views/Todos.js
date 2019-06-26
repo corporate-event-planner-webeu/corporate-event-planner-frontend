@@ -3,16 +3,28 @@ import Todo from "../components/Todo";
 import NewTodo from "../components/NewTodo";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { getAllTodos } from "../store/actions/todo";
+import { createTodo, deleteTodo } from "../store/actions/todo";
+import DOMAIN from "../utils/path";
 
 class Todos extends Component {
-  
+  handleNewTodo = async data => {
+    const id = this.props.id ? this.props.id : 0;
+    const url = `${DOMAIN}/api/tasks/?event_id=${id}`;
+    await this.props.createTodo(url, data)
+    this.props.getTodo();
+  };
+
   render() {
+    console.log(this.props.todos);
     return (
       <TodoDiv>
-        <NewTodo />
+        <NewTodo handleNewTodo={this.handleNewTodo} />
         {this.props.todos.length === 0 && <div>No Todo found</div>}
-        {this.props.fetchingTodo ? <div>Loading...</div> : this.props.todos.map(todo => <Todo key={todo.id} todo={todo} />)}
+        {this.props.fetchingTodo ? (
+          <div>Loading...</div>
+        ) : (
+          this.props.todos.map(todo => <Todo deleteTodo={deleteTodo} key={todo.id} todo={todo} />)
+        )}
       </TodoDiv>
     );
   }
@@ -21,14 +33,13 @@ class Todos extends Component {
 const mapStateToProps = state => {
   return {
     events: state.events.events,
-    todos: state.todos.todos,
     fetchingTodo: state.todos.fetchingTodo
   };
 };
 
 export default connect(
   mapStateToProps,
-  { getAllTodos }
+  { createTodo,deleteTodo }
 )(Todos);
 
 const TodoDiv = styled.div`

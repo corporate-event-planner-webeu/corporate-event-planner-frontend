@@ -28,7 +28,7 @@ export const createTodo = (url, data) => dispatch => {
   dispatch({ type: ADDING_TODO });
   axiosWithAuth()
     .post(url, data)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Created" }))
+    .then(res => dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todo Created" }))
     .catch(err => dispatch({ type: ERROR_TODO }));
 };
 
