@@ -67,10 +67,6 @@ const AppWrapper = styled.div`
   /* background-color: #282c34; */
   min-height: 100vh;
   /* display: flex; */
-<<<<<<< HEAD
-=======
-
->>>>>>> b0644cf55fa65dba469870b46d822d0cdce82ef9
   flex-direction: column;
   justify-content: center;
 `;
