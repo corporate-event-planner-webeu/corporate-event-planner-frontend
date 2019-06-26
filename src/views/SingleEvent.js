@@ -74,7 +74,7 @@ class Event extends Component {
           </Suspense>
         </TodosDiv>
         <VendorsDiv>
-          <Vendors getVendor={this.getVendor} vendors={this.state.vendors} id={this.state.id} />
+          <Vendors getVendor={this.getVendor} vendors={this.state.vendors} fetchingVendors={this.props.fetchingVendors} id={this.state.id} />
         </VendorsDiv>
       </SingleEvent>
     );
