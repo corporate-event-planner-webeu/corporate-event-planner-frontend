@@ -27,7 +27,7 @@ export const createVendor = (url, data) => dispatch => {
 
 export const deleteVendor = url => dispatch => {
   dispatch({ type: DELETING_VENDOR });
-  axiosWithAuth()
+  return axiosWithAuth()
     .delete(url)
     .then(res => dispatch({ type: SUCCESS_VENDOR, payload: res.data, message: "Vendor Deleted" }))
     .catch(err => dispatch({ type: ERROR_VENDOR }));
@@ -35,7 +35,7 @@ export const deleteVendor = url => dispatch => {
 
 export const markVendorAsPaid = url => dispatch => {
   dispatch({ type: MARKING_VENDOR_AS_PAID });
-  axiosWithAuth()
+  return axiosWithAuth()
     .put(url)
     .then(res => dispatch({ type: SUCCESS_VENDOR, payload: res.data, message: "Vendor Paid" }))
     .catch(err => dispatch({ type: ERROR_VENDOR }));
