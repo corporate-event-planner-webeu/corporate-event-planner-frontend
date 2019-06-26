@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 import Login from './views/Login';
 import Signup from './views/Signup';
-import Dashboard from './views/Dashboard';
+// import Dashboard from './views/Dashboard';
 import SingleEvent from './views/SingleEvent';
 import LandingPage from './views/LandingPage';
 import { Navigation } from './components/Navigation';
-
-import {Route, Redirect} from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
+import {Route, Redirect } from 'react-router-dom';
+import Dashboard from './views/Dashboard';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
     <div>
       <Navigation />
        <AppWrapper>
-              <Route 
+              {/* <Route 
                   exact path="/dashboard"
                   render={() => {
                     if(localStorage.getItem('userToken')){
@@ -31,12 +32,12 @@ function App() {
                     )
                   }}
               
-              />
+              /> */}
           <Route exact path="/" component={LandingPage} />
-          {/* <Route exact path="/dashboard" component={Dashboard} /> */}
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/events/:id" component={SingleEvent} />
+          <PrivateRoute  />
       </AppWrapper>
     </div>
   );
