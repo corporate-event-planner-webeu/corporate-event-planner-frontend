@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import axios from 'axios';
 
 export default class AddEvent extends Component {
     state = {
@@ -8,7 +9,8 @@ export default class AddEvent extends Component {
       budget: '',
       attendees: '',
       date: '',
-      time: ''
+      time: '',
+      url: '',
     }
 
     handleChange = (e) => {
@@ -23,6 +25,7 @@ export default class AddEvent extends Component {
         event_time: this.state.time,
         attendees: this.state.attendees,
         budget: this.state.budget,
+        image_url: this.state.url
       }
       this.props.handleSubmit(data);
       this.setState({
@@ -31,8 +34,27 @@ export default class AddEvent extends Component {
         date: '',
         time: '',
         attendees: '',
-        budget: ''
+        budget: '',
+        url: ''
       });
+    }
+
+    handleImageUpload = (e) => {
+      const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/ogwurujohnson/image/upload";
+      const CLOUDINARY_UPLOAD_PRESET = "zjjd4c1v";
+       const file = e.target.files[0];
+       const formData = new FormData();
+       formData.append("file", file);
+       formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+       axios.post(CLOUDINARY_URL, formData)
+        .then(res => {
+          if (res.data.secure_url !== "") {
+            const uploadedFileUrl = res.data.secure_url;
+            this.setState({url: uploadedFileUrl})
+          }
+        })
+        .catch(err => console.log(err));
     }
 
     render() {
@@ -81,6 +103,7 @@ export default class AddEvent extends Component {
               type="text"
               placeholder="Event Time"
             />
+            <input type="file" id="fileupload" onChange={this.handleImageUpload} />
             <button onClick={this.handleSubmit}>Create Event</button>
           </AddEventDiv>
         );
