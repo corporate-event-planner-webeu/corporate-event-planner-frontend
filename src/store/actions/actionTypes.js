@@ -14,7 +14,10 @@ export const ERROR_EVENT = 'ERROR_EVENT';
 export const SUCCESS_EVENT = 'SUCCESS_EVENT';
 export const ADDING_EVENT = 'ADDING_EVENT';
 export const DELETING_EVENT = 'DELETING_EVENT';
-export const COMPLETING_EVENT = 'COMPLETING EVENT'
+export const COMPLETING_EVENT = 'COMPLETING EVENT';
+export const UPLOADING_IMAGE = 'UPLOADING_IMAGE';
+export const SUCCESS_IMAGE = 'SUCCESS_IMAGE';
+export const ERROR_IMAGE = 'ERROR_IMAGE'
 
 // Team Action Types
 export const FETCHING_TEAM = 'FETCHING_TEAM';

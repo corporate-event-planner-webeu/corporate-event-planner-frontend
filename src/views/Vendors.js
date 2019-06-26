@@ -8,14 +8,14 @@ import DOMAIN from "../utils/path";
 
 
 class Vendors extends Component {
-    handleSubmit = (data) => {
+    handleSubmit = async (data) => {
         const id = this.props.id ? this.props.id : 0;
         const url = `${DOMAIN}/api/vendors/?event_id=${id}`;
-        this.props.createVendor(url, data);
+        await this.props.createVendor(url, data);
         this.props.getVendor();
     }
 
-    handleDelete = (id) => {
+    handleDelete = async (id) => {
         const url = `${DOMAIN}/api/vendors/${id}`;
         this.props.deleteVendor(url).then(()=>{
             this.props.getVendor();
@@ -24,14 +24,22 @@ class Vendors extends Component {
 
     render() {
         return (
-            <VendorDiv>
-                <NewVendor handleSubmit={this.handleSubmit} />
-                {this.props.vendors.map(vendor => (
-                    <Vendor vendor={vendor} key={vendor.id} handleDelete={this.handleDelete}/> 
-                ))}
-              
-            </VendorDiv>
-        )
+          <VendorDiv>
+            <NewVendor handleSubmit={this.handleSubmit} />
+            {this.props.vendors.length === 0 && <div>No Vendor found</div>}
+            {this.props.fetchingVendors ? (
+              <div>Loading...</div>
+            ) : (
+              this.props.vendors.map(vendor => (
+                <Vendor
+                  vendor={vendor}
+                  key={vendor.id}
+                  handleDelete={this.handleDelete}
+                />
+              ))
+            )}
+          </VendorDiv>
+        );
     }
 }
 
