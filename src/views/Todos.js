@@ -1,7 +1,35 @@
 import React, { Component } from "react";
 import Todo from "../components/Todo";
-import NewTodo from '../components/NewTodo';
+import NewTodo from "../components/NewTodo";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { getAllTodos } from "../store/actions/todo";
+
+class Todos extends Component {
+  
+  render() {
+    return (
+      <TodoDiv>
+        <NewTodo />
+        {this.props.todos.length === 0 && <div>No Todo found</div>}
+        {this.props.fetchingTodo ? <div>Loading...</div> : this.props.todos.map(todo => <Todo key={todo.id} todo={todo} />)}
+      </TodoDiv>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    events: state.events.events,
+    todos: state.todos.todos,
+    fetchingTodo: state.todos.fetchingTodo
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getAllTodos }
+)(Todos);
 
 const TodoDiv = styled.div`
   display: flex;
@@ -17,14 +45,3 @@ const TodoDiv = styled.div`
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
 `;
-
-export default class Todos extends Component {
-  render() {
-    return (
-      <TodoDiv>
-        <NewTodo />
-        {/* {this.props.fetchingEvents ? <div>Loading...</div> : this.props.todos.map(todo => <Todo key={todo.id} todo={todo} />)} */}
-      </TodoDiv>
-    );
-  }
-}
