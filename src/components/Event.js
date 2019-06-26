@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 import img from '../assets/events-img.jpg';
 
 const EventDiv = styled.div`
@@ -48,18 +49,29 @@ const EventStatusDiv = styled.div`
 export default class Event extends Component {
     render() {
         return (
-          <EventDiv>
-            <img src={img} alt="" />
-            <EventSummaryDiv>
-              <h2>{this.props.title}</h2>
-              <p>{this.props.date}</p>
-              <p>{this.props.time}</p>
-            </EventSummaryDiv>
-            <EventStatusDiv completed={this.props.completed} >
-              {this.props.completed === 0 ? <p>PENDING</p> : <p>COMPLETED</p> }
-                
-            </EventStatusDiv>
-          </EventDiv>
+          <div>
+            <EventDiv>
+              <Link to={`/events/${this.props.id}`}><img src={img} alt="" /></Link>
+              <EventSummaryDiv>
+                <h2>{this.props.title}</h2>
+                <p>{this.props.date}</p>
+                <p>{this.props.time}</p>
+              </EventSummaryDiv>
+
+              <EventStatusDiv completed={this.props.completed}>
+                {this.props.completed === 0 ? (
+                  <p>PENDING</p>
+                ) : (
+                  <p>COMPLETED</p>
+                )}
+                <button
+                  onClick={() => this.props.handleDelete(this.props.id)}
+                >
+                  Delete
+                </button>
+              </EventStatusDiv>
+            </EventDiv>
+          </div>
         );
     }
 }
