@@ -25,7 +25,15 @@ export default class AddEvent extends Component {
         attendees: this.state.attendees,
         budget: this.state.budget,
       }
-      this.props.handleSubmit(data)
+      this.props.handleSubmit(data);
+      this.setState({
+        title: '',
+        description: '',
+        date: '',
+        time: '',
+        attendees: '',
+        budget: ''
+      });
     }
 
     render() {
