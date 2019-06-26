@@ -12,13 +12,15 @@ export default class NewTodo extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-handleSubmit = () => {
+handleSubmit = async (e) => {
+  e.preventDefault();
   const data = {
     vendor_name: this.state.name,  	
     contact_number: this.state.number,   
     contact_email: this.state.email,
   }
-  this.props.handleSubmit(data);
+  await this.props.handleSubmit(data);
+  await this.setState({name:'',number:'', email:''})
 }
 
   render() {
