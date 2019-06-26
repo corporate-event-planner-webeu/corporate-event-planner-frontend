@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { Navigation } from '../components/Navigation';
 import { signup } from "../store/actions/auth";
 
 class Signup extends Component {
@@ -43,7 +42,6 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <Navigation />
         <SignUpStyled>
           <h3>Sign Up Here</h3>
           <form>
@@ -70,7 +68,7 @@ class Signup extends Component {
             />
             <input
               onChange={this.handleChange}
-              type="text"
+              type="email"
               name="email"
               value={this.state.email}
               placeholder="Email"
@@ -82,9 +80,9 @@ class Signup extends Component {
               value={this.state.password}
               placeholder="Password"
             />
-            <ButtonStyled type="button" onClick={this.handleSubmit}>
+            <button type="button" onClick={this.handleSubmit}>
               Sign Up Now
-            </ButtonStyled>
+            </button>
           </form>
         </SignUpStyled>
       </div>
@@ -110,14 +108,16 @@ const SignUpStyled = styled.div`
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 2px;
     padding-left: 10px;
-    margin: 10px;
+    margin:10px;
     width: 220px;
-    height: 30px;
+    height: 50px;
+    font-size: 2rem;
   }
+
+  button {
+        height: 50px;
+        width: 150px;
+        font-size: 2rem;
+    }
 `;
 
-const ButtonStyled = styled.button`
-  width: 220px;
-  font-size: 20px;
-  background: white;
-`;

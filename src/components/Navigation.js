@@ -1,36 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 
-export function Navigation() {
-    return(
-        <HeaderStyled>
-            <h2>Event Planner</h2>
-               <MenuStyled>
-                <ul>
-                    <Link className="link" to='/'>Home</Link>
-                    <Link className="link" to='/'>About</Link>
-                    <Link className="link " to='./login'>Log In</Link>
-                    <Link className="link " to='./signup'>Sign up</Link>
-                </ul>
-                </MenuStyled>
-        </HeaderStyled>
-    )
-}
+export class Navigation extends React.Component{
 
-export function NavigationLoggedin(){
-    return(
-        <HeaderStyled>
-            <h2>Event Planner</h2>
-               <MenuStyled>
-                <ul>
-                    <Link className="link" to='./dashboard'>Home</Link>
-                    <Link className="link" to='/'>About</Link>
-                    <Link className="link" to='/'>Log Out</Link>
-                 </ul>
-                </MenuStyled>
-        </HeaderStyled>
-    )
+    onLogout = () => {
+        localStorage.removeItem('userToken');
+        this.props.history.push('/')
+    
+    }
+
+    render(){
+        console.log(this.props);
+        return (
+            <HeaderStyled>
+                <h2>Event Planner</h2>
+                <MenuStyled>
+                    <ul>
+                        <Route 
+                            excat path="/"
+                            render={() => {
+                                if(localStorage.getItem('userToken')){
+                                    return (
+                                        <div>
+                                            <Link className="link" to='./dashboard'>Home</Link>
+                                            <Link className="link" to='/'>About</Link>
+                                            <a href='/'className="link" onClick={this.onLogout}>Log Out</a>
+                                        </div>
+                                    );
+                                };
+                                return (
+                                    <div>
+                                        <Link className="link" to='/'>Home</Link>
+                                        <Link className="link" to='/'>About</Link>
+                                        <Link className="link" to='./login'>Log In</Link>
+                                        <Link className="link" to='./signup'>Sign up</Link> 
+                                    </div>
+                                )
+                            }}
+                        /> 
+                    </ul>
+                    </MenuStyled>
+            </HeaderStyled>            
+        )
+    }
 }
 
 const HeaderStyled = styled.div`
@@ -40,6 +53,7 @@ const HeaderStyled = styled.div`
     background-color: rgb(19, 28, 36);
     color: white;
     height: 60px;
+
     h2{
         margin: 15px 0;
         padding-left: 20px;
@@ -49,7 +63,7 @@ const HeaderStyled = styled.div`
 
 const MenuStyled = styled.div`
     ul{
-        margin: 12px 0;
+        margin: 20px 0;
     }
     .link{
         align-content: center;

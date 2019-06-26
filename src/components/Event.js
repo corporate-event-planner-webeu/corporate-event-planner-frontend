@@ -47,6 +47,7 @@ const EventStatusDiv = styled.div`
 `;
 
 export default class Event extends Component {
+  
     render() {
         return (
           <div>

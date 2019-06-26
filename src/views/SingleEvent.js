@@ -84,7 +84,7 @@ export default connect(mapStateToProps, {getAllEvents, getAllTodos})(Event)
 const SingleEvent = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem;
   border: 2px solid white;
   min-height: 100vh;
   background-color: rgb(233, 236, 240);
@@ -93,12 +93,10 @@ const SingleEvent = styled.div`
 
 const EventInfoDiv = styled.div`
   width: 35%;
-  margin-top: 2rem;
 `;
 
 const TodosDiv = styled.div`
   width: 30%;
-  margin-top: 2rem;
 `;
 
 const VendorsDiv = styled.div`

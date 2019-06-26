@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-
 export default class EventInfo extends Component {
 
   render() {
@@ -46,8 +45,6 @@ const EventInfoDiv = styled.div`
   box-shadow: 0 10px 6px -6px #777;
 
   h3 {
-    font-size: 15px;
-    font-weight: bold;
     text-align: left;
   }
   p {
@@ -65,7 +62,7 @@ const HeaderImage = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  padding: 1.5rem;
+  padding: 1rem;
 `;
 
 const PeriodDiv = styled.div`

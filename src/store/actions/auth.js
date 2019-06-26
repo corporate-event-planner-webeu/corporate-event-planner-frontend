@@ -2,7 +2,6 @@ import axios from 'axios';
 import * as types from './actionTypes';
 import DOMAIN from '../../utils/path';
 
-
 export const login = (email, password) => (dispatch) => {
     const credentials = { email, password };
 

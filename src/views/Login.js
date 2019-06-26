@@ -20,7 +20,6 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <Navigation />
         <LoginWrapperStyled>
           <h3>Log In Here</h3>
           <input
@@ -68,9 +67,3 @@ const LoginWrapperStyled = styled.form`
     height: 30px;
   }
 `;
-
-// const ButtonStyled = styled.button`
-//         width: 220px;
-//         font-size: 20px;
-//         background: white;
-// `;
