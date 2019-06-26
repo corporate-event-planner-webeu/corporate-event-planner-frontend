@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import AddEvent from '../components/AddEvent';
 import Event from '../components/Event';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { getAllEvents,createEvent } from '../store/actions/event';
+import { getAllEvents,createEvent,deleteEvent } from '../store/actions/event';
 import { connect } from 'react-redux';
 import {getUserId}from '../utils/jwtDecode';
 import DOMAIN from '../utils/path';
@@ -14,24 +13,32 @@ class Dashboard extends Component {
       events: []
     }
 
-    async componentDidMount() {
+    getEvents = () => {
       const user = getUserId();
       const userId = user.subject;
 
       const url = `${DOMAIN}/api/events/?user_id=${userId}`;
-      this.props.getAllEvents(url)
-        .then(() => {
-          this.setState({events: this.props.events})
-        })  
+      this.props.getAllEvents(url).then(() => {
+        this.setState({ events: this.props.events });
+      });  
+    }
+
+    async componentDidMount() {
+      this.getEvents();
     }
 
 
     handleSubmit = (data) => {
       const url = `${DOMAIN}/api/events`;
       this.props.createEvent(url, data).then(res => {
-        window.location.reload()
-        this.props.history.push('/dashboard')
+        this.getEvents();
       });
+    }
+
+    handleDelete = (id) => {
+      const url = `${DOMAIN}/api/events/${id}`;
+      this.props.deleteEvent(url);
+      this.getEvents()
     }
 
     render() {
@@ -53,9 +60,9 @@ class Dashboard extends Component {
 
               {this.state.events.map(event => {
                 return (
-                  <Link key={event.id} to={`/events/${event.id}`}>
-                    <Event title={event.event_title} date={event.event_date} time={event.event_time} completed={event.completed} />
-                  </Link>
+                  
+                  <Event key={event.id} handleDelete={this.handleDelete} id={event.id} title={event.event_title} date={event.event_date} time={event.event_time} completed={event.completed} />
+                 
                 );
               })}
             </EventsMainDiv>
@@ -71,7 +78,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {getAllEvents, createEvent})(Dashboard)
+export default connect(mapStateToProps, {getAllEvents, createEvent, deleteEvent})(Dashboard)
 
 
 const MainDiv = styled.div`
