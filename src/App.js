@@ -15,22 +15,6 @@ function App() {
     <div>
       <Navigation />
        <AppWrapper>
-              {/* <Route 
-                  exact path="/dashboard"
-                  render={() => {
-                    if(localStorage.getItem('userToken')){
-                        return(
-                          <div>
-                          <Dashboard />
-                          </div>
-                        );
-                    };
-                    return (
-                    <Redirect to='/' />
-                    )
-                  }}
-              
-              /> */}
           <Route exact path="/" component={LandingPage} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
