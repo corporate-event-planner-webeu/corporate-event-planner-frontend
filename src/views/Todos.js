@@ -21,9 +21,15 @@ class Todos extends Component {
     })
   }
 
-  handleComplete = (id, data) => {
+  handleComplete = (id, title, completed) => {
+    const data = {
+      task_name: title,
+      task_completed: !completed 
+    }
     const url = `${DOMAIN}/api/tasks/${id}`;
-    this.props.markTodoComplete(url, data)
+    this.props.markTodoComplete(url, data).then(() => {
+      this.props.getTodo();
+    })
   }
 
   render() {

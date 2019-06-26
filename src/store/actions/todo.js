@@ -48,10 +48,10 @@ export const deleteTodo = url => dispatch => {
     .catch(err => dispatch({ type: ERROR_TODO }));
 };
 
-export const markTodoComplete = url => dispatch => {
+export const markTodoComplete = (url,data) => dispatch => {
   dispatch({ type: MARKING_COMPLETE });
-  axiosWithAuth()
-    .put(url)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Completed" }))
+  return axiosWithAuth()
+    .put(url,data)
+    .then(res => dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todo Completed" }))
     .catch(err => dispatch({ type: ERROR_TODO }));
 };

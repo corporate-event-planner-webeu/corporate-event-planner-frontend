@@ -13,18 +13,20 @@ const TodoDiv = styled.div`
     font-weight: bold;
     text-align: left;
     margin-left: 1rem;
+    ${props => (props.completed === 1 ? `text-decoration: line-through`: `text-decoration: none`)}
   }
 `;
 
 export default function Todo(props) {
   return (
-    <TodoDiv>
+    <TodoDiv completed={props.todo.task_completed}>
       <p>{props.todo.task_name}</p>
       <div>
         <button onClick={() => props.handleDelete(props.todo.id)}>
           Delete
         </button>
         <button>Edit</button>
+        <button onClick={() => props.handleComplete(props.todo.id, props.todo.task_name, props.todo.task_completed)}>Complete</button>
       </div>
     </TodoDiv>
   );

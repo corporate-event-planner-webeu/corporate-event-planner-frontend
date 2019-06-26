@@ -56,7 +56,7 @@ class Event extends Component {
           {this.state.fetchingEvents ? (
             <div>Loading...</div>
           ) : (
-            <Todos todos={this.state.todos} fetchingTodo={this.props.fetchingTodo} />
+            <Todos getTodo={this.getTodo} id={this.state.id} todos={this.state.todos} fetchingTodo={this.props.fetchingTodo} />
           )}
           </Suspense>
         </TodosDiv>
