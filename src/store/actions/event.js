@@ -29,7 +29,7 @@ export const deleteEvent = url => dispatch => {
   dispatch({ type: DELETING_EVENT });
   axiosWithAuth()
     .delete(url)
-    .then(res => dispatch({ type: SUCCESS_EVENT, message: "Event Deleted" }))
+    .then(res => dispatch({ type: SUCCESS_EVENT, payload: res.data, message: "Event Deleted" }))
     .catch(err => dispatch({ type: ERROR_EVENT }));
 };
 
