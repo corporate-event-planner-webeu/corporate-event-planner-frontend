@@ -11,7 +11,6 @@ export class Navigation extends React.Component{
     }
 
     render(){
-        console.log(this.props);
         return (
             <HeaderStyled>
                 <h2>Event Planner</h2>

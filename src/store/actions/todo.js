@@ -12,9 +12,15 @@ import {
 
 export const getAllTodos = url => dispatch => {
   dispatch({ type: FETCHING_TODO });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(url)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todofetched" }))
+    .then(res =>
+      dispatch({
+        type: SUCCESS_TODO,
+        payload: res.data,
+        message: "Todofetched"
+      })
+    )
     .catch(err => dispatch({ type: ERROR_TODO }));
 };
 
@@ -22,30 +28,30 @@ export const createTodo = (url, data) => dispatch => {
   dispatch({ type: ADDING_TODO });
   axiosWithAuth()
     .post(url, data)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Created" }))
+    .then(res => dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todo Created" }))
     .catch(err => dispatch({ type: ERROR_TODO }));
 };
 
 export const updateTodo = (url, data) => dispatch => {
-    dispatch({ type: UPDATING_TODO });
-    axiosWithAuth()
-      .put(url, data)
-      .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Updated" }))
-      .catch(err => dispatch({ type: ERROR_TODO }));
-  };
+  dispatch({ type: UPDATING_TODO });
+  axiosWithAuth()
+    .put(url, data)
+    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Updated" }))
+    .catch(err => dispatch({ type: ERROR_TODO }));
+};
 
 export const deleteTodo = url => dispatch => {
   dispatch({ type: DELETING_TODO });
-  axiosWithAuth()
+  return axiosWithAuth()
     .delete(url)
     .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Deleted" }))
-    .catch(err => dispatch({ type: ERROR_TODO}));
+    .catch(err => dispatch({ type: ERROR_TODO }));
 };
 
-export const markTodoComplete = url => dispatch => {
+export const markTodoComplete = (url,data) => dispatch => {
   dispatch({ type: MARKING_COMPLETE });
-  axiosWithAuth()
-    .put(url)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Completed" }))
+  return axiosWithAuth()
+    .put(url,data)
+    .then(res => dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todo Completed" }))
     .catch(err => dispatch({ type: ERROR_TODO }));
 };
