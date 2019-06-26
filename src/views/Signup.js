@@ -80,9 +80,9 @@ class Signup extends Component {
               value={this.state.password}
               placeholder="Password"
             />
-            <ButtonStyled type="button" onClick={this.handleSubmit}>
+            <button type="button" onClick={this.handleSubmit}>
               Sign Up Now
-            </ButtonStyled>
+            </button>
           </form>
         </SignUpStyled>
       </div>
@@ -108,14 +108,16 @@ const SignUpStyled = styled.div`
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 2px;
     padding-left: 10px;
-    margin: 10px;
+    margin:10px;
     width: 220px;
-    height: 30px;
+    height: 50px;
+    font-size: 2rem;
   }
+
+  button {
+        height: 50px;
+        width: 150px;
+        font-size: 2rem;
+    }
 `;
 
-const ButtonStyled = styled.button`
-  width: 220px;
-  font-size: 20px;
-  background: white;
-`;
