@@ -10,7 +10,8 @@ import {
   ERROR_EVENT,
   ERROR_IMAGE,
   SUCCESS_IMAGE,
-  UPLOADING_IMAGE
+  UPLOADING_IMAGE,
+  NO_AUTH
 } from "./actionTypes";
 
 export const uploadImage = file => dispatch => {
@@ -41,13 +42,22 @@ export const getAllEvents = url => dispatch => {
   return axiosWithAuth()
     .get(url)
     .then(res =>
-      dispatch({
-        type: SUCCESS_EVENT,
-        payload: res.data,
-        message: "Event fetched"
-      })
+      {
+        if(res.status === 200) {
+          dispatch({
+            type: SUCCESS_EVENT,
+            payload: res.data,
+            message: "Event fetched"
+          });
+        } 
+      }
     )
-    .catch(err => dispatch({ type: ERROR_EVENT }));
+    .catch(err => {
+      if(err.response.status === 401) {
+        dispatch({type: NO_AUTH})
+      }
+      dispatch({ type: ERROR_EVENT });
+    });
 };
 
 export const createEvent = (url, data) => dispatch => {
@@ -61,7 +71,12 @@ export const createEvent = (url, data) => dispatch => {
         message: "Event Created"
       })
     )
-    .catch(err => dispatch({ type: ERROR_EVENT }));
+    .catch(err => {
+      if (err.response.status === 401) {
+        dispatch({ type: NO_AUTH });
+      }
+      dispatch({ type: ERROR_EVENT });
+    });
 };
 
 export const deleteEvent = url => dispatch => {
@@ -75,13 +90,25 @@ export const deleteEvent = url => dispatch => {
         message: "Event Deleted"
       })
     )
-    .catch(err => dispatch({ type: ERROR_EVENT }));
+    .catch(err => {
+      if (err.response.status === 401) {
+        dispatch({ type: NO_AUTH });
+      }
+      dispatch({ type: ERROR_EVENT });
+    });
 };
 
 export const markEventComplete = url => dispatch => {
   dispatch({ type: COMPLETING_EVENT });
   axiosWithAuth()
     .put(url)
-    .then(res => dispatch({ type: SUCCESS_EVENT, message: "Event Completed" }))
-    .catch(err => dispatch({ type: ERROR_EVENT }));
+    .then(res =>
+      dispatch({ type: SUCCESS_EVENT, message: "Event Completed" })
+    )
+    .catch(err => {
+      if (err.response.status === 401) {
+        dispatch({ type: NO_AUTH });
+      }
+      dispatch({ type: ERROR_EVENT });
+    });
 };

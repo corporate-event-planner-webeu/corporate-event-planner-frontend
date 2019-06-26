@@ -42,3 +42,7 @@ export const SUCCESS_VENDOR = 'SUCCESS_FETCHING_VENDOR';
 export const ADDING_VENDOR = 'ADDING_VENDOR';
 export const DELETING_VENDOR = 'DELETING_VENDOR';
 export const MARKING_VENDOR_AS_PAID = 'MARKING_VENDOR_COMPLETE';
+
+
+// error action Types
+export const NO_AUTH = 'NO_AUTH';
