@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from '../store/actions/auth';
-import { Navigation } from'../components/Navigation';
 import styled from 'styled-components';
 
 
@@ -22,7 +21,6 @@ class Login extends React.Component {
     render(){
         return(
             <div>
-                <Navigation />
                 <LoginWrapperStyled> 
                     <h3>Log In Here</h3> 
                     <input type="email" name="Email" ref={this.emailRef} placeholder="Email" required />

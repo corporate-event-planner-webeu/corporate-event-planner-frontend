@@ -13,6 +13,8 @@ import {Route, Redirect} from 'react-router-dom';
 
 function App() {
   return (
+    <div>
+    <Navigation />
     <AppWrapper>
             <Route 
                 exact path="/dashboard"
@@ -20,7 +22,6 @@ function App() {
                    if(localStorage.getItem('userToken')){
                        return(
                          <div>
-                        <Navigation />
                         <Dashboard />
                         </div>
                        );
@@ -37,6 +38,7 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/events/:id" component={SingleEvent} />
     </AppWrapper>
+    </div>
   );
 }
 

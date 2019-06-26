@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { Navigation } from '../components/Navigation';
 import { signup } from "../store/actions/auth";
 
 class Signup extends Component {
@@ -43,7 +42,6 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <Navigation />
         <SignUpStyled>
           <h3>Sign Up Here</h3>
           <form>
