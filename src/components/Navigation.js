@@ -53,6 +53,7 @@ const HeaderStyled = styled.div`
     background-color: rgb(19, 28, 36);
     color: white;
     height: 60px;
+
     h2{
         margin: 15px 0;
         padding-left: 20px;
@@ -62,7 +63,7 @@ const HeaderStyled = styled.div`
 
 const MenuStyled = styled.div`
     ul{
-        margin: 12px 0;
+        margin: 20px 0;
     }
     .link{
         align-content: center;

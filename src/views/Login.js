@@ -40,9 +40,7 @@ export default connect(
 
 
 const LoginWrapperStyled = styled.form`
-    border: 1px solid white;
-    border-radius: 2px;
-    padding: 50px;
+    padding: 70px;
     background: #efefef;
     color: black;
     margin: 20px;
@@ -53,12 +51,13 @@ const LoginWrapperStyled = styled.form`
         padding-left: 10px;
         margin:10px;
         width: 220px;
-        height: 30px;
+        height: 50px;
+        font-size: 2rem;
+    }
+    button {
+        height: 50px;
+        width: 80px;
+        font-size: 2rem;
     }
 `;
 
-// const ButtonStyled = styled.button`
-//         width: 220px;
-//         font-size: 20px;
-//         background: white;
-// `;
