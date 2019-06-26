@@ -30,6 +30,8 @@ const Homestyled = styled.div`
     text-align: center;
     width: 100%;
     padding-bottom: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
    
     .text{
         padding:16px 24px 16px 80px;

@@ -14,30 +14,30 @@ import {Route, Redirect} from 'react-router-dom';
 function App() {
   return (
     <div>
-    <Navigation />
-    <AppWrapper>
-            <Route 
-                exact path="/dashboard"
-                render={() => {
-                   if(localStorage.getItem('userToken')){
-                       return(
-                         <div>
-                        <Dashboard />
-                        </div>
-                       );
-                   };
-                   return (
-                   <Redirect to='/' />
-                   )
-                }}
-            
-            />
-        <Route exact path="/" component={LandingPage} />
-        {/* <Route exact path="/dashboard" component={Dashboard} /> */}
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/events/:id" component={SingleEvent} />
-    </AppWrapper>
+      <Navigation />
+       <AppWrapper>
+              <Route 
+                  exact path="/dashboard"
+                  render={() => {
+                    if(localStorage.getItem('userToken')){
+                        return(
+                          <div>
+                          <Dashboard />
+                          </div>
+                        );
+                    };
+                    return (
+                    <Redirect to='/' />
+                    )
+                  }}
+              
+              />
+          <Route exact path="/" component={LandingPage} />
+          {/* <Route exact path="/dashboard" component={Dashboard} /> */}
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/events/:id" component={SingleEvent} />
+      </AppWrapper>
     </div>
   );
 }
