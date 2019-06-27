@@ -5,7 +5,7 @@ import Footer from'../components/Footer';
 
 export default function LandingPage() {
     return (
-        <div>    
+        <LandingPageWrapper>
             <Homestyled>
                     <div className="text">
                         <h1>Corporate Event Planner</h1>
@@ -13,14 +13,20 @@ export default function LandingPage() {
                         <p>Log in to see your upcoming events or sign up to get started!</p>
                         </div>
                         <LinkStyled>
-                        <Link className="link" to='./login'>Log In</Link> 
-                        <Link className="link" to='./signup'>Sign Up Now!</Link> 
+                        <Link className="link" to='./login'>Log In</Link>
+                        <Link className="link" to='./signup'>Sign Up Now!</Link>
                         </LinkStyled>
             </Homestyled>
             <Footer/>
-        </div>
+        </LandingPageWrapper>
     )
 }
+const LandingPageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+`;
 
 const Homestyled = styled.div`
     color: black;

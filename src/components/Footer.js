@@ -11,9 +11,12 @@ export default function Footer(){
             </FooterStyled>
             <FooterStyled>
                 <h4>Social</h4>
-                <p>Instagram</p>
-                <p>Twitter</p>
-                <p>Facebook</p>
+              <div className="cta-icons">
+                <p><i className="fab fa-instagram"></i></p>
+                <p><i className="fab fa-twitter"></i></p>
+                <p><i className="fab fa-facebook-f"></i></p>
+              </div>
+
             </FooterStyled>
             {/* <FooterStyled>
                 <h4>Reviews</h4>
@@ -38,5 +41,11 @@ const BottomStyled = styled.div`
 const FooterStyled = styled.div`
     display: flex;
     flex-direction: column;
-   
-`
+  .cta-icons {
+    display: flex;
+    justify-content: space-between;
+    i {
+      padding: 0 1.5rem;
+    }
+  }
+`;
