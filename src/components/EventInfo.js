@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import {
+  faCalendarAlt,
+  faClock,
+  faUsers,
+  faMoneyBill
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class EventInfo extends Component {
 
@@ -11,17 +18,26 @@ export default class EventInfo extends Component {
         </HeaderImage>
         <ContentDiv>
           <h3>{this.props.event.event_title}</h3>
-          <p>
-            {this.props.event.event_description}
-          </p>
-          <PeriodDiv>
-            <p>{this.props.event.event_date}</p> &nbsp; &nbsp;
-            <p>{this.props.event.event_time}</p>
-          </PeriodDiv>
-          <p>Gbagada Express way</p>
-          <p>Attendees: {this.props.event.attendees}</p>
-          <p>{this.props.event.budget}</p>
-        </ContentDiv> 
+          <p>{this.props.event.event_description}</p>
+            <PeriodDiv>
+              <div>
+                <FontAwesomeIcon icon={faCalendarAlt} /> &nbsp; &nbsp;
+                <p>{this.props.event.event_date}</p>
+              </div>
+              <div>
+                <FontAwesomeIcon icon={faClock} /> &nbsp; &nbsp;
+                <p>{this.props.event.event_time}</p>
+              </div>
+            </PeriodDiv>
+            <div className="attendance">
+              <FontAwesomeIcon icon={faUsers} /> &nbsp; &nbsp;
+              <p>Attendees: {this.props.event.attendees}</p>
+            </div>
+            <div className="attendance">
+              <FontAwesomeIcon icon={faMoneyBill} /> &nbsp; &nbsp;
+              <p>{this.props.event.budget}</p>
+            </div>
+        </ContentDiv>
       </EventInfoDiv>
     );
   }
@@ -46,9 +62,10 @@ const EventInfoDiv = styled.div`
 
   h3 {
     text-align: left;
+    font-size: 24px;
   }
   p {
-    font-size: 14px;
+    font-size: 15px;
     text-align: left;
   }
 `;
@@ -63,8 +80,25 @@ const HeaderImage = styled.div`
 
 const ContentDiv = styled.div`
   padding: 1rem;
+  .attendance {
+    display: flex;
+    margin: 2.0rem 0;
+
+    p {
+      font-weight: bold;
+      vertical-align: top;
+    }
+  }
 `;
 
 const PeriodDiv = styled.div`
-  display: flex;
+  p {
+    vertical-align: top;
+    font-weight: bold;
+  }
+  div {
+    font-size: 16px;
+    display: flex;
+    margin: 2rem 0;
+  }
 `;
