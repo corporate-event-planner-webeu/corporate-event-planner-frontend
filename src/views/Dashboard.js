@@ -19,6 +19,8 @@ class Dashboard extends Component {
     data: null
   };
 
+  abortController = new AbortController();
+
   getEvents = () => {
     const user = getUserId();
     const userId = user.subject;
@@ -31,6 +33,10 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     this.getEvents();
+  }
+
+  componentWillUnmount() {
+    this.abortController.abort();
   }
 
   handleSubmit = data => {
