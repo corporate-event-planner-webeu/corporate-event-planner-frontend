@@ -35,6 +35,14 @@ export default class Event extends Component {
           >
             Edit
           </button>
+          <button
+            onClick={e => {
+              e.stopPropagation();
+              this.props.handleComplete(this.props.id);
+            }}
+          >
+            Complete
+          </button>
         </EventStatusDiv>
       </EventDiv>
     );

@@ -41,7 +41,6 @@ class Dashboard extends Component {
   };
 
   handleUpdateSubmit = (id,data) => {
-    console.log(data);
     const url = `${DOMAIN}/api/events/${id}`;
     this.props.markEventComplete(url, data).then(res => {
       this.getEvents();
@@ -58,6 +57,15 @@ class Dashboard extends Component {
     const data = this.state.events.find(event => event.id === id);
     await this.setState({ data: data });
   };
+
+  handleComplete = (id) => {
+    const data = this.state.events.find(event => event.id === id);
+    const dataDum = {...data, completed: !data.completed }
+    const url = `${DOMAIN}/api/events/${id}`;
+    this.props.markEventComplete(url, dataDum).then(res => {
+      this.getEvents();
+    });
+  }
 
   render() {
     return (
@@ -96,6 +104,7 @@ class Dashboard extends Component {
                   date={event.event_date}
                   time={event.event_time}
                   completed={event.completed}
+                  handleComplete={this.handleComplete}
                 />
               </LinkEventWrapper>
             );
