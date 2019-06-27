@@ -19,6 +19,11 @@ handleSubmit = () => {
     contact_email: this.state.email,
   }
   this.props.handleSubmit(data);
+  this.setState({
+    name: '',
+    number: '',
+    email: '',
+  })
 }
 
   render() {
