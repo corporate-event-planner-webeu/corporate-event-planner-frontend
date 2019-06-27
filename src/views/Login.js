@@ -21,6 +21,7 @@ class Login extends React.Component {
       <div>
         <LoginWrapperStyled>
           <h3>Log In Here</h3>
+          <InputStyled>
           <input
             type="text"
             name="Email"
@@ -38,6 +39,7 @@ class Login extends React.Component {
           <button type="button" onClick={this.onLogin}>
             Log in
           </button>
+          </InputStyled>
         </LoginWrapperStyled>
       </div>
     );
@@ -50,12 +52,29 @@ export default connect(
 )(Login);
 
 const LoginWrapperStyled = styled.form`
-  border: 1px solid white;
-  border-radius: 2px;
+  /* border: 1px solid white;
+  border-radius: 2px; */
+  /* align-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 50px;
   background: #efefef;
   color: black;
   margin: 20px;
+  width: 70%; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  padding: 1rem;
+  border: 2px solid white;
+  min-height: 100vh;
+  background-color: #efefef;
+  width: 100%;
+  /* background-color: rgb(233, 236, 240); */
+  color:black;
+  align-items: center;
+  
 
   input {
     border: 1px solid rgba(255, 255, 255, 0.6);
@@ -65,10 +84,27 @@ const LoginWrapperStyled = styled.form`
     width: 220px;
     height: 50px;
     font-size: 2rem;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
   }
   button {
         height: 50px;
         width: 100px;
         font-size: 2rem;
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
     }
+    button:hover{
+      background: rgb(81,183,176);
+      border: 1px solid rgb(81,183,176);
+    }
+`;
+
+const InputStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;

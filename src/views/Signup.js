@@ -96,8 +96,6 @@ export default connect(
 )(Signup);
 
 const SignUpStyled = styled.div`
-  border: 1px solid white;
-  border-radius: 2px;
   padding: 50px;
   background: #efefef;
   color: black;
@@ -112,12 +110,18 @@ const SignUpStyled = styled.div`
     width: 220px;
     height: 50px;
     font-size: 2rem;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
   }
 
   button {
         height: 50px;
         width: 150px;
         font-size: 2rem;
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
     }
 `;
 
