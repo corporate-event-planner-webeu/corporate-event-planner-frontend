@@ -32,8 +32,7 @@ export default App;
 const AppWrapper = styled.div`
   text-align: center;
   background-color: rgb(233, 236, 240);
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 150vh;
 `;

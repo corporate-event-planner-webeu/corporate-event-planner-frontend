@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import AddEvent from "../components/AddEvent";
 import Event from "../components/Event";
+import Loaderr from '../components/Loader';
 import styled from "styled-components";
 import {
   getAllEvents,
@@ -79,9 +80,7 @@ class Dashboard extends Component {
         />
         <EventsMainDiv>
           {this.props.fetchingEvents ? (
-            <div>
-              <h2>Loading...</h2>
-            </div>
+            <Loaderr />
           ) : this.state.events.length === 0 ? (
             <div>
               <h2>No event found</h2>
