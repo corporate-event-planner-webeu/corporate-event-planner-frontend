@@ -6,6 +6,7 @@ import { getAllEvents,createEvent,deleteEvent,uploadImage } from '../store/actio
 import { connect } from 'react-redux';
 import {getUserId}from '../utils/jwtDecode';
 import DOMAIN from '../utils/path';
+import { Link } from "react-router-dom";
 
 
 class Dashboard extends Component {
@@ -60,8 +61,11 @@ class Dashboard extends Component {
 
               {this.state.events.map(event => {
                 return (
-                  
-                  <Event key={event.id} image_url={event.image_url} handleDelete={this.handleDelete} id={event.id} title={event.event_title} date={event.event_date} time={event.event_time} completed={event.completed} />
+                  <LinkEventWrapper>
+                  <Link to={`/events/${event.id}`}>
+                    <Event key={event.id} image_url={event.image_url} handleDelete={this.handleDelete} id={event.id} title={event.event_title} date={event.event_date} time={event.event_time} completed={event.completed} />
+                  </Link>
+                  </LinkEventWrapper>
                  
                 );
               })}
@@ -87,21 +91,35 @@ const MainDiv = styled.div`
   justify-content: space-between;
   padding: 1rem;
   border: 2px solid white;
-  min-height: 100vh;
+  height: 100%;
+  min-height: 100%;
   background-color: rgb(233, 236, 240);
   color: rgb(138, 146, 152);
   text-align: left;
-
   display: flex;
 `;
 
 const EventsMainDiv = styled.div`
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
+  height: 350px;
 
   a {
     color: rgb(138, 146, 152);
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 450px;
+    margin: 2rem;
+    margin-top: 4rem;
+    margin-right: 0;
   }
+`;
+
+const LinkEventWrapper = styled.div`
+  display: flex;
+  flex-wrap: no-wrap;
+  width: 30%;
 `;
