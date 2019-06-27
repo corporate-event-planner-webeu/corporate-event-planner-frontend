@@ -3,7 +3,7 @@ import Vendor from '../components/Vendor';
 import NewVendor from '../components/NewVendor';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { createVendor, deleteVendor } from '../store/actions/vendor';
+import { createVendor, deleteVendor, markVendorAsPaid } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
 
 
@@ -21,13 +21,23 @@ class Vendors extends Component {
             this.props.getVendor();
         })
     }
+    handleMarkPayed = (id) => {
+        // const data = {
+        //   vendor_name: title,
+        //   vendor_payed: !payed 
+        // }
+        const url = `${DOMAIN}/api/vendors/${id}`;
+        this.props.markVendorAsPaid(url).then(() => {
+          this.props.getVendor();
+        })
+      }
 
     render() {
         return (
             <VendorDiv>
                 <NewVendor handleSubmit={this.handleSubmit} />
                 {this.props.vendors.map(vendor => (
-                    <Vendor vendor={vendor} key={vendor.id} handleDelete={this.handleDelete}/> 
+                    <Vendor vendor={vendor} key={vendor.id} handleDelete={this.handleDelete} handleMarkPayed={this.handleMarkPayed} /> 
                 ))}
               
             </VendorDiv>
@@ -35,7 +45,7 @@ class Vendors extends Component {
     }
 }
 
-export default connect(null, {createVendor, deleteVendor})(Vendors)
+export default connect(null, {createVendor, deleteVendor, markVendorAsPaid})(Vendors)
 
 
 const VendorDiv = styled.div`

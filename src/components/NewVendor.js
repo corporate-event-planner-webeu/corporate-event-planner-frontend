@@ -23,7 +23,7 @@ handleSubmit = () => {
     name: '',
     number: '',
     email: '',
-  })
+  });
 }
 
   render() {

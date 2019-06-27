@@ -56,7 +56,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { createTodo,deleteTodo, markTodoComplete }
+  { createTodo, deleteTodo, markTodoComplete }
 )(Todos);
 
 const TodoDiv = styled.div`
