@@ -192,5 +192,5 @@ const TodosDiv = styled.div`
 
 const VendorsDiv = styled.div`
   width: 30%;
-  margin-top: 2rem;
+  margin-left: 2.0rem;
 `;
