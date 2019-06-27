@@ -4,7 +4,10 @@ import {
   DELETING_EVENT,
   COMPLETING_EVENT,
   SUCCESS_EVENT,
-  ERROR_EVENT
+  ERROR_EVENT,
+  ERROR_IMAGE,
+  SUCCESS_IMAGE,
+  UPLOADING_IMAGE
 } from "../actions/actionTypes";
 
 const initialState = {
@@ -15,6 +18,8 @@ const initialState = {
   markingComplete: false,
   success: false,
   error: false,
+  uploadingImage: false,
+  imageurl: "",
   message: null
 };
 
@@ -22,6 +27,24 @@ const initialState = {
 // that pops an alert with the error or success message for all actions
 const eventReducer = (state = initialState, action) => {
   switch (action.type) {
+    case UPLOADING_IMAGE:
+      return {
+        ...state,
+        uploadingImage: true
+      };
+    case SUCCESS_IMAGE:
+      return {
+        ...state,
+        imageurl: action.payload,
+        message: action.message,
+        uploadingImage: false
+      };
+    case ERROR_IMAGE:
+      return {
+        ...state,
+        message: action.message,
+        uploadingImage: false
+      };
     case FETCHING_EVENT:
       return {
         ...state,

@@ -52,7 +52,7 @@ export default class Event extends Component {
         return (
           <div>
             <EventDiv>
-              <Link to={`/events/${this.props.id}`}><img src={img} alt="" /></Link>
+              <Link to={`/events/${this.props.id}`}><img src={this.props.image_url} alt="" /></Link>
               <EventSummaryDiv>
                 <h2>{this.props.title}</h2>
                 <p>{this.props.date}</p>
