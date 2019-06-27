@@ -7,6 +7,7 @@ import {getAllTodos} from '../store/actions/todo';
 import { getAllVendors } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
 import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
+import PropTypes from "prop-types";
 const Todos = React.lazy(() => import("./Todos"));
 const Vendors = React.lazy(() => import('./Vendors'));
 
@@ -149,6 +150,14 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, {getAllVendors, getAllEvents, getAllTodos})(Event)
+
+Event.propTypes = {
+  getAllEvents: PropTypes.func.isRequired,
+  getAllVendors: PropTypes.func.isRequired,
+  getAllTodos: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired,
+  vendors: PropTypes.array.isRequired
+};
 
 const SingleEvent = styled.div`
   display: flex;

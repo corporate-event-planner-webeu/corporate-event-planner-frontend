@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import PropTypes from "prop-types";
 
 
 export default class NewTodo extends Component {
@@ -44,6 +45,10 @@ export default class NewTodo extends Component {
             </NewTodoDiv>
         )
     }
+}
+
+NewTodo.propTypes = {
+  title: PropTypes.string.isRequired
 }
 
 

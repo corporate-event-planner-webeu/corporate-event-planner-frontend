@@ -7,6 +7,7 @@ import {
   faMoneyBill
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 export default class EventInfo extends Component {
 
@@ -43,6 +44,9 @@ export default class EventInfo extends Component {
   }
 }
 
+Event.propTypes = {
+  event: PropTypes.object.isRequired
+};
 
 
 
