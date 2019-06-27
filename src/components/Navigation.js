@@ -80,7 +80,7 @@ const MenuStyled = styled.div`
         text-align: center;
         padding-right: 40px;
         padding-left: 40px;
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
      .login {
         width: 20%;
