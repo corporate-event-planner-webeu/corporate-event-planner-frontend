@@ -7,9 +7,9 @@ export default function Footer(){
     <FooterWrapper>
           <span>© {currentYear} AEVENT</span>
           <div className="cta-icons">
-            <a><i className="fab fa-instagram"></i></a>
-            <a><i className="fab fa-twitter"></i></a>
-            <a><i className="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/"><i className="fab fa-instagram" /></a>
+            <a href="https://twitter.com/"><i className="fab fa-twitter" /></a>
+            <a href="https://en-gb.facebook.com/"><i className="fab fa-facebook-f" /></a>
           </div>
     </FooterWrapper>
   );
