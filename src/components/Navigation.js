@@ -50,8 +50,9 @@ const HeaderStyled = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    /* background: rgb(81,183,176); */
     background-color: rgb(19, 28, 36);
-    //background: #07A0C3;
+    /* background: #07A0C3; */
     color: white;
     height: 60px;
     
@@ -87,7 +88,7 @@ const MenuStyled = styled.div`
         padding-bottom:0;
     }
     .link:hover{
-        color: rgb(81,183,186);
+        cursor: pointer;
     }
 `;
 
