@@ -2,50 +2,45 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Footer(){
-    return(
-        <BottomStyled>
-            <FooterStyled>
-                <h4>Contact</h4>
-                <p>Phone: <span>012345678</span></p>
-                <p>Email: <span>example@gmail.com</span></p>
-            </FooterStyled>
-            <FooterStyled>
-                <h4>Social</h4>
-              <div className="cta-icons">
-                <p><i className="fab fa-instagram"></i></p>
-                <p><i className="fab fa-twitter"></i></p>
-                <p><i className="fab fa-facebook-f"></i></p>
-              </div>
-
-            </FooterStyled>
-            {/* <FooterStyled>
-                <h4>Reviews</h4>
-                <p>Such a great app</p>
-                <p>It was so easy to make coordinate the event, I was so worried at first</p>
-                <p>My family wanted to sign up for this app as well! </p>
-            </FooterStyled> */}
-        </BottomStyled>
-    )
+  const currentYear = new Date().getFullYear();
+  return(
+    <FooterWrapper>
+          <span>© {currentYear} AEVENT</span>
+          <div className="cta-icons">
+            <a href="https://www.instagram.com/"><i className="fab fa-instagram" /></a>
+            <a href="https://twitter.com/"><i className="fab fa-twitter" /></a>
+            <a href="https://en-gb.facebook.com/"><i className="fab fa-facebook-f" /></a>
+          </div>
+    </FooterWrapper>
+  );
 }
 
-
-const BottomStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin: 0px;
-    padding: 30px;
-    background-color: #efefef;
-    color: black;
-`;
-const FooterStyled = styled.div`
+const FooterWrapper = styled.div`
     display: flex;
     flex-direction: column;
+    background: #333;
+    padding: 2.5rem;
+    span {
+      color: #f2fcff;
+      position: absolute;
+      opacity: 0.7;
+      left: 0;
+      right: 0;
+    }
   .cta-icons {
     display: flex;
-    justify-content: space-between;
-    i {
+    justify-content: flex-end;
+    a {
       padding: 0 1.5rem;
+      color: #f2fcff;
+      opacity: 0.7;
+      z-index: 3;
+      &:hover {
+        color: #07a0c3;
+        cursor: pointer;
+        transition: 0.3s ease;
+        opacity: 1;
+      }
     }
   }
 `;
