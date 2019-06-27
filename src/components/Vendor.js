@@ -7,7 +7,7 @@ export default function Vendor(props) {
         <VendorDiv>
             <p>{props.vendor.vendor_name}</p>
             <button onClick={() => props.handleDelete(props.vendor.id)}>Delete</button>
-            <button onClick={() => props.handleMarkPayed(props.vendor.id)}>Mark Payed</button>
+            {/* <button onClick={() => props.handleMarkPayed(props.vendor.id)}>Mark Payed</button> */}
         </VendorDiv>
     )
 }

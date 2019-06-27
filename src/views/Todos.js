@@ -3,10 +3,15 @@ import Todo from "../components/Todo";
 import NewTodo from "../components/NewTodo";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { createTodo, deleteTodo, markTodoComplete } from "../store/actions/todo";
+import { createTodo, deleteTodo, markTodoComplete, updateTodo } from "../store/actions/todo";
 import DOMAIN from "../utils/path";
 
 class Todos extends Component {
+  state = {
+    title: '',
+    id: '',
+  }
+
   handleNewTodo = async data => {
     const id = this.props.id ? this.props.id : 0;
     const url = `${DOMAIN}/api/tasks/?event_id=${id}`;
@@ -32,15 +37,34 @@ class Todos extends Component {
     })
   }
 
+  handleUpdateTodo = (id, name) => { 
+    const data = {
+      task_name: name,
+    }
+    console.log(data);
+    this.setState({
+      title: data.task_name,
+      id: id,
+    })
+  }
+
+  completeUpdate = (id, data) => {
+    const url = `${DOMAIN}/api/tasks/${id}`;
+    this.props.updateTodo(url, data).then(() => {
+      this.props.getTodo();
+      this.setState({title: ''})
+    })
+  }
+
   render() {
     return (
       <TodoDiv>
-        <NewTodo handleNewTodo={this.handleNewTodo} />
+        <NewTodo handleNewTodo={this.handleNewTodo} title={this.state.title} id={this.state.id} completeUpdate={this.completeUpdate} />
         {this.props.todos.length === 0 && <div>No Todo found</div>}
         {this.props.fetchingTodo ? (
           <div>Loading...</div>
         ) : (
-          this.props.todos.map(todo => <Todo handleDelete={this.handleDelete} handleComplete={this.handleComplete} key={todo.id} todo={todo} />)
+          this.props.todos.map(todo => <Todo handleUpdateTodo={this.handleUpdateTodo} handleDelete={this.handleDelete} handleComplete={this.handleComplete} key={todo.id} todo={todo} />)
         )}
       </TodoDiv>
     );
@@ -50,13 +74,14 @@ class Todos extends Component {
 const mapStateToProps = state => {
   return {
     events: state.events.events,
-    fetchingTodo: state.todos.fetchingTodo
+    fetchingTodo: state.todos.fetchingTodo,
+    updatingTodo: state.todos.updatingTodo,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { createTodo, deleteTodo, markTodoComplete }
+  { createTodo, deleteTodo, markTodoComplete, updateTodo }
 )(Todos);
 
 const TodoDiv = styled.div`

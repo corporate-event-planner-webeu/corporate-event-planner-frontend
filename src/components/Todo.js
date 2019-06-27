@@ -16,6 +16,7 @@ const TodoDiv = styled.div`
 `;
 
 export default function Todo(props) {
+  
   return (
     <TodoDiv completed={props.todo.task_completed}>
       <p>{props.todo.task_name}</p>
@@ -23,7 +24,7 @@ export default function Todo(props) {
         <button onClick={() => props.handleDelete(props.todo.id)}>
           Delete
         </button>
-        <button>Edit</button>
+        <button onClick={() => props.handleUpdateTodo(props.todo.id, props.todo.task_name )}>Edit</button>
         <button onClick={() => props.handleComplete(props.todo.id, props.todo.task_name, props.todo.task_completed)}>Complete</button>
       </div>
     </TodoDiv>
