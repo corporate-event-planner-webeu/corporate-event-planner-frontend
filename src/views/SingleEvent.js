@@ -172,10 +172,6 @@ const SingleEvent = styled.div`
       color: white;
     }
   }
-
-  .ui.input>input {
-    padding: 2.0rem;
-  }
 `;
 
 const ModalDiv = styled.div`

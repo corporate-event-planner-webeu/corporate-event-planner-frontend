@@ -17,6 +17,7 @@ export default function Todo(props) {
           onClick={() => props.handleDelete(props.todo.id)}
           icon={faTrashAlt}
           style={{ color: "red" }}
+          fixedWidth
         />
         <FontAwesomeIcon
           onClick={() =>
@@ -24,6 +25,7 @@ export default function Todo(props) {
           }
           icon={faPenAlt}
           style={{ color: "skyblue" }}
+          fixedWidth
         />
         <FontAwesomeIcon
           onClick={() =>
@@ -35,6 +37,7 @@ export default function Todo(props) {
           }
           icon={faCheckSquare}
           style={{ color: "yellowgreen" }}
+          fixedWidth
         />
       </div>
     </TodoDiv>
