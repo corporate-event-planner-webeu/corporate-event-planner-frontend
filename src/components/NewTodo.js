@@ -52,7 +52,7 @@ const NewTodoDiv = styled.div`
   width: 100%;
   display: flex;
   input {
-    padding: 1.44rem;
+    padding: 2rem;
     flex: 8;
     height: 5px;
     font-size: 14px;
