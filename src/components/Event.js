@@ -50,6 +50,7 @@ export default class Event extends Component {
 }
 
 const EventDiv = styled.div`
+  cursor: pointer;
   width: 80%;
   margin-right: 0.3rem;
   margin-bottom: 2.0rem;
