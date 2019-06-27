@@ -41,7 +41,7 @@ export default class Event extends Component {
               this.props.handleComplete(this.props.id);
             }}
           >
-            Complete
+            {this.props.completed === 0 ? 'Complete' : 'Redo' }
           </button>
         </EventStatusDiv>
       </EventDiv>
