@@ -3,7 +3,7 @@ import Todo from "../components/Todo";
 import NewTodo from "../components/NewTodo";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { createTodo, deleteTodo, markTodoComplete, updateTodo } from "../store/actions/todo";
+import { createTodo, deleteTodo, markTodoComplete } from "../store/actions/todo";
 import DOMAIN from "../utils/path";
 
 class Todos extends Component {
@@ -41,7 +41,6 @@ class Todos extends Component {
     const data = {
       task_name: name,
     }
-    console.log(data);
     this.setState({
       title: data.task_name,
       id: id,
@@ -52,7 +51,7 @@ class Todos extends Component {
     const url = `${DOMAIN}/api/tasks/${id}`;
     this.props.updateTodo(url, data).then(() => {
       this.props.getTodo();
-      this.setState({title: ''})
+      this.setState({ title: '' })
     })
   }
 
@@ -75,13 +74,12 @@ const mapStateToProps = state => {
   return {
     events: state.events.events,
     fetchingTodo: state.todos.fetchingTodo,
-    updatingTodo: state.todos.updatingTodo,
   };
 };
 
 export default connect(
   mapStateToProps,
-  { createTodo, deleteTodo, markTodoComplete, updateTodo }
+  { createTodo, deleteTodo, markTodoComplete }
 )(Todos);
 
 const TodoDiv = styled.div`
