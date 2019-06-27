@@ -50,8 +50,8 @@ const HeaderStyled = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  //background-color: rgb(19, 28, 36);
-  background: #333;
+  background-color: rgb(19, 28, 36);
+  //background: #333;
   color: white;
   height: 60px;
   
