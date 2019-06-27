@@ -43,8 +43,11 @@ class Signup extends Component {
     return (
       <div>
         <SignUpStyled>
+          <div className="sign-up">
           <h3>Sign Up Here</h3>
+          <p>Sign up now and get started planning your next event!</p>
           <form>
+          <InputStyled>
             <input
               onChange={this.handleChange}
               type="text"
@@ -83,7 +86,9 @@ class Signup extends Component {
             <button type="button" onClick={this.handleSubmit}>
               Sign Up Now
             </button>
+            </InputStyled>
           </form>
+          </div>
         </SignUpStyled>
       </div>
     );
@@ -95,29 +100,82 @@ export default connect(
   { signup }
 )(Signup);
 
+
 const SignUpStyled = styled.div`
-  border: 1px solid white;
-  border-radius: 2px;
-  padding: 50px;
-  background: #efefef;
-  color: black;
-  margin: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: rgb(233,236,240);
+  width: 100%;
+  color:black;
+  align-items: center;
+
+  .sign-up{
+    background: white;
+    border: 1px solid grey;
+    margin-top: 50px;
+    height: 700px;
+    width: 500px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    p{
+      margin: 20px;
+      font-size: 1.7rem;
+    }
+    h3{
+      margin: 30px;
+      font-size: 2rem;
+    }
+  }
 
   input {
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid grey;
     border-radius: 2px;
     padding-left: 10px;
-    margin:10px;
-    width: 220px;
+    margin: 10px;
+    width: 350px;
     height: 50px;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   button {
         height: 50px;
-        width: 150px;
+        width: 350px;
+        margin-top: 10px;
         font-size: 2rem;
+        -webkit-box-shadow: 0 10px 6px -6px #777;
+        -moz-box-shadow: 0 10px 6px -6px #777;
+        box-shadow: 0 10px 6px -6px #777;
     }
+    button:hover{
+      background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
+      border: 1px solid #FFFFFF;
+      color: #FFFFFF;
+      transition: 0.3s ease-out;
+    }
+
+    @media (max-width: 500px){
+      .sign-up {
+      width: 100%;
+      padding: 20px;
+      min-height: 150vh;
+      margin: 0 auto;
+      justify-content: space-evenly;
+    }
+    input{
+      border: 1px solid grey;
+      margin-top: 5px;
+      width: 100%;
+    }
+    button{
+      border: 1px solid grey;
+      width: 100%;
+    }
+  }
 `;
 
+const InputStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
