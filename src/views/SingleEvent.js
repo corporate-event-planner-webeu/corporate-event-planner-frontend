@@ -1,7 +1,5 @@
 import React, { Component,Suspense } from "react";
-
 import EventInfo from "../components/EventInfo";
-import Vendors from "./Vendors";
 import styled from "styled-components";
 import {connect} from 'react-redux';
 import {getAllEvents} from '../store/actions/event';
@@ -10,6 +8,7 @@ import { getAllVendors } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
 import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
 const Todos = React.lazy(() => import("./Todos"));
+const Vendors = React.lazy(() => import('./Vendors'));
 
 
 class Event extends Component {
@@ -86,12 +85,14 @@ class Event extends Component {
           </Suspense>
         </TodosDiv>
         <VendorsDiv>
-          <Vendors
-            getVendor={this.getVendor}
-            vendors={this.state.vendors}
-            fetchingVendors={this.props.fetchingVendors}
-            id={this.state.id}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Vendors
+              getVendor={this.getVendor}
+              vendors={this.state.vendors}
+              fetchingVendors={this.props.fetchingVendors}
+              id={this.state.id}
+            />
+          </Suspense>
         </VendorsDiv>
         <ModalDiv>
           <Modal
@@ -172,6 +173,9 @@ const SingleEvent = styled.div`
     }
   }
 
+  .ui.input>input {
+    padding: 2.0rem;
+  }
 `;
 
 const ModalDiv = styled.div`
