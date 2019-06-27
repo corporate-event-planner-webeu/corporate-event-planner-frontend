@@ -2,31 +2,45 @@ import React, { Component } from 'react'
 import styled from 'styled-components';
 
 
-
 export default class NewTodo extends Component {
-    state = {
-      title: ''
+  constructor(props){
+    super(props)
+    this.state = {
+        title: ''
     }
-
+    this.props = props;
+  }
+    componentWillReceiveProps(){
+      this.props.title ? this.setState({ title: this.props.title }) : this.setState({ title: '' })
+    }
+   
     handleChange = (e) => {
       this.setState({[e.target.name]: e.target.value})
     }
 
     handleSubmit = async (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       const data = {
         task_name: this.state.title,
         task_completed: false
       }
       await this.props.handleNewTodo(data)
-      await this.setState({title: ''})
+      // await this.setState({title: ''})
     }
 
+    handleUpdatedData = (id) => {
+      const data = {
+        task_name: this.state.title,
+        task_completed: false
+      }
+      this.props.completeUpdate(id, data)
+    }
+    
     render() {
         return (
             <NewTodoDiv>
                 <input value={this.state.title} onChange={this.handleChange} name="title" type="text" placeholder="Todo Title" />
-                <button onClick={this.handleSubmit}>Save</button>
+                <button onClick={() => this.props.title ? this.handleUpdatedData(this.props.id) : this.handleSubmit()}>Save</button>
             </NewTodoDiv>
         )
     }
