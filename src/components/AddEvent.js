@@ -67,9 +67,27 @@ export default class AddEvent extends Component {
 
   handleImageUpload = e => {
     const file = e.target.files[0];
-    this.props.uploadImage(file).then(() => {
-      this.setState({ ...this.state, url: this.props.imageurl });
-    });
+    const CLOUDINARY_URL =
+      "https://api.cloudinary.com/v1_1/ogwurujohnson/image/upload";
+    const CLOUDINARY_UPLOAD_PRESET = "zjjd4c1v";
+    this.setState({uploadingImage: true});
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
+
+    axios
+      .post(CLOUDINARY_URL, formData)
+      .then(res => {
+        if (res.data.secure_url !== "") {
+          const uploadedFileUrl = res.data.secure_url;
+          this.setState({url: uploadedFileUrl, uploadingImage: false})
+        } else {
+          
+        }
+      })
+      .catch(err =>
+        {}
+      );
   };
 
   render() {

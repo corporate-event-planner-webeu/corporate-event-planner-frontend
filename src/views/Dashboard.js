@@ -6,7 +6,6 @@ import {
   getAllEvents,
   createEvent,
   deleteEvent,
-  uploadImage,
   markEventComplete
 } from "../store/actions/event";
 import { connect } from "react-redux";
@@ -126,7 +125,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getAllEvents, createEvent, deleteEvent, uploadImage, markEventComplete }
+  { getAllEvents, createEvent, deleteEvent, markEventComplete }
 )(Dashboard);
 
 const MainDiv = styled.div`
