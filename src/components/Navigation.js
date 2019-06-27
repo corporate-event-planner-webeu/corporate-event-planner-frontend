@@ -9,12 +9,12 @@ export class Navigation extends React.Component{
         localStorage.removeItem('userToken');
         this.props.history.push('/')
 
-    }
+    };
 
     render(){
         return (
             <HeaderStyled>
-                <img src={Logo} alt={'logo'}/>
+              <Link className="logo" to="/"><img src={Logo} alt={'logo'} /></Link>
                 <MenuStyled>
                     <ul>
                         <Route
@@ -47,47 +47,52 @@ export class Navigation extends React.Component{
 }
 
 const HeaderStyled = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: rgb(19, 28, 36);
-    //background: #07A0C3;
-    color: white;
-    height: 60px;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  //background-color: rgb(19, 28, 36);
+  background: #333;
+  color: white;
+  height: 60px;
+  
+  .logo {
+  display: flex;
+  padding-left: 1.5rem;
     img {
-    height: 50%;
-    align-self: center;
-    padding-left: 20px;
+      display: block;
+      height: 50%;
+      margin: auto;
     }
+  }
 
-    h2{
-        margin: 15px 0;
-        padding-left: 20px;
-        font-size: 2.5rem;
-    }
+  h2{
+    margin: 15px 0;
+    padding-left: 20px;
+    font-size: 2.5rem;
+  }
 `;
 
 const MenuStyled = styled.div`
-    ul{
-        margin: 20px 0;
-    }
-    .link{
-        align-content: center;
-        text-decoration: none;
-        color: white;
-        text-align: center;
-        padding-right: 40px;
-        padding-left: 40px;
-        font-size: 2rem;
-    }
-     .login {
-        width: 20%;
-        padding: 5px 0px 5px 0px;
-        padding-bottom:0;
-    }
-    .link:hover{
-        color: yellow;
-    }
+  align-self: center;
+  ul{
+      margin: 20px 0;
+  }
+  .link{
+    align-content: center;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    padding-right: 40px;
+    padding-left: 40px;
+    font-size: 2rem;
+  }
+   .login {
+    width: 20%;
+    padding: 5px 0px 5px 0px;
+    padding-bottom:0;
+  }
+  .link:hover{
+      color: yellow;
+  }
 `;
 
