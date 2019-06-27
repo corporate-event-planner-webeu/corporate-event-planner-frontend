@@ -1,37 +1,43 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Button, Icon, } from "semantic-ui-react";
 
 export default class NewTodo extends Component {
   state = {
-    name: '',
-    number: '',
-    email: '',
+    name: "",
+    number: "",
+    email: "",
     isOpen: false
-  }
+  };
 
-  handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value})
-  }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
-handleSubmit = async (e) => {
-  e.preventDefault();
-  const data = {
-    vendor_name: this.state.name,  	
-    contact_number: this.state.number,   
-    contact_email: this.state.email,
-  }
-  await this.props.handleSubmit(data);
-  await this.setState({name:'',number:'', email:''})
-}
+  handleSubmit = async e => {
+    e.preventDefault();
+    const data = {
+      vendor_name: this.state.name,
+      contact_number: this.state.number,
+      contact_email: this.state.email
+    };
+    await this.props.handleSubmit(data);
+    await this.setState({ name: "", number: "", email: "" });
+  };
 
   openAdd = () => {
-    this.setState(st => ({isOpen: !st.isOpen}))
-  }
+    this.setState(st => ({ isOpen: !st.isOpen }));
+  };
 
   render() {
     return (
-      <div>
-        <button style={{background: 'teal', color: 'white', outline: 'none', border: 'none', cursor: 'pointer'}} onClick={()=>this.openAdd()}>+</button>
+      <MainWrapper>
+        <Button onClick={() => this.openAdd()} animated="vertical">
+          <Button.Content hidden>Toggle</Button.Content>
+          <Button.Content visible>
+            <Icon name="plus" />
+          </Button.Content>
+        </Button>
         <NewVendorDiv isOpen={this.state.isOpen}>
           <input
             type="text"
@@ -56,17 +62,36 @@ handleSubmit = async (e) => {
           />
           <button onClick={this.handleSubmit}>Save</button>
         </NewVendorDiv>
-      </div>
+      </MainWrapper>
     );
   }
 }
 
+const MainWrapper = styled.div`
+  .ui.button {
+    background: #51b7b0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+
+    &:hover {
+      background: #131c24;
+      color: white;
+    }
+    &:focus {
+      background: #51b7b0;
+      color: white;
+    }
+  }
+`;
 
 const NewVendorDiv = styled.div`
   margin-top: 1rem;
   width: 100%;
   flex-direction: column;
-  ${props => (props.isOpen? `display: none`: `display: flex`)}
+  ${props => (props.isOpen ? `display: none` : `display: flex`)}
   input {
     padding: 1rem;
     flex: 8;

@@ -6,6 +6,7 @@ export default function Vendor(props) {
     return (
         <VendorDiv>
             <p>{props.vendor.vendor_name}</p>
+            <p>{props.vendor.contact_number}</p>
             <button onClick={() => props.handleDelete(props.vendor.id)}>Delete</button>
         </VendorDiv>
     )
@@ -18,6 +19,9 @@ const VendorDiv = styled.div`
   border-top: 2px solid rgb(238, 241, 244);
   border-bottom: 2px solid rgb(238, 241, 244);
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.0rem;
   p {
     font-weight: bold;
     text-align: left;
