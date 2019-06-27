@@ -22,11 +22,11 @@ export class Navigation extends React.Component{
                             render={() => {
                                 if(localStorage.getItem('userToken')){
                                     return (
-                                        <div>
-                                            <Link className="link" to='./dashboard'>Home</Link>
-                                            <Link className="link" to='/'>About</Link>
-                                            <a href='/'className="link" onClick={this.onLogout}>Log Out</a>
-                                        </div>
+                                      <div>
+                                          <Link className="link" to='./dashboard'>Home</Link>
+                                          <Link className="link" to='/'>About</Link>
+                                          <a href='/'className="link" onClick={this.onLogout}>Log Out</a>
+                                      </div>
                                     );
                                 };
                                 return (
@@ -75,9 +75,7 @@ const HeaderStyled = styled.div`
 
 const MenuStyled = styled.div`
   align-self: center;
-  /* ul{
-      margin: 20px 0;
-  } */
+
   .link{
     align-content: center;
     text-decoration: none;
@@ -94,7 +92,7 @@ const MenuStyled = styled.div`
 
   @media (max-width: 500px){
     .link{
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       padding: 0 4px;
       padding-right: 8px;
     }
