@@ -103,6 +103,10 @@ const HeaderWrapper = styled.div`
     width: 350px;
     justify-content: space-between;
     margin: 4rem auto;
+    @media(max-width: 600px) {
+    flex-direction: column;
+    width: 100%;
+    }
     a {
       align-self: center;
       padding: 1.2rem 2rem;
@@ -117,6 +121,10 @@ const HeaderWrapper = styled.div`
         border: 1px solid #FFFFFF;
         color: #FFFFFF;
         transition: 0.3s ease-out;
+      }
+      @media(max-width: 600px) {
+        width: 100%;
+        margin-bottom: 1.5rem;
       }
     }
   }
