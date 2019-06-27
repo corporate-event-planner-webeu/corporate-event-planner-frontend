@@ -43,9 +43,9 @@ class Signup extends Component {
     return (
       <div>
         <SignUpStyled>
-          <div className="sing-up">
+          <div className="sign-up">
           <h3>Sign Up Here</h3>
-          <p>Sign up and get started planning your next event</p>
+          <p>Sign up now and get started planning your next event!</p>
           <form>
           <InputStyled>
             <input
@@ -110,15 +110,13 @@ const SignUpStyled = styled.div`
   color:black;
   align-items: center;
 
-  .sing-up{
+  .sign-up{
     background: white;
     border: 1px solid grey;
     margin-top: 50px;
     height: 700px;
     width: 500px;
     -webkit-box-shadow: 0 10px 6px -6px #777;
-    /* -moz-box-shadow: 10px 10px 6px -6px #777; */
-    /* box-shadow: 10px 10px 6px -6px #777; */
     p{
       font-size:1.5rem;
     }
@@ -132,9 +130,6 @@ const SignUpStyled = styled.div`
     width: 350px;
     height: 50px;
     font-size: 2rem;
-    /* -webkit-box-shadow: 0 10px 6px -6px #777;
-    -moz-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777; */
   }
 
   button {
@@ -151,14 +146,11 @@ const SignUpStyled = styled.div`
       border: 1px solid rgb(81,183,176);
     }
 
-    @media (max-width: 600px){
-      .sing-up {
+    @media (max-width: 500px){
+      .sign-up {
       width: 100%;
-      padding-left:20px;
-      padding-right: 15px;
-      /* height: 580px; */
-      /* padding-left: 20px; */
-      height: 70rem;
+      padding: 20px;
+      min-height: 100vh;
       margin: 0 auto;
       justify-content: space-evenly;
     }
@@ -172,7 +164,6 @@ const SignUpStyled = styled.div`
       width: 100%;
     }
   }
-    
 `;
 
 const InputStyled = styled.div`
