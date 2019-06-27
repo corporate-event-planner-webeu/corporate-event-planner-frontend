@@ -35,7 +35,7 @@ export default class NewTodo extends Component {
         <Button onClick={() => this.openAdd()} animated="vertical">
           <Button.Content hidden>Toggle</Button.Content>
           <Button.Content visible>
-            <Icon name="plus" />
+            <Icon name="arrow down" />
           </Button.Content>
         </Button>
         <NewVendorDiv isOpen={this.state.isOpen}>

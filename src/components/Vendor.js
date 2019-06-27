@@ -1,15 +1,26 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled from "styled-components";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
 export default function Vendor(props) {
     return (
-        <VendorDiv>
-            <p>{props.vendor.vendor_name}</p>
-            <p>{props.vendor.contact_number}</p>
-            <button onClick={() => props.handleDelete(props.vendor.id)}>Delete</button>
-        </VendorDiv>
-    )
+      <VendorDiv>
+        <div>
+          <p>{props.vendor.vendor_name}</p>
+        </div>
+        <div>
+          <p>{props.vendor.contact_number}</p>
+        </div>
+
+        <FontAwesomeIcon
+          onClick={() => props.handleDelete(props.vendor.id)}
+          icon={faTrashAlt}
+          style={{ color: "red" }}
+        />
+      </VendorDiv>
+    );
 }
 
 
@@ -21,10 +32,14 @@ const VendorDiv = styled.div`
   text-align: left;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 1.0rem;
+  padding: .8rem;
   p {
     font-weight: bold;
     text-align: left;
     margin-left: 1rem;
+    vertical-align: bottom;
+    align-self: flex-end;
   }
 `;
