@@ -20,6 +20,7 @@ class Login extends React.Component {
     return (
       <div>
         <LoginWrapperStyled>
+          <div className="style">
           <h3>Log In Here</h3>
           <InputStyled>
           <input
@@ -40,6 +41,7 @@ class Login extends React.Component {
             Log in
           </button>
           </InputStyled>
+          </div>
         </LoginWrapperStyled>
       </div>
     );
@@ -51,31 +53,32 @@ export default connect(
   { login }
 )(Login);
 
-const LoginWrapperStyled = styled.form`
-  /* border: 1px solid white;
-  border-radius: 2px; */
-  /* align-content: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-  background: #efefef;
-  color: black;
-  margin: 20px;
-  width: 70%; */
+const LoginWrapperStyled = styled.div`
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
-  padding: 1rem;
-  border: 2px solid white;
+  /* padding: 1rem; */
+  /* border: 2px solid white; */
   min-height: 100vh;
-  background-color: #efefef;
+  /* background-color: #404040 ; */
+  background-image: linear-gradient( #404040, white);
   width: 100%;
-  /* background-color: rgb(233, 236, 240); */
-  color:black;
+  /* background: linear-gradient(rgba(10, 10, 10), rgba(30, 30, 30, 0.1)), url("https://images.unsplash.com/6/blurred_lines.jpeg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"); */
+  /* background-color: rgba(255, 255, 255, 0.6); */ 
+  color: black;
   align-items: center;
   
-
+  .style{
+    background: #efefef;
+    border: 1px solid grey;
+    margin-top: 50px;
+    height: 500px;
+    width: 500px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 10px 10px 6px -6px #777;
+    box-shadow: 10px 10px 6px -6px #777;
+  }
+  
   input {
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 2px;
@@ -84,13 +87,15 @@ const LoginWrapperStyled = styled.form`
     width: 220px;
     height: 50px;
     font-size: 2rem;
-    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -webkit-box-shadow: 10 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     box-shadow: 0 10px 6px -6px #777;
   }
+
   button {
         height: 50px;
-        width: 100px;
+        width: 220px;
+        margin-top: 10px;
         font-size: 2rem;
         -webkit-box-shadow: 0 10px 6px -6px #777;
         -moz-box-shadow: 0 10px 6px -6px #777;
@@ -99,7 +104,26 @@ const LoginWrapperStyled = styled.form`
     button:hover{
       background: rgb(81,183,176);
       border: 1px solid rgb(81,183,176);
+      color: white;
     }
+
+    @media (max-width: 600px){
+    .style {
+      width: 100%;
+      /* height: 580px; */
+      height: 70rem;
+      margin: 0 auto;
+      justify-content: space-evenly;
+    }
+    input{
+      border: 1px solid grey;
+      width: 500px;
+    }
+    button{
+      border: 1px solid grey;
+      width: 500px;
+    }
+  }
 `;
 
 const InputStyled = styled.div`
