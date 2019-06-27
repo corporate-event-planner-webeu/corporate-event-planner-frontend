@@ -18,6 +18,7 @@ export default function Vendor(props) {
           onClick={() => props.handleDelete(props.vendor.id)}
           icon={faTrashAlt}
           style={{ color: "red" }}
+          fixedWidth
         />
       </VendorDiv>
     );
