@@ -176,7 +176,7 @@ const AddEventDiv = styled.div`
   border-top: 2px solid teal;
   display: flex;
   flex-direction: column;
-  max-height: 450px;
+  height: 600px;
   margin: 2rem;
   margin-right: 0;
   width: 25%;
@@ -197,7 +197,7 @@ const AddEventDiv = styled.div`
     margin-bottom: 1rem;
     border: 1px solid rgb(186, 192, 198);
     width: 90%;
-    margin-left: 1.4rem;
+    margin-left: 1rem;
 
     &:focus {
       outline: none;
