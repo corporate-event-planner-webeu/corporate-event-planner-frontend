@@ -58,7 +58,7 @@ const LinkStyled = styled.div`
         width: 80%;
     }
     .link:hover{
-        color: yellow;
-        border-color: black;
+        color: rgb(81,183,176);
+        border-color: rgb(81,183,176);
     }
 `;
