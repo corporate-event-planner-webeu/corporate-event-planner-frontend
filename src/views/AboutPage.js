@@ -6,7 +6,9 @@ const AboutPage = () => {
   return (
       <AboutPageWrapper>
         <span/>
-        <AboutSection>
+        <div>
+        <h2>Meet our team!</h2>
+        <MembersSection>
           <Member>
             <h3>Frontend Architect</h3>
             <p>Anna Winther</p>
@@ -21,7 +23,8 @@ const AboutPage = () => {
             <h3>Backend Architect/Team Lead</h3>
             <p>Diana Ignatescu</p>
           </Member>
-        </AboutSection>
+        </MembersSection>
+        </div>
         <Footer/>
       </AboutPageWrapper>
   )
@@ -36,7 +39,7 @@ justify-content: space-between;
 height: 100vh;
 `;
 
-const AboutSection = styled.div`
+const MembersSection = styled.div`
 display: flex;
 justify-content: space-between;
 margin: 2.5rem;
