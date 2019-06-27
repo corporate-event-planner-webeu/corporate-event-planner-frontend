@@ -29,8 +29,10 @@ export const getAllEvents = url => dispatch => {
     .catch(err => {
       if(err.response.status === 401) {
         dispatch({type: NO_AUTH})
+      } else {
+        dispatch({ type: ERROR_EVENT });
       }
-      dispatch({ type: ERROR_EVENT });
+      
     });
 };
 
@@ -48,8 +50,9 @@ export const createEvent = (url, data) => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_EVENT });
       }
-      dispatch({ type: ERROR_EVENT });
     });
 };
 
@@ -67,8 +70,9 @@ export const deleteEvent = url => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_EVENT });
       }
-      dispatch({ type: ERROR_EVENT });
     });
 };
 
@@ -82,7 +86,8 @@ export const markEventComplete = (url,data) => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_EVENT });
       }
-      dispatch({ type: ERROR_EVENT });
     });
 };
