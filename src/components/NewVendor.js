@@ -26,13 +26,13 @@ export default class NewTodo extends Component {
   };
 
   openAdd = () => {
-    this.setState(st => ({ isOpen: !st.isOpen }));
+    this.setState({isOpen: !this.state.isOpen});
   };
 
   render() {
     return (
       <MainWrapper>
-        <Button onClick={() => this.openAdd()} animated="vertical">
+        <Button onClick={this.openAdd} animated="vertical">
           <Button.Content hidden>Toggle</Button.Content>
           <Button.Content visible>
             <Icon name="arrow down" />
@@ -91,7 +91,7 @@ const NewVendorDiv = styled.div`
   margin-top: 1rem;
   width: 100%;
   flex-direction: column;
-  ${props => (props.isOpen ? `display: none` : `display: flex`)}
+  ${props => (!props.isOpen ? `display: none` : `display: flex`)}
   input {
     padding: 1rem;
     flex: 8;
