@@ -52,6 +52,7 @@ export default class Event extends Component {
 const EventDiv = styled.div`
   width: 80%;
   margin-right: 0.3rem;
+  margin-bottom: 2.0rem;
   background: #fff;
   -webkit-box-shadow: 0 10px 6px -6px #777;
   -moz-box-shadow: 0 10px 6px -6px #777;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import axios from "axios";
 
 export default class AddEvent extends Component {
   state = {
@@ -9,7 +10,8 @@ export default class AddEvent extends Component {
     attendees: "",
     date: "",
     time: "",
-    url: ""
+    url:
+      "https://res.cloudinary.com/ogwurujohnson/image/upload/v1561643304/bjc5fbdksvte293pnhdl.jpg"
   };
 
   componentWillReceiveProps() {
@@ -20,7 +22,9 @@ export default class AddEvent extends Component {
       attendees: this.props.data ? this.props.data.attendees : "",
       date: this.props.data ? this.props.data.event_date : "",
       time: this.props.data ? this.props.data.event_time : "",
-      url: this.props.data ? this.props.data.image_url : ""
+      url: this.props.data
+        ? this.props.data.image_url
+        : "https://res.cloudinary.com/ogwurujohnson/image/upload/v1561643304/bjc5fbdksvte293pnhdl.jpg"
     });
   }
 
@@ -48,7 +52,8 @@ export default class AddEvent extends Component {
       time: "",
       attendees: "",
       budget: "",
-      url: ""
+      url:
+        "https://res.cloudinary.com/ogwurujohnson/image/upload/v1561643304/bjc5fbdksvte293pnhdl.jpg"
     });
   };
 
@@ -63,6 +68,17 @@ export default class AddEvent extends Component {
       image_url: this.state.url
     };
     this.props.handleUpdateSubmit(id, data);
+    this.setState({
+      title: "",
+      description: "",
+      date: "",
+      time: "",
+      attendees: "",
+      budget: "",
+      url:
+        "https://res.cloudinary.com/ogwurujohnson/image/upload/v1561643304/bjc5fbdksvte293pnhdl.jpg",
+      uploadingImage: ""
+    });
   };
 
   handleImageUpload = e => {
@@ -70,7 +86,7 @@ export default class AddEvent extends Component {
     const CLOUDINARY_URL =
       "https://api.cloudinary.com/v1_1/ogwurujohnson/image/upload";
     const CLOUDINARY_UPLOAD_PRESET = "zjjd4c1v";
-    this.setState({uploadingImage: true});
+    this.setState({ uploadingImage: true });
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
@@ -80,20 +96,24 @@ export default class AddEvent extends Component {
       .then(res => {
         if (res.data.secure_url !== "") {
           const uploadedFileUrl = res.data.secure_url;
-          this.setState({url: uploadedFileUrl, uploadingImage: false})
+          console.log(uploadedFileUrl);
+          this.setState({
+            url: uploadedFileUrl,
+            uploadingImage: false
+          });
         } else {
-          
         }
       })
-      .catch(err =>
-        {}
-      );
+      .catch(err => {});
   };
 
   render() {
     return (
       <AddEventDiv>
         <p>Create Event</p>
+
+        <input type="file" id="fileupload" onChange={this.handleImageUpload} />
+
         <input
           name="title"
           value={this.state.title}
@@ -136,16 +156,16 @@ export default class AddEvent extends Component {
           type="text"
           placeholder="Event Time"
         />
-        {this.props.data ? '' : 
-        <input type="file" id="fileupload" onChange={this.handleImageUpload} />}
+
         <button
           onClick={() =>
             this.props.data
               ? this.handleEdit(this.props.data.id)
-              : this.handleSubmit
+              : this.handleSubmit()
           }
         >
-          {this.props.uploadingImage ? "Uploading..." : "Create Event"}
+          
+          {this.state.uploadingImage ? "Uploading..." : "Create Event"}
         </button>
       </AddEventDiv>
     );
