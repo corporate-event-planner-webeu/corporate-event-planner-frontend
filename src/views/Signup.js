@@ -44,7 +44,9 @@ class Signup extends Component {
       <div>
         <SignUpStyled>
           <h3>Sign Up Here</h3>
+          
           <form>
+          <InputStyled>
             <input
               onChange={this.handleChange}
               type="text"
@@ -83,7 +85,9 @@ class Signup extends Component {
             <button type="button" onClick={this.handleSubmit}>
               Sign Up Now
             </button>
+            </InputStyled>
           </form>
+         
         </SignUpStyled>
       </div>
     );
@@ -98,16 +102,26 @@ export default connect(
 const SignUpStyled = styled.div`
   padding: 50px;
   background: #efefef;
-  color: black;
-  margin: 20px;
-  margin-bottom: 20px;
+  /* margin: 20px; */
+  /* margin-bottom: 20px; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  padding: 1rem;
+  border: 2px solid white;
+  min-height: 100vh;
+  background-color: #efefef;
+  width: 100%;
+  /* background-color: rgb(233, 236, 240); */
+  color:black;
+  align-items: center;
 
   input {
     border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 2px;
     padding-left: 10px;
     margin:10px;
-    width: 220px;
+    width: 250px;
     height: 50px;
     font-size: 2rem;
     -webkit-box-shadow: 0 10px 6px -6px #777;
@@ -123,5 +137,15 @@ const SignUpStyled = styled.div`
         -moz-box-shadow: 0 10px 6px -6px #777;
         box-shadow: 0 10px 6px -6px #777;
     }
+    button:hover{
+      background: rgb(81,183,176);
+      border: 1px solid rgb(81,183,176);
+    }
 `;
 
+const InputStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
