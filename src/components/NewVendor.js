@@ -6,6 +6,7 @@ export default class NewTodo extends Component {
     name: '',
     number: '',
     email: '',
+    isOpen: false
   }
 
   handleChange = (e) => {
@@ -23,14 +24,39 @@ handleSubmit = async (e) => {
   await this.setState({name:'',number:'', email:''})
 }
 
+  openAdd = () => {
+    this.setState(st => ({isOpen: !st.isOpen}))
+  }
+
   render() {
     return (
-      <NewVendorDiv>
-        <input type="text" name="name" placeholder="Vendor Name" value={this.state.name} onChange={this.handleChange}/>
-        <input type="text" name="email" placeholder="Vendor Email" value={this.state.email} onChange={this.handleChange}/>
-        <input type="text" name="number" placeholder="Vendor Number" value={this.state.number} onChange={this.handleChange}/>
-        <button onClick={this.handleSubmit}>Save</button>
-      </NewVendorDiv>
+      <div>
+        <button style={{background: 'teal', color: 'white', outline: 'none', border: 'none', cursor: 'pointer'}} onClick={()=>this.openAdd()}>+</button>
+        <NewVendorDiv isOpen={this.state.isOpen}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Vendor Name"
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="Vendor Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+          <input
+            type="text"
+            name="number"
+            placeholder="Vendor Number"
+            value={this.state.number}
+            onChange={this.handleChange}
+          />
+          <button onClick={this.handleSubmit}>Save</button>
+        </NewVendorDiv>
+      </div>
     );
   }
 }
@@ -39,14 +65,13 @@ handleSubmit = async (e) => {
 const NewVendorDiv = styled.div`
   margin-top: 1rem;
   width: 100%;
-  display: flex;
   flex-direction: column;
+  ${props => (props.isOpen? `display: none`: `display: flex`)}
   input {
     padding: 1rem;
-    width: 60%;
-    max-height: 10px;
-    font-size: 14px;
     flex: 8;
+    height: 5px;
+    font-size: 14px;
     margin-bottom: 1rem;
     border: 1px solid rgb(186, 192, 198);
     vertical-align: top;
