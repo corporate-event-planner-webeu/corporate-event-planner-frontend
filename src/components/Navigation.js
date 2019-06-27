@@ -93,8 +93,7 @@ const MenuStyled = styled.div`
   @media (max-width: 500px){
     .link{
       font-size: 1.4rem;
-      padding: 0 4px;
-      padding-right: 8px;
+      padding: 0 8px;
     }
 }
 `;
