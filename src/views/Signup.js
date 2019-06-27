@@ -156,7 +156,7 @@ const SignUpStyled = styled.div`
       .sign-up {
       width: 100%;
       padding: 20px;
-      min-height: 100vh;
+      min-height: 150vh;
       margin: 0 auto;
       justify-content: space-evenly;
     }
