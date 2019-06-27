@@ -22,13 +22,13 @@ class Vendors extends Component {
         })
     }
 
-    // handleMarkPayed = (id) => {
+    // handleMarkPayed = (id, title, payed) => {
     //     const data = {
     //       vendor_name: title,
     //       vendor_payed: !payed 
     //     }
     //     const url = `${DOMAIN}/api/vendors/${id}`;
-    //     this.props.markVendorAsPaid(url).then(() => {
+    //     this.props.markVendorAsPaid(url, data).then(() => {
     //       this.props.getVendor();
     //     })
     //   }
@@ -46,7 +46,7 @@ class Vendors extends Component {
                   vendor={vendor}
                   key={vendor.id}
                   handleDelete={this.handleDelete}
-                //   handleMarkPayed={this.handleMarkPayed}
+                  // handleMarkPayed={this.handleMarkPayed}
                 />
               ))
             )}
@@ -55,7 +55,7 @@ class Vendors extends Component {
     }
 }
 
-export default connect(null, {createVendor, deleteVendor})(Vendors)
+export default connect(null, {createVendor, deleteVendor })(Vendors)
 
 
 const VendorDiv = styled.div`
