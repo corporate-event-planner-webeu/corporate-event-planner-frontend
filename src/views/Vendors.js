@@ -3,7 +3,7 @@ import Vendor from '../components/Vendor';
 import NewVendor from '../components/NewVendor';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { createVendor, deleteVendor, markVendorAsPaid } from '../store/actions/vendor';
+import { createVendor, deleteVendor } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
 
 
@@ -21,16 +21,17 @@ class Vendors extends Component {
             this.props.getVendor();
         })
     }
-    handleMarkPayed = (id) => {
-        // const data = {
-        //   vendor_name: title,
-        //   vendor_payed: !payed 
-        // }
-        const url = `${DOMAIN}/api/vendors/${id}`;
-        this.props.markVendorAsPaid(url).then(() => {
-          this.props.getVendor();
-        })
-      }
+
+    // handleMarkPayed = (id) => {
+    //     const data = {
+    //       vendor_name: title,
+    //       vendor_payed: !payed 
+    //     }
+    //     const url = `${DOMAIN}/api/vendors/${id}`;
+    //     this.props.markVendorAsPaid(url).then(() => {
+    //       this.props.getVendor();
+    //     })
+    //   }
 
     render() {
         return (
@@ -45,6 +46,7 @@ class Vendors extends Component {
                   vendor={vendor}
                   key={vendor.id}
                   handleDelete={this.handleDelete}
+                //   handleMarkPayed={this.handleMarkPayed}
                 />
               ))
             )}
@@ -53,7 +55,7 @@ class Vendors extends Component {
     }
 }
 
-export default connect(null, {createVendor, deleteVendor, markVendorAsPaid})(Vendors)
+export default connect(null, {createVendor, deleteVendor})(Vendors)
 
 
 const VendorDiv = styled.div`
