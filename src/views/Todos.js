@@ -3,7 +3,7 @@ import Todo from "../components/Todo";
 import NewTodo from "../components/NewTodo";
 import styled from "styled-components";
 import { connect } from "react-redux";
-import { createTodo, deleteTodo, markTodoComplete } from "../store/actions/todo";
+import { createTodo, deleteTodo, markTodoComplete, updateTodo } from "../store/actions/todo";
 import DOMAIN from "../utils/path";
 
 class Todos extends Component {
@@ -79,7 +79,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { createTodo, deleteTodo, markTodoComplete }
+  { createTodo, deleteTodo, markTodoComplete, updateTodo }
 )(Todos);
 
 const TodoDiv = styled.div`
