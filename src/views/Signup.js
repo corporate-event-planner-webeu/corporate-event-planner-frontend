@@ -118,7 +118,11 @@ const SignUpStyled = styled.div`
     width: 500px;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     p{
-      font-size:1.5rem;
+      font-size: 1.7rem;
+    }
+    h3{
+      margin: 30px;
+      font-size: 2rem;
     }
   }
 
@@ -129,7 +133,7 @@ const SignUpStyled = styled.div`
     margin: 10px;
     width: 350px;
     height: 50px;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   button {
@@ -142,8 +146,10 @@ const SignUpStyled = styled.div`
         box-shadow: 0 10px 6px -6px #777;
     }
     button:hover{
-      background: rgb(81,183,176);
-      border: 1px solid rgb(81,183,176);
+      background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
+      border: 1px solid #FFFFFF;
+      color: #FFFFFF;
+      transition: 0.3s ease-out;
     }
 
     @media (max-width: 500px){
