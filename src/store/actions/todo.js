@@ -32,7 +32,7 @@ export const getAllTodos = url => dispatch => {
 
 export const createTodo = (url, data) => dispatch => {
   dispatch({ type: ADDING_TODO });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(url, data)
     .then(res =>
       dispatch({
@@ -51,9 +51,9 @@ export const createTodo = (url, data) => dispatch => {
 
 export const updateTodo = (url, data) => dispatch => {
   dispatch({ type: UPDATING_TODO });
-  axiosWithAuth()
+  return axiosWithAuth()
     .put(url, data)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Updated" }))
+    .then(res => dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todo Updated" }))
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
@@ -66,7 +66,7 @@ export const deleteTodo = url => dispatch => {
   dispatch({ type: DELETING_TODO });
   return axiosWithAuth()
     .delete(url)
-    .then(res => dispatch({ type: SUCCESS_TODO, message: "Todo Deleted" }))
+    .then(res => dispatch({ type: SUCCESS_TODO, payload: res.data, message: "Todo Deleted" }))
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
@@ -75,7 +75,7 @@ export const deleteTodo = url => dispatch => {
     });
 };
 
-export const markTodoComplete = (url,data) => dispatch => {
+export const markTodoComplete = (url, data) => dispatch => {
   dispatch({ type: MARKING_COMPLETE });
   return axiosWithAuth()
     .put(url, data)

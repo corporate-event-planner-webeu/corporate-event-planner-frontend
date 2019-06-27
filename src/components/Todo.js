@@ -4,29 +4,17 @@ import { faTrashAlt, faPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-
 export default function Todo(props) {
+  
   return (
     <TodoDiv completed={props.todo.task_completed}>
       <p>{props.todo.task_name}</p>
       <div>
-        <FontAwesomeIcon
-          onClick={() => props.handleDelete(props.todo.id)}
-          icon={faTrashAlt}
-          style={{ color: "red" }}
-        />
-        <button>Edit</button>
-        <button
-          onClick={() =>
-            props.handleComplete(
-              props.todo.id,
-              props.todo.task_name,
-              props.todo.task_completed
-            )
-          }
-        >
-          Complete
+        <button onClick={() => props.handleDelete(props.todo.id)}>
+          Delete
         </button>
+        <button onClick={() => props.handleUpdateTodo( props.todo.id, props.todo.task_name )}>Edit</button>
+        <button onClick={() => props.handleComplete( props.todo.id, props.todo.task_name, props.todo.task_completed )}>Complete</button>
       </div>
     </TodoDiv>
   );
