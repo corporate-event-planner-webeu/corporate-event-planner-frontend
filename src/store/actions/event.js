@@ -98,10 +98,10 @@ export const deleteEvent = url => dispatch => {
     });
 };
 
-export const markEventComplete = url => dispatch => {
+export const markEventComplete = (url,data) => dispatch => {
   dispatch({ type: COMPLETING_EVENT });
-  axiosWithAuth()
-    .put(url)
+  return axiosWithAuth()
+    .put(url,data)
     .then(res =>
       dispatch({ type: SUCCESS_EVENT, message: "Event Completed" })
     )
