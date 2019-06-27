@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { faTrashAlt, faPenAlt, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import PropTypes from "prop-types";
 
 export default function Todo(props) {
   
@@ -42,6 +42,10 @@ export default function Todo(props) {
       </div>
     </TodoDiv>
   );
+}
+
+Todo.propType = {
+  todo: PropTypes.object.isRequired
 }
 
 const TodoDiv = styled.div`

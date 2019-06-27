@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 
 export default function Vendor(props) {
@@ -23,6 +24,10 @@ export default function Vendor(props) {
       </VendorDiv>
     );
 }
+
+Vendor.propType = {
+  vendor: PropTypes.object.isRequired
+};
 
 
 const VendorDiv = styled.div`

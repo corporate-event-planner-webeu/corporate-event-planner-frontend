@@ -6,6 +6,7 @@ import {
   faCheckSquare
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from 'prop-types';
 
 export default class Event extends Component {
   render() {
@@ -58,6 +59,14 @@ export default class Event extends Component {
       </EventDiv>
     );
   }
+}
+
+Event.propTypes = {
+  image_url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
 }
 
 const EventDiv = styled.div`

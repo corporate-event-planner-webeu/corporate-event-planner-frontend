@@ -12,12 +12,15 @@ import {
 import { connect } from "react-redux";
 import { getUserId } from "../utils/jwtDecode";
 import DOMAIN from "../utils/path";
+import PropTypes from "prop-types";
 
 class Dashboard extends Component {
   state = {
     events: [],
     data: null
   };
+
+  abortController = new AbortController();
 
   getEvents = () => {
     const user = getUserId();
@@ -31,6 +34,10 @@ class Dashboard extends Component {
 
   async componentDidMount() {
     this.getEvents();
+  }
+
+  componentWillUnmount() {
+    this.abortController.abort();
   }
 
   handleSubmit = data => {
@@ -126,6 +133,14 @@ export default connect(
   mapStateToProps,
   { getAllEvents, createEvent, deleteEvent, markEventComplete }
 )(Dashboard);
+
+Dashboard.propTypes = {
+  getAllEvents: PropTypes.func.isRequired,
+  createEvent: PropTypes.func.isRequired,
+  deleteEvent: PropTypes.func.isRequired,
+  markEventComplete: PropTypes.func.isRequired,
+  events: PropTypes.array,
+}
 
 const MainDiv = styled.div`
   justify-content: space-between;

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { createTodo, deleteTodo, markTodoComplete, updateTodo } from "../store/actions/todo";
 import DOMAIN from "../utils/path";
+import PropTypes from "prop-types";
 
 class Todos extends Component {
   state = {
@@ -81,6 +82,13 @@ export default connect(
   mapStateToProps,
   { createTodo, deleteTodo, markTodoComplete, updateTodo }
 )(Todos);
+
+Todos.propTypes = {
+  createTodo: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
+  markTodoComplete: PropTypes.func.isRequired,
+};
 
 const TodoDiv = styled.div`
   display: flex;

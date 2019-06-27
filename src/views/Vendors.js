@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { createVendor, deleteVendor } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
+import PropTypes from "prop-types";
 
 
 class Vendors extends Component {
@@ -57,6 +58,10 @@ class Vendors extends Component {
 
 export default connect(null, {createVendor, deleteVendor })(Vendors)
 
+Vendors.propTypes = {
+  createVendor: PropTypes.func.isRequired,
+  deleteVendor: PropTypes.func.isRequired,
+};
 
 const VendorDiv = styled.div`
   display: flex;
