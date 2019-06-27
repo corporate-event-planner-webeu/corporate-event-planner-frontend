@@ -8,7 +8,8 @@ import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from 'redux';
 import rootReducer from './store/reducers';
 import thunk from 'redux-thunk';
-import { setToken,redirectAuth } from './middlewares/auth';
+import { setToken, redirectAuth } from "./middlewares/auth";
+import "semantic-ui-css/semantic.min.css";
 
 const store = createStore(rootReducer, compose(
     applyMiddleware(thunk, setToken, redirectAuth),
