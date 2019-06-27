@@ -43,8 +43,9 @@ class Signup extends Component {
     return (
       <div>
         <SignUpStyled>
+          <div className="sing-up">
           <h3>Sign Up Here</h3>
-          
+          <p>Sign up and get started planning your next event</p>
           <form>
           <InputStyled>
             <input
@@ -87,7 +88,7 @@ class Signup extends Component {
             </button>
             </InputStyled>
           </form>
-         
+          </div>
         </SignUpStyled>
       </div>
     );
@@ -99,39 +100,47 @@ export default connect(
   { signup }
 )(Signup);
 
+
 const SignUpStyled = styled.div`
-  padding: 50px;
-  background: #efefef;
-  /* margin: 20px; */
-  /* margin-bottom: 20px; */
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
-  padding: 1rem;
-  border: 2px solid white;
   min-height: 100vh;
-  background-color: #efefef;
+  background: rgb(233,236,240);
   width: 100%;
-  /* background-color: rgb(233, 236, 240); */
   color:black;
   align-items: center;
 
+  .sing-up{
+    background: white;
+    border: 1px solid grey;
+    margin-top: 50px;
+    height: 700px;
+    width: 500px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    /* -moz-box-shadow: 10px 10px 6px -6px #777; */
+    /* box-shadow: 10px 10px 6px -6px #777; */
+    p{
+      font-size:1.5rem;
+    }
+  }
+
   input {
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid grey;
     border-radius: 2px;
     padding-left: 10px;
-    margin:10px;
-    width: 250px;
+    margin: 10px;
+    width: 350px;
     height: 50px;
     font-size: 2rem;
-    -webkit-box-shadow: 0 10px 6px -6px #777;
+    /* -webkit-box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777; */
   }
 
   button {
         height: 50px;
-        width: 150px;
+        width: 350px;
+        margin-top: 10px;
         font-size: 2rem;
         -webkit-box-shadow: 0 10px 6px -6px #777;
         -moz-box-shadow: 0 10px 6px -6px #777;
@@ -141,6 +150,29 @@ const SignUpStyled = styled.div`
       background: rgb(81,183,176);
       border: 1px solid rgb(81,183,176);
     }
+
+    @media (max-width: 600px){
+      .sing-up {
+      width: 100%;
+      padding-left:20px;
+      padding-right: 15px;
+      /* height: 580px; */
+      /* padding-left: 20px; */
+      height: 70rem;
+      margin: 0 auto;
+      justify-content: space-evenly;
+    }
+    input{
+      border: 1px solid grey;
+      margin-top: 5px;
+      width: 100%;
+    }
+    button{
+      border: 1px solid grey;
+      width: 100%;
+    }
+  }
+    
 `;
 
 const InputStyled = styled.div`
