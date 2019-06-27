@@ -8,6 +8,7 @@ import {getAllEvents} from '../store/actions/event';
 import {getAllTodos} from '../store/actions/todo';
 import { getAllVendors } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
+import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
 const Todos = React.lazy(() => import("./Todos"));
 
 
@@ -17,8 +18,14 @@ class Event extends Component {
     event: {},
     todos: [],
     vendors: [],
-    fetchingEvents: false
+    fetchingEvents: false,
+    modalOpen: false
   };
+
+
+  handleOpen = () => this.setState({ modalOpen: true });
+
+  handleClose = () => this.setState({ modalOpen: false });
 
   getTodo = () => {
     const id = this.state.id ? this.state.id : 0;
@@ -26,8 +33,8 @@ class Event extends Component {
     this.props.getAllTodos(url).then(() => {
       this.setState({
         todos: this.props.todos
-      })
-    })
+      });
+    });
   };
 
   async componentDidMount() {
@@ -44,16 +51,16 @@ class Event extends Component {
     await this.getTodo();
     await this.getVendor();
   }
-  
+
   getVendor = () => {
     const id = this.state.id ? this.state.id : 0;
     const url = `${DOMAIN}/api/vendors/?event_id=${id}`;
     this.props.getAllVendors(url).then(() => {
       this.setState({
         vendors: this.props.vendors
-      })
-    })
-  }
+      });
+    });
+  };
 
   render() {
     return (
@@ -66,16 +73,62 @@ class Event extends Component {
         </EventInfoDiv>
         <TodosDiv>
           <Suspense fallback={<div>Loading...</div>}>
-          {this.state.fetchingEvents ? (
-            <div>Loading...</div>
-          ) : (
-            <Todos getTodo={this.getTodo} id={this.state.id} todos={this.state.todos} fetchingTodo={this.props.fetchingTodo} />
-          )}
+            {this.state.fetchingEvents ? (
+              <div>Loading...</div>
+            ) : (
+              <Todos
+                getTodo={this.getTodo}
+                id={this.state.id}
+                todos={this.state.todos}
+                fetchingTodo={this.props.fetchingTodo}
+              />
+            )}
           </Suspense>
         </TodosDiv>
         <VendorsDiv>
-          <Vendors getVendor={this.getVendor} vendors={this.state.vendors} fetchingVendors={this.props.fetchingVendors} id={this.state.id} />
+          <Vendors
+            getVendor={this.getVendor}
+            vendors={this.state.vendors}
+            fetchingVendors={this.props.fetchingVendors}
+            id={this.state.id}
+          />
         </VendorsDiv>
+        <ModalDiv>
+          <Modal
+            trigger={
+              <Button onClick={this.handleOpen} animated="vertical">
+                <Button.Content hidden>Invite</Button.Content>
+                <Button.Content visible>
+                  <Icon name="plus" />
+                </Button.Content>
+              </Button>
+            }
+            open={this.state.modalOpen}
+            onClose={this.handleClose}
+            basic
+            size="small"
+            closeIcon
+          >
+            <Header icon="browser" content="Invite Team Mates" />
+            <Modal.Content>
+              <Input fluid icon placeholder="Full Name">
+                <input />
+                <Icon name="user" />
+              </Input>
+              <br />
+              <br />
+              <Input fluid iconPosition="left" placeholder="Email Address">
+                <Icon name="at" />
+                <input />
+              </Input>
+            </Modal.Content>
+            <Modal.Actions>
+              <Button color="green" onClick={this.handleClose} inverted>
+                <Icon name="checkmark" /> Invite
+              </Button>
+            </Modal.Actions>
+          </Modal>
+        </ModalDiv>
       </SingleEvent>
     );
   }
@@ -104,6 +157,29 @@ const SingleEvent = styled.div`
   min-height: 100vh;
   background-color: rgb(233, 236, 240);
   color: rgb(138, 146, 152);
+
+  .ui.button {
+    background: #51b7b0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+
+    &:hover {
+      background: #131c24;
+      color: white;
+    }
+  }
+
+`;
+
+const ModalDiv = styled.div`
+  .ui.basic.modal > .actions,
+  .ui.basic.modal > .content,
+  .ui.basic.modal > .header {
+    background-color: blue;
+  }
 `;
 
 const EventInfoDiv = styled.div`
