@@ -118,6 +118,7 @@ const SignUpStyled = styled.div`
     width: 500px;
     -webkit-box-shadow: 0 10px 6px -6px #777;
     p{
+      margin: 20px;
       font-size: 1.7rem;
     }
     h3{
