@@ -155,7 +155,7 @@ const SignUpStyled = styled.div`
   }
 
   button {
-    height: 50px;
+    height: 48px;
     width: 100%;
     margin-top: 10px;
     font-size: 2rem;
