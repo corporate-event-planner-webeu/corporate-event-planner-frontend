@@ -79,7 +79,7 @@ const MenuStyled = styled.div`
         padding-bottom:0;
     }
     .link:hover{
-        color: rgb(81,183,176);
+        color: rgb(81,183,186);
     }
 `;
 
