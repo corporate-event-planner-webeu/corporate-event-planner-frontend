@@ -22,6 +22,7 @@ class Login extends React.Component {
         <LoginWrapperStyled>
           <div className="log-in">
           <h3>Log In Here</h3>
+          <p>To see all of your upcoming events </p>
           <InputStyled>
           <input
             type="text"
@@ -69,20 +70,21 @@ const LoginWrapperStyled = styled.div`
     height: 500px;
     width: 500px;
     -webkit-box-shadow: 0 10px 6px -6px #777; 
+
+    p{
+      font-size:1.5rem;
+    }
   }
   
   input {
     border: 1px solid grey;
-    /* rgba(255, 255, 255, 0.6); */
     border-radius: 2px;
     padding-left: 10px;
     margin:10px;
     width: 350px;
     height: 50px;
     font-size: 2rem;
-    /* -webkit-box-shadow: 10 10px 6px -6px #777;
-    -moz-box-shadow: 0 10px 6px -6px #777;
-    box-shadow: 0 10px 6px -6px #777; */
+   
   }
 
   button {
@@ -103,10 +105,8 @@ const LoginWrapperStyled = styled.div`
     @media (max-width: 600px){
     .log-in {
       width: 100%;
-      /* height: 580px; */
-      padding-left: 20px;
-      padding-right: 20px;
-      height: 70rem;
+      padding: 20px;
+      min-height: 100vh;
       margin: 0 auto;
       justify-content: space-evenly;
     }
@@ -117,7 +117,6 @@ const LoginWrapperStyled = styled.div`
     button{
       border: 1px solid grey;
       width: 100%;
-      box-shadow: none;
     }
   }
 `;
