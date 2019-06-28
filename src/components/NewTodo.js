@@ -14,7 +14,7 @@ export default class NewTodo extends Component {
     componentWillReceiveProps(){
       this.props.title ? this.setState({ title: this.props.title }) : this.setState({ title: '' })
     }
-   
+
     handleChange = (e) => {
       this.setState({[e.target.name]: e.target.value})
     }
@@ -36,7 +36,7 @@ export default class NewTodo extends Component {
       }
       this.props.completeUpdate(id, data)
     }
-    
+
     render() {
         return (
             <NewTodoDiv>
@@ -73,7 +73,7 @@ const NewTodoDiv = styled.div`
   button {
     padding: 0.8rem;
     max-height: 41.5px;
-    background: rgb(81, 183, 176);
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
     color: white;
     flex: 1;
     outline: none;

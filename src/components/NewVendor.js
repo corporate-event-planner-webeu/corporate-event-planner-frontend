@@ -69,7 +69,7 @@ export default class NewTodo extends Component {
 
 const MainWrapper = styled.div`
   .ui.button {
-    background: #51b7b0;
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
     color: white;
     display: flex;
     justify-content: center;
@@ -109,7 +109,8 @@ const NewVendorDiv = styled.div`
   button {
     padding: 1rem;
     max-height: 43.5px;
-    background: rgb(81, 183, 176);
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
+    height: 48px;
     color: white;
     outline: none;
     border: none;
