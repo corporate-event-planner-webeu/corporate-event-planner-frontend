@@ -68,8 +68,9 @@ class Signup extends Component {
       <div>
         <SignUpStyled>
           <div className="sign-up">
-            <h3>Sign Up Here</h3>
-            <p>Sign up now and get started planning your next event!</p>
+            
+            <h3>Sign Up</h3>
+            <p>Get started planning your next event!</p>
             <form>
               <InputStyled>
                 <input
@@ -107,10 +108,10 @@ class Signup extends Component {
                   value={this.state.password}
                   placeholder="Password"
                 />
-                <button className="button" type="button" onClick={this.handleSubmit}>
+                <button type="button" onClick={this.handleSubmit}>
                   Sign Up Now
                 </button>
-                  -------- OR ----------
+                -------- OR ----------
                 <GoogleLoginDiv>
                   <GoogleLogin
                     clientId={appId}
@@ -143,38 +144,56 @@ const SignUpStyled = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: rgb(233,236,240);
+  background: #FFFFFF;
   width: 100%;
-  color:black;
+  color: #333;
   align-items: center;
 
   .sign-up{
-    background: white;
-    border: 1px solid grey;
+    background: #EFEFEF;
     margin-top: 50px;
-    height: 700px;
-    width: 500px;
-    -webkit-box-shadow: 0 10px 6px -6px #777;
+    padding: 3.5rem;
+    width: 450px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    @media(max-width: 500px) {
+      width: 100%;
+      padding: 2.5rem;
+      height: 100vh;
+      margin: 0 auto;
+      justify-content: space-evenly;
+    }
     p{
-      margin: 20px;
-      font-size: 1.7rem;
+      text-align: left;
+      font-size: 1.6rem;
     }
     h3{
-      margin: 30px;
-      font-size: 2rem;
+      margin: 3rem auto;
+      font-size: 2.4rem;
+      font-family: Jaldi, sans-serif;
+      text-align: left;
+      font-weight: 700;
     }
   }
 
   input {
-    border: 1px solid grey;
-    border-radius: 2px;
+    border: 1px solid #F9F9F9;
+    background: #FFFFFF;
+    border-radius: 3px;
     padding-left: 10px;
-    margin: 10px;
-    width: 350px;
-    height: 50px;
-    font-size: 1.5rem;
+    margin: 10px 0;
+    width: 100%;
+    height: 48px;
+    font-size: 1.6rem;
+    color: #333;
+    @media(max-width: 500px) {
+      margin-top: 5px;
+    }
+    &::placeholder {
+      color: #7a7a7a;
+    }
   }
 
+<<<<<<< HEAD
   .button {
         height: 50px;
         width: 350px;
@@ -209,6 +228,24 @@ const SignUpStyled = styled.div`
       border: 1px solid grey;
       width: 100%;
     }
+=======
+  button {
+    height: 48px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
+    border: 1px solid #EFEFEF;
+    color: #FFFFFF;
+    border-radius: 3px;
+    &:hover {
+      cursor: pointer;
+      background: #FFFFFF;
+      border: 1px solid #07a0c3;
+      color: #07a0c3;
+      transition: 0.3s ease-out;
+    }
+>>>>>>> 7ee514cfb73f3c79fdd3ba4e9b7e6c5245ce7008
   }
 `;
 

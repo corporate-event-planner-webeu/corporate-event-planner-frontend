@@ -37,6 +37,9 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 height: 100vh;
+h2 {
+font-size: 3.5rem;
+}
 `;
 
 const MembersSection = styled.div`
