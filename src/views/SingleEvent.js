@@ -163,9 +163,8 @@ const SingleEvent = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  border: 2px solid white;
   min-height: 100vh;
-  background-color: rgb(233, 236, 240);
+  background: #FFFFFF;
   color: rgb(138, 146, 152);
 
   @media (max-width: 600px) {
@@ -176,7 +175,7 @@ const SingleEvent = styled.div`
   }
 
   .ui.button {
-    background: #51b7b0;
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
     color: white;
     display: flex;
     justify-content: center;
