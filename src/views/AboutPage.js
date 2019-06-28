@@ -37,8 +37,10 @@ display: flex;
 flex-direction: column;
 justify-content: space-between;
 height: 100vh;
+background: #FFFFFF;
 h2 {
-font-size: 3.5rem;
+font-size: 4rem;
+font-family: Jaldi, sans-serif;
 }
 `;
 
@@ -60,6 +62,7 @@ width: 70%;
   }
 h3 {
   font-size: 2.4rem;
+  font-family: Jaldi, sans-serif;
 }
 
 p {

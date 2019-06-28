@@ -163,13 +163,19 @@ const SingleEvent = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  border: 2px solid white;
   min-height: 100vh;
-  background-color: rgb(233, 236, 240);
+  background: #FFFFFF;
   color: rgb(138, 146, 152);
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+    margin: 0;
+    padding: 2.5rem;
+    width: 100%;
+  }
+
   .ui.button {
-    background: #51b7b0;
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
     color: white;
     display: flex;
     justify-content: center;
@@ -202,33 +208,23 @@ const ModalDiv = styled.div`
 
 const EventInfoDiv = styled.div`
   width: 35%;
-
-  @media (max-width: 500px){
+  @media (max-width: 600px) {
     width: 100%;
-    height: auto;
-    /* margin: 0 auto; */
   }
 `;
 
 const TodosDiv = styled.div`
   width: 30%;
-
-  @media (max-width: 500px){
+  @media (max-width: 600px) {
     width: 100%;
-    /* margin-bottom: 20px;
-    margin-left: 25px; */
-    /* margin: 0 auto; */
   }
 `;
 
 const VendorsDiv = styled.div`
   width: 30%;
-  margin-left: 2.0rem;
-
-  @media (max-width: 500px){
+  margin-left: 2rem;
+  @media (max-width: 600px) {
+    margin-left: 0;
     width: 100%;
-    /* margin-right: 40px;
-    margin-bottom: 20px; */
-   margin-top: 80px; 
   }
 `;

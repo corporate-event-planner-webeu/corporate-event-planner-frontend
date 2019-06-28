@@ -68,7 +68,7 @@ class Signup extends Component {
       <div>
         <SignUpStyled>
           <div className="sign-up">
-            
+
             <h3>Sign Up</h3>
             <p>Get started planning your next event!</p>
             <form>
@@ -111,7 +111,7 @@ class Signup extends Component {
                 <button className="button" type="button" onClick={this.handleSubmit}>
                   Sign Up Now
                 </button>
-                -------- OR ----------
+                <span>-------- OR ----------</span>
                 <GoogleLoginDiv>
                   <GoogleLogin
                     clientId={appId}
@@ -144,6 +144,7 @@ const SignUpStyled = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow: scroll;
   background: #FFFFFF;
   width: 100%;
   color: #333;
@@ -161,6 +162,10 @@ const SignUpStyled = styled.div`
       height: 100vh;
       margin: 0 auto;
       justify-content: space-evenly;
+    }
+    span {
+      padding: 2rem 0;
+      color: #333;
     }
     p{
       text-align: left;
