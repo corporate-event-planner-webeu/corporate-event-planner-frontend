@@ -76,6 +76,7 @@ const LandingPageWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+    background: #FFFFFF;
 `;
 
 const Homestyled = styled.div`
@@ -87,6 +88,7 @@ const HeaderWrapper = styled.div`
   text-align: center;
   width: 100%;
   margin: 0 auto;
+
   @media(max-width: 800px) {
     padding: 0 2.5rem;
     width: 100%;
