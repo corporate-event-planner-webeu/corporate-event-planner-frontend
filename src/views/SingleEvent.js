@@ -184,10 +184,7 @@ const SingleEvent = styled.div`
   @media (max-width: 500px){
     display: flex;
     flex-direction: column-reverse;
-    /* align-items: center; */
-    margin-top: 35%;
-
-    width: 150%;
+    width: 100%;
   }
 `;
 
@@ -198,7 +195,7 @@ const ModalDiv = styled.div`
     background-color: blue;
   }
   @media (max-width: 500px){
-    width: 67%;
+    width: 100%;
     /* margin: 0 auto; */
   }
 `;
@@ -207,7 +204,8 @@ const EventInfoDiv = styled.div`
   width: 35%;
 
   @media (max-width: 500px){
-    width: 67%;
+    width: 100%;
+    height: auto;
     /* margin: 0 auto; */
   }
 `;
@@ -216,9 +214,9 @@ const TodosDiv = styled.div`
   width: 30%;
 
   @media (max-width: 500px){
-    width: 62%;
-    margin-bottom: 20px;
-    margin-left: 25px;
+    width: 100%;
+    /* margin-bottom: 20px;
+    margin-left: 25px; */
     /* margin: 0 auto; */
   }
 `;
@@ -228,9 +226,9 @@ const VendorsDiv = styled.div`
   margin-left: 2.0rem;
 
   @media (max-width: 500px){
-    width: 78%;
-    margin-right: 40px;
-    margin-bottom: 20px;
-    margin-top: 80px;
+    width: 100%;
+    /* margin-right: 40px;
+    margin-bottom: 20px; */
+   margin-top: 80px; 
   }
 `;
