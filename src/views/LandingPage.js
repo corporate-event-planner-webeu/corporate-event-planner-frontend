@@ -76,7 +76,7 @@ const LandingPageWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-    background: #FFFFFF;
+  background: #FFFFFF;
 `;
 
 const Homestyled = styled.div`
