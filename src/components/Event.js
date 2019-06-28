@@ -59,15 +59,11 @@ Event.propTypes = {
 
 const EventDiv = styled.div`
   cursor: pointer;
-  //width: 80%;
   margin-right: 0.3rem;
   margin-bottom: 2.0rem;
   background: #FFFFFF;
   box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
   width: 100%;
-  //-webkit-box-shadow: 0 10px 6px -6px #777;
-  //-moz-box-shadow: 0 10px 6px -6px #777;
-  //box-shadow: 0 10px 6px -6px #777;
  
 
   img {
@@ -97,7 +93,6 @@ const EventSummaryDiv = styled.div`
 `;
 
 const EventStatusDiv = styled.div`
-  //border-top: 1px solid rgb(138, 146, 152);
   border-top: 1px solid #7a7a7a;
   padding: 1rem;
   padding-top: 1rem;

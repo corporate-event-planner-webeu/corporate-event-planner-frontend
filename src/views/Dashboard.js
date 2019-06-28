@@ -148,7 +148,6 @@ const MainDiv = styled.div`
   height: 100%;
   min-height: 100%;
   background: #F9F9F9;
-  //color: rgb(138, 146, 152);
   text-align: left;
   display: flex;
   @media(max-width: 600px) {
@@ -171,10 +170,7 @@ const EventsMainDiv = styled.div`
     flex-wrap: nowrap;
     flex-direction: column;
     margin: 1rem 0;
-    //padding: 2.5rem;
   }
-      //box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-      //box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
 `;
 
 const LinkEventWrapper = styled.div`
@@ -182,5 +178,4 @@ const LinkEventWrapper = styled.div`
   @media(max-width: 900px) {
   width: 100%;
   }
-        //box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
 `;
