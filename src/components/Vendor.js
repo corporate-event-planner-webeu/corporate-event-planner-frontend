@@ -15,12 +15,11 @@ export default function Vendor(props) {
           <p>{props.vendor.contact_number}</p>
         </div>
 
-        <FontAwesomeIcon
+        <i
+          className="fas fa-trash-alt"
           onClick={() => props.handleDelete(props.vendor.id)}
-          icon={faTrashAlt}
-          style={{ color: "red" }}
-          fixedWidth
         />
+
       </VendorDiv>
     );
 }

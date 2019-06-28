@@ -13,21 +13,19 @@ export default function Todo(props) {
       </div>
 
       <div>
-        <FontAwesomeIcon
+        <i
+          className="fas fa-trash-alt"
           onClick={() => props.handleDelete(props.todo.id)}
-          icon={faTrashAlt}
-          style={{ color: "red" }}
-          fixedWidth
         />
-        <FontAwesomeIcon
+        <i
+          className="far fa-edit"
           onClick={() =>
             props.handleUpdateTodo(props.todo.id, props.todo.task_name)
           }
-          icon={faPenAlt}
-          style={{ color: "skyblue" }}
-          fixedWidth
         />
-        <FontAwesomeIcon
+       
+        <i
+          className="far fa-check-square"
           onClick={() =>
             props.handleComplete(
               props.todo.id,
@@ -35,10 +33,8 @@ export default function Todo(props) {
               props.todo.task_completed
             )
           }
-          icon={faCheckSquare}
-          style={{ color: "yellowgreen" }}
-          fixedWidth
         />
+       
       </div>
     </TodoDiv>
   );
