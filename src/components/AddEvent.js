@@ -218,4 +218,10 @@ const AddEventDiv = styled.div`
     width: 90%;
     margin: 1.4rem;
   }
+
+  @media (max-width: 500px){
+    width: 100%;
+    padding-right: 10px;
+    margin-right: 10px;
+  }
 `;
