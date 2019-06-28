@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import img from "../assets/events-img.jpg";
+import {
+  faTrashAlt,
+  faPenAlt,
+  faCheckSquare
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from 'prop-types';
 
 export default class Event extends Component {
   render() {
@@ -18,35 +24,49 @@ export default class Event extends Component {
         </EventSummaryDiv>
 
         <EventStatusDiv completed={this.props.completed}>
-          {this.props.completed === 0 ? <p>PENDING</p> : <p>COMPLETED</p>}
-          <button
+          <div>
+            {" "}
+            {this.props.completed === 0 ? <p>PENDING</p> : <p>COMPLETED</p>}
+          </div>
+
+          <FontAwesomeIcon
             onClick={e => {
               e.stopPropagation();
               this.props.handleDelete(this.props.id);
             }}
-          >
-            Delete
-          </button>
-          <button
+            icon={faTrashAlt}
+            fixedWidth
+          />
+
+          <FontAwesomeIcon
             onClick={e => {
               e.stopPropagation();
               this.props.handleUpdate(this.props.id);
             }}
-          >
-            Edit
-          </button>
-          <button
+            icon={faPenAlt}
+            fixedWidth
+          />
+
+          <FontAwesomeIcon
             onClick={e => {
               e.stopPropagation();
               this.props.handleComplete(this.props.id);
             }}
-          >
-            {this.props.completed === 0 ? 'Complete' : 'Redo' }
-          </button>
+            icon={faCheckSquare}
+            fixedWidth
+          />
         </EventStatusDiv>
       </EventDiv>
     );
   }
+}
+
+Event.propTypes = {
+  image_url: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired
 }
 
 const EventDiv = styled.div`
@@ -85,6 +105,9 @@ const EventStatusDiv = styled.div`
   padding: 1rem;
   padding-top: 0.2rem;
   margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   p {
     font-size: 14px;

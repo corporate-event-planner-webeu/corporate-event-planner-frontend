@@ -25,8 +25,9 @@ export const getAllTodos = url => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_TODO });
       }
-      dispatch({ type: ERROR_TODO });
     });
 };
 
@@ -44,8 +45,9 @@ export const createTodo = (url, data) => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_TODO });
       }
-      dispatch({ type: ERROR_TODO });
     });
 };
 
@@ -57,8 +59,9 @@ export const updateTodo = (url, data) => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_TODO });
       }
-      dispatch({ type: ERROR_TODO });
     });
 };
 
@@ -70,8 +73,9 @@ export const deleteTodo = url => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_TODO });
       }
-      dispatch({ type: ERROR_TODO });
     });
 };
 
@@ -89,7 +93,8 @@ export const markTodoComplete = (url, data) => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_TODO });
       }
-      dispatch({ type: ERROR_TODO });
     });
 };

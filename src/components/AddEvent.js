@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import PropTypes from 'prop-types';
 
 export default class AddEvent extends Component {
   state = {
@@ -14,6 +15,8 @@ export default class AddEvent extends Component {
       "https://res.cloudinary.com/ogwurujohnson/image/upload/v1561643304/bjc5fbdksvte293pnhdl.jpg"
   };
 
+  abortController = new AbortController();
+
   componentWillReceiveProps() {
     this.setState({
       title: this.props.data ? this.props.data.event_title : "",
@@ -26,6 +29,10 @@ export default class AddEvent extends Component {
         ? this.props.data.image_url
         : "https://res.cloudinary.com/ogwurujohnson/image/upload/v1561643304/bjc5fbdksvte293pnhdl.jpg"
     });
+  }
+
+  componentWillUnmount() {
+    this.abortController.abort();
   }
 
   handleChange = e => {
@@ -164,12 +171,19 @@ export default class AddEvent extends Component {
               : this.handleSubmit()
           }
         >
-          
           {this.state.uploadingImage ? "Uploading..." : "Create Event"}
         </button>
       </AddEventDiv>
     );
   }
+}
+
+AddEvent.propTypes = {
+  data: PropTypes.object
+}
+
+AddEvent.defaultProps = {
+  data: {}
 }
 
 const AddEventDiv = styled.div`

@@ -24,8 +24,9 @@ export const getAllVendors = url => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_VENDOR });
       }
-      dispatch({ type: ERROR_VENDOR });
     });
 };
 
@@ -43,8 +44,9 @@ export const createVendor = (url, data) => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_VENDOR });
       }
-      dispatch({ type: ERROR_VENDOR });
     });
 };
 
@@ -62,8 +64,9 @@ export const deleteVendor = url => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_VENDOR });
       }
-      dispatch({ type: ERROR_VENDOR });
     });
 };
 
@@ -81,7 +84,8 @@ export const markVendorAsPaid = url => dispatch => {
     .catch(err => {
       if (err.response.status === 401) {
         dispatch({ type: NO_AUTH });
+      } else {
+        dispatch({ type: ERROR_VENDOR });
       }
-      dispatch({ type: ERROR_VENDOR });
     });
 };

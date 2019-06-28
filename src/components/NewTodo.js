@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
+import PropTypes from "prop-types";
 
 
 export default class NewTodo extends Component {
@@ -46,13 +47,17 @@ export default class NewTodo extends Component {
     }
 }
 
+NewTodo.propTypes = {
+  title: PropTypes.string.isRequired
+}
+
 
 const NewTodoDiv = styled.div`
   margin-top: 1rem;
   width: 100%;
   display: flex;
   input {
-    padding: 1.44rem;
+    padding: 2rem;
     flex: 8;
     height: 5px;
     font-size: 14px;

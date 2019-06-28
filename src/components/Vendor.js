@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
 
 
 export default function Vendor(props) {
@@ -18,10 +19,15 @@ export default function Vendor(props) {
           onClick={() => props.handleDelete(props.vendor.id)}
           icon={faTrashAlt}
           style={{ color: "red" }}
+          fixedWidth
         />
       </VendorDiv>
     );
 }
+
+Vendor.propType = {
+  vendor: PropTypes.object.isRequired
+};
 
 
 const VendorDiv = styled.div`

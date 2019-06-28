@@ -1,7 +1,5 @@
 import React, { Component,Suspense } from "react";
-
 import EventInfo from "../components/EventInfo";
-import Vendors from "./Vendors";
 import styled from "styled-components";
 import {connect} from 'react-redux';
 import {getAllEvents} from '../store/actions/event';
@@ -9,7 +7,9 @@ import {getAllTodos} from '../store/actions/todo';
 import { getAllVendors } from '../store/actions/vendor';
 import DOMAIN from "../utils/path";
 import { Button, Header, Icon, Modal, Input } from "semantic-ui-react";
+import PropTypes from "prop-types";
 const Todos = React.lazy(() => import("./Todos"));
+const Vendors = React.lazy(() => import('./Vendors'));
 
 
 class Event extends Component {
@@ -86,12 +86,14 @@ class Event extends Component {
           </Suspense>
         </TodosDiv>
         <VendorsDiv>
-          <Vendors
-            getVendor={this.getVendor}
-            vendors={this.state.vendors}
-            fetchingVendors={this.props.fetchingVendors}
-            id={this.state.id}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Vendors
+              getVendor={this.getVendor}
+              vendors={this.state.vendors}
+              fetchingVendors={this.props.fetchingVendors}
+              id={this.state.id}
+            />
+          </Suspense>
         </VendorsDiv>
         <ModalDiv>
           <Modal
@@ -148,6 +150,14 @@ const mapStateToProps = state => {
 
 
 export default connect(mapStateToProps, {getAllVendors, getAllEvents, getAllTodos})(Event)
+
+Event.propTypes = {
+  getAllEvents: PropTypes.func.isRequired,
+  getAllVendors: PropTypes.func.isRequired,
+  getAllTodos: PropTypes.func.isRequired,
+  todos: PropTypes.array.isRequired,
+  vendors: PropTypes.array.isRequired
+};
 
 const SingleEvent = styled.div`
   display: flex;

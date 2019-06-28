@@ -22,17 +22,17 @@ export class Navigation extends React.Component{
                             render={() => {
                                 if(localStorage.getItem('userToken')){
                                     return (
-                                      <div>
-                                          <Link className="link" to='./dashboard'>Home</Link>
-                                          <Link className="link" to='/'>About</Link>
-                                          <a href='/'className="link" onClick={this.onLogout}>Log Out</a>
-                                      </div>
+                                        <div>
+                                            <Link className="link" to='/dashboard'>Home</Link>
+                                            <Link className="link" to='/about'>About</Link>
+                                            <a href='/'className="link" onClick={this.onLogout}>Log Out</a>
+                                        </div>
                                     );
                                 };
                                 return (
                                     <div>
                                         <Link className="link" to='/'>Home</Link>
-                                        <Link className="link" to='/'>About</Link>
+                                        <Link className="link" to='/about'>About</Link>
                                         <Link className="link" to='./login'>Log In</Link>
                                         <Link className="link" to='./signup'>Sign up</Link>
                                     </div>

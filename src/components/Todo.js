@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { faTrashAlt, faPenAlt, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import PropTypes from "prop-types";
 
 export default function Todo(props) {
   
@@ -17,6 +17,7 @@ export default function Todo(props) {
           onClick={() => props.handleDelete(props.todo.id)}
           icon={faTrashAlt}
           style={{ color: "red" }}
+          fixedWidth
         />
         <FontAwesomeIcon
           onClick={() =>
@@ -24,6 +25,7 @@ export default function Todo(props) {
           }
           icon={faPenAlt}
           style={{ color: "skyblue" }}
+          fixedWidth
         />
         <FontAwesomeIcon
           onClick={() =>
@@ -35,10 +37,15 @@ export default function Todo(props) {
           }
           icon={faCheckSquare}
           style={{ color: "yellowgreen" }}
+          fixedWidth
         />
       </div>
     </TodoDiv>
   );
+}
+
+Todo.propType = {
+  todo: PropTypes.object.isRequired
 }
 
 const TodoDiv = styled.div`
