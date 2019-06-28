@@ -187,6 +187,11 @@ const SingleEvent = styled.div`
       color: white;
     }
   }
+  @media (max-width: 500px){
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
 `;
 
 const ModalDiv = styled.div`
@@ -194,6 +199,10 @@ const ModalDiv = styled.div`
   .ui.basic.modal > .content,
   .ui.basic.modal > .header {
     background-color: blue;
+  }
+  @media (max-width: 500px){
+    width: 100%;
+    /* margin: 0 auto; */
   }
 `;
 

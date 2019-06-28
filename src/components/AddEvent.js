@@ -247,4 +247,11 @@ const AddEventDiv = styled.div`
       transition: 0.3s ease-out;
     }
   }
+
+  @media (max-width: 500px){
+    width: 90%;
+    height: 600px;
+    padding-right: 10px;
+    margin-right: 10px;
+  }
 `;

@@ -17,7 +17,7 @@ export class Navigation extends React.Component{
               <Link className="logo" to="/"><img src={Logo} alt={'logo'} /></Link>
                 <MenuStyled>
                     <ul>
-                        <Route
+                        <Route 
                             excat path="/"
                             render={() => {
                                 if(localStorage.getItem('userToken')){
@@ -88,6 +88,7 @@ const HeaderStyled = styled.div`
     padding-left: 20px;
     font-size: 2.5rem;
   }
+  
 `;
 
 const MenuStyled = styled.div`
@@ -115,14 +116,17 @@ const MenuStyled = styled.div`
       padding: 10px;
     }
   }
-   .login {
-    width: 20%;
-    padding: 5px 0px 5px 0px;
-    padding-bottom:0;
-  }
+ 
   .link:hover{
       color: #07a0c3;
       transition: 0.3s ease-out;
   }
+
+  @media (max-width: 500px){
+    .link{
+      font-size: 1.4rem;
+      padding: 0 8px;
+    }
+}
 `;
 
