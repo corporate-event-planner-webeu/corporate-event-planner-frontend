@@ -156,7 +156,6 @@ const EventsMainDiv = styled.div`
 
   @media (max-width: 500px){
     width: 120%;
-    border:1px solid red;
   }
 `;
 
@@ -165,7 +164,6 @@ const LinkEventWrapper = styled.div`
 
   @media (max-width: 500px){
     width: 150%;
-    border:1px solid blue;
     margin-bottom: 5px;
   }
 `;
