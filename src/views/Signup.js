@@ -108,7 +108,7 @@ class Signup extends Component {
                   value={this.state.password}
                   placeholder="Password"
                 />
-                <button type="button" onClick={this.handleSubmit}>
+                <button className="button" type="button" onClick={this.handleSubmit}>
                   Sign Up Now
                 </button>
                 -------- OR ----------
@@ -193,43 +193,7 @@ const SignUpStyled = styled.div`
     }
   }
 
-<<<<<<< HEAD
   .button {
-        height: 50px;
-        width: 350px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 2rem;
-        -webkit-box-shadow: 0 10px 6px -6px #777;
-        -moz-box-shadow: 0 10px 6px -6px #777;
-        box-shadow: 0 10px 6px -6px #777;
-    }
-    .button:hover{
-      background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
-      border: 1px solid #FFFFFF;
-      color: #FFFFFF;
-      transition: 0.3s ease-out;
-    }
-
-    @media (max-width: 500px){
-      .sign-up {
-      width: 100%;
-      padding: 20px;
-      min-height: 150vh;
-      margin: 0 auto;
-      justify-content: space-evenly;
-    }
-    input{
-      border: 1px solid grey;
-      margin-top: 5px;
-      width: 100%;
-    }
-    .button{
-      border: 1px solid grey;
-      width: 100%;
-    }
-=======
-  button {
     height: 48px;
     width: 100%;
     margin-top: 10px;
@@ -245,7 +209,6 @@ const SignUpStyled = styled.div`
       color: #07a0c3;
       transition: 0.3s ease-out;
     }
->>>>>>> 7ee514cfb73f3c79fdd3ba4e9b7e6c5245ce7008
   }
 `;
 

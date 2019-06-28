@@ -21,16 +21,9 @@ class Login extends React.Component {
   };
 
   responseGoogle = async response => {
-    const userObject = {
-      username: response.w3.ofa,
-      password: "test"
-    };
-    console.log(response)
-    if (response.w3.ofa) {
-      await localStorage.setItem("users", JSON.stringify(userObject));
-      await window.location.reload();
-    } else {
-    }
+    this.props.login(response.w3.U3, "Johnny555").then(res => {
+      this.props.history.push("/dashboard");
+    });
   };
 
   render() {
@@ -55,7 +48,7 @@ class Login extends React.Component {
                 placeholder="Password"
                 required
               />
-              <button type="button" onClick={this.onLogin}>
+              <button className="button" type="button" onClick={this.onLogin}>
                 Log in
               </button>
               -------- OR ----------
@@ -143,43 +136,7 @@ const LoginWrapperStyled = styled.div`
     }
   }
 
-<<<<<<< HEAD
   .button {
-        height: 50px;
-        width: 350px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 2rem;
-        -webkit-box-shadow: 0 10px 6px -6px #777;
-        -moz-box-shadow: 0 10px 6px -6px #777;
-        box-shadow: 0 10px 6px -6px #777;
-    }
-    .button:hover{
-      background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
-      border: 1px solid #FFFFFF;
-      color: #FFFFFF;
-      transition: 0.3s ease-out;
-    }
-
-    @media (max-width: 500px){
-    .log-in {
-      width: 100%;
-      padding: 20px;
-      min-height: 150vh;
-      margin: 0 auto;
-      justify-content: space-evenly;
-    }
-    input{
-      border: 1px solid grey;
-      width: 100%;
-    }
-    .button{
-      border: 1px solid grey;
-      width: 100%;
-    }
-
-=======
-  button {
     height: 48px;
     width: 100%;
     margin-top: 10px;
@@ -195,7 +152,6 @@ const LoginWrapperStyled = styled.div`
       cursor: pointer;
       transition: 0.3s ease-out;
     }
->>>>>>> 7ee514cfb73f3c79fdd3ba4e9b7e6c5245ce7008
   }
 `;
 
