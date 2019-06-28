@@ -171,7 +171,12 @@ const SingleEvent = styled.div`
       color: white;
     }
   }
-
+  @media (max-width: 500px){
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: left;
+    width: 150%;
+  }
 `;
 
 const ModalDiv = styled.div`
@@ -184,13 +189,32 @@ const ModalDiv = styled.div`
 
 const EventInfoDiv = styled.div`
   width: 35%;
+
+  @media (max-width: 500px){
+    width: 67%;
+    /* margin: 0 auto; */
+  }
 `;
 
 const TodosDiv = styled.div`
   width: 30%;
+
+  @media (max-width: 500px){
+    width: 62%;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    /* margin: 0 auto; */
+  }
 `;
 
 const VendorsDiv = styled.div`
   width: 30%;
   margin-left: 2.0rem;
+
+  @media (max-width: 500px){
+    width: 78%;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    margin-top: 70px;
+  }
 `;
