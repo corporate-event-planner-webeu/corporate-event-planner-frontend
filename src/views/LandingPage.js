@@ -43,7 +43,7 @@ export default function LandingPage() {
                       <i className="far fa-calendar-check"></i>
                     </SeoIcon>
                   </IconWrapper>
-                  <h3>Stay in control & plan events like a pro</h3>
+                  <h4>Stay in control & plan events like a pro</h4>
                   <p>Banh mi selvage master cleanse, cronut williamsburg seitan pop-up venmo tote bag kombucha cornhole chartreuse. Swag squid iPhone, single-origin coffee quinoa echo park asymmetrical mixtape. </p>
                 </Feature>
 
@@ -53,7 +53,7 @@ export default function LandingPage() {
                       <i className="fas fa-shopping-cart"></i>
                     </SeoIcon>
                   </IconWrapper>
-                  <h3>Build your shopping list the smart way</h3>
+                  <h4>Build your shopping list the smart way</h4>
                   <p>Banh mi selvage master cleanse, cronut williamsburg seitan pop-up venmo tote bag kombucha cornhole chartreuse. Swag squid iPhone, single-origin coffee quinoa echo park asymmetrical mixtape. </p>
                 </Feature>
 
@@ -61,7 +61,7 @@ export default function LandingPage() {
                   <IconWrapper>
                     <SeoIcon><i className="fas fa-tasks"></i></SeoIcon>
                   </IconWrapper>
-                  <h3>Track your progress and budget easily</h3>
+                  <h4>Track your progress and budget easily</h4>
                   <p>Banh mi selvage master cleanse, cronut williamsburg seitan pop-up venmo tote bag kombucha cornhole chartreuse. Swag squid iPhone, single-origin coffee quinoa echo park asymmetrical mixtape. </p>
                 </Feature>
 
@@ -150,11 +150,13 @@ const Feature = styled.div`
     width: 100%;
     padding: 3rem 2.5rem;
   }
-  h3 {
+  h4 {
     padding: 2rem 0;
     text-align: left;
+    font-size: 2.4rem;
     @media(max-width: 800px) {
     text-align: center;
+
     }
   }
   p{
