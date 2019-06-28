@@ -138,6 +138,13 @@ const MainDiv = styled.div`
   color: rgb(138, 146, 152);
   text-align: left;
   display: flex;
+
+  @media (max-width: 500px){
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    max-width: 100%;
+  }
 `;
 
 const EventsMainDiv = styled.div`
@@ -146,8 +153,19 @@ const EventsMainDiv = styled.div`
   flex-wrap: wrap;
   height: 350px;
   margin: 2rem;
+
+  @media (max-width: 500px){
+    width: 120%;
+    border:1px solid red;
+  }
 `;
 
 const LinkEventWrapper = styled.div`
   width: 30%;
+
+  @media (max-width: 500px){
+    width: 150%;
+    border:1px solid blue;
+    margin-bottom: 5px;
+  }
 `;
