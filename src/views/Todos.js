@@ -99,8 +99,13 @@ const TodoDiv = styled.div`
   margin-right: 2rem;
   font-size: 15px;
   padding: 10px;
-  background: #fff;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  box-shadow: 0 10px 6px -6px #777;
+  background: #ffffff;
+  box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    margin: 2.0rem 0;
+    padding: 2.5rem;
+    width: 100%;
+  }
 `;
