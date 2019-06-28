@@ -34,4 +34,8 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 150vh;
+
+  @media (max-width: 500px){
+    width: 100%;
+  }
 `;
