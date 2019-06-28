@@ -187,21 +187,15 @@ AddEvent.defaultProps = {
 }
 
 const AddEventDiv = styled.div`
-  //border-right: 1px solid teal;
   display: flex;
   flex-direction: column;
-  //height: 600px;
   margin: 2rem;
-  //margin-right: 0;
   width: 350px;
   background: #F9F9F9;
   box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
-  //-webkit-box-shadow: 0 10px 6px -6px #777;
-  //-moz-box-shadow: 0 10px 6px -6px #777;
-  //box-shadow: 0 10px 6px -6px #777;
   padding: 2rem;
   @media(max-width: 800px) {
-    width: 100%;
+    width: 95%;
     margin: 0;
   }
   
@@ -217,15 +211,6 @@ const AddEventDiv = styled.div`
   }
 
   input {
-    //padding: 1rem;
-    //margin-bottom: 1rem;
-    //border: 1px solid rgb(186, 192, 198);
-    //width: 100%;
-    ////margin-left: 1rem;
-    //
-    //&:focus {
-    //  outline: none;
-    //}
     border: 1px solid #F9F9F9;
     background: #FFFFFF;
     border-radius: 3px;
