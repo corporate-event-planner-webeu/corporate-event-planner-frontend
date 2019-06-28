@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { login } from "../store/actions/auth";
 import styled from "styled-components";
+import GoogleLogin from "react-google-login";
+
+const appId =
+  "166782084422-7ri2398e2d8chhhnj883frh6ur7m50i1.apps.googleusercontent.com";
 
 class Login extends React.Component {
   emailRef = React.createRef();
@@ -16,32 +20,59 @@ class Login extends React.Component {
     });
   };
 
+  responseGoogle = async response => {
+    const userObject = {
+      username: response.w3.ofa,
+      password: "test"
+    };
+    console.log(response)
+    if (response.w3.ofa) {
+      await localStorage.setItem("users", JSON.stringify(userObject));
+      await window.location.reload();
+    } else {
+    }
+  };
+
   render() {
     return (
       <div>
         <LoginWrapperStyled>
           <div className="log-in">
-          <h3>Log In Here</h3>
-          <p>To see all of your upcoming events </p>
-          <InputStyled>
-          <input
-            type="text"
-            name="Email"
-            ref={this.emailRef}
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            ref={this.passRef}
-            placeholder="Password"
-            required
-          />
-          <button type="button" onClick={this.onLogin}>
-            Log in
-          </button>
-          </InputStyled>
+            <h3>Log In Here</h3>
+            <p>To see all of your upcoming events </p>
+            <InputStyled>
+              <input
+                type="text"
+                name="Email"
+                ref={this.emailRef}
+                placeholder="Email"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                ref={this.passRef}
+                placeholder="Password"
+                required
+              />
+              <button
+                className="button"
+                type="button"
+                onClick={this.onLogin}
+              >
+                Log in
+              </button>
+              -------- OR ----------
+              <GoogleLoginDiv>
+                <GoogleLogin
+                  clientId={appId}
+                  buttonText="Log in with Google"
+                  onSuccess={this.responseGoogle}
+                  onFailure={this.responseGoogle}
+                  className="loginwithgoogle"
+                />
+              </GoogleLoginDiv>
+            </InputStyled>
           </div>
         </LoginWrapperStyled>
       </div>
@@ -53,6 +84,11 @@ export default connect(
   null,
   { login }
 )(Login);
+
+const GoogleLoginDiv = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
 
 const LoginWrapperStyled = styled.div`
   display: flex;
@@ -90,16 +126,17 @@ const LoginWrapperStyled = styled.div`
     font-size: 1.5rem;
   }
 
-  button {
+  .button {
         height: 50px;
         width: 350px;
         margin-top: 10px;
+        margin-bottom: 10px;
         font-size: 2rem;
         -webkit-box-shadow: 0 10px 6px -6px #777;
         -moz-box-shadow: 0 10px 6px -6px #777;
         box-shadow: 0 10px 6px -6px #777;
     }
-    button:hover{
+    .button:hover{
       background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
       border: 1px solid #FFFFFF;
       color: #FFFFFF;
@@ -118,10 +155,11 @@ const LoginWrapperStyled = styled.div`
       border: 1px solid grey;
       width: 100%;
     }
-    button{
+    .button{
       border: 1px solid grey;
       width: 100%;
     }
+
   }
 `;
 
