@@ -234,7 +234,8 @@ const AddEventDiv = styled.div`
   }
 
   @media (max-width: 500px){
-    width: 100%;
+    width: 90%;
+    height: 600px;
     padding-right: 10px;
     margin-right: 10px;
   }

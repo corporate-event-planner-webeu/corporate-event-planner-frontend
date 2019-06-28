@@ -184,7 +184,9 @@ const SingleEvent = styled.div`
   @media (max-width: 500px){
     display: flex;
     flex-direction: column-reverse;
-    align-items: left;
+    /* align-items: center; */
+    margin-top: 35%;
+
     width: 150%;
   }
 `;
@@ -194,6 +196,10 @@ const ModalDiv = styled.div`
   .ui.basic.modal > .content,
   .ui.basic.modal > .header {
     background-color: blue;
+  }
+  @media (max-width: 500px){
+    width: 67%;
+    /* margin: 0 auto; */
   }
 `;
 
@@ -225,6 +231,6 @@ const VendorsDiv = styled.div`
     width: 78%;
     margin-right: 40px;
     margin-bottom: 20px;
-    margin-top: 70px;
+    margin-top: 80px;
   }
 `;

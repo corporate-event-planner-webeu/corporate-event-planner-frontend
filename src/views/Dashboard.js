@@ -156,8 +156,10 @@ const MainDiv = styled.div`
   @media (max-width: 500px){
     display: flex;
     flex-direction: column;
-    align-self: center;
+    background: white;
+    /* align-self: center; */
     max-width: 100%;
+    height: 100px;
   }
 `;
 
@@ -170,6 +172,7 @@ const EventsMainDiv = styled.div`
 
   @media (max-width: 500px){
     width: 120%;
+    margin-top: 500px;
   }
 `;
 
