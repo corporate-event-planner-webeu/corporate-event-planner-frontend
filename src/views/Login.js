@@ -51,7 +51,7 @@ class Login extends React.Component {
               <button className="button" type="button" onClick={this.onLogin}>
                 Log in
               </button>
-              -------- OR ----------
+              <span>-------- OR ----------</span>
               <GoogleLoginDiv>
                 <GoogleLogin
                   clientId={appId}
@@ -102,6 +102,10 @@ const LoginWrapperStyled = styled.div`
       height: 100vh;
       margin: 0 auto;
       justify-content: space-evenly;
+    }
+    span {
+      padding: 2rem 0;
+      color: #333;
     }
 
     p{
