@@ -168,6 +168,13 @@ const SingleEvent = styled.div`
   background-color: rgb(233, 236, 240);
   color: rgb(138, 146, 152);
 
+  @media (max-width: 600px) {
+    flex-direction: column;
+    margin: 0;
+    padding: 2.5rem;
+    width: 100%;
+  }
+
   .ui.button {
     background: #51b7b0;
     color: white;
@@ -193,13 +200,23 @@ const ModalDiv = styled.div`
 
 const EventInfoDiv = styled.div`
   width: 35%;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const TodosDiv = styled.div`
   width: 30%;
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 const VendorsDiv = styled.div`
   width: 30%;
-  margin-left: 2.0rem;
+  margin-left: 2rem;
+  @media (max-width: 600px) {
+    margin-left: 0;
+    width: 100%;
+  }
 `;

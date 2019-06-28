@@ -38,8 +38,9 @@ const VendorDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.0rem;
-  padding: .8rem;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  
   p {
     font-weight: bold;
     text-align: left;

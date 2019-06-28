@@ -53,7 +53,8 @@ const TodoDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .85rem;
+  padding: 0.85rem;
+
   div {
     display: flex;
     justify-content: space-between;

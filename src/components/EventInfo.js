@@ -56,14 +56,18 @@ const EventInfoDiv = styled.div`
   border-top: 2px solid rgb(81, 183, 176);
   border-bottom: 2px solid rgb(81, 183, 176);
   width: 90%;
-  background: #fff;
   color: #36454f;
   padding: 2rem;
   margin-left: 2rem;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  box-shadow: 0 10px 6px -6px #777;
-
+  background: #ffffff;
+  box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+    margin: 0;
+    padding: 2.5rem;
+    width: 100%;
+  }
   h3 {
     text-align: left;
     font-size: 24px;
