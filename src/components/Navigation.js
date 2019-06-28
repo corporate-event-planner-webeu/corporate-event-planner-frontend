@@ -51,17 +51,35 @@ const HeaderStyled = styled.div`
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(19, 28, 36);
-  //background: #333;
   color: white;
-  height: 60px;
+  height: 70px;
+  @media(max-width: 500px) {
+    padding-left: 2.5rem;
+  }
   
   .logo {
-  display: flex;
-  padding-left: 1.5rem;
+    display: flex;
+    padding-left: 2rem;  
+    @media(max-width: 500px) {
+      padding: 2.5rem 0;
+      a {
+      width: 50px;
+      }
+    }
     img {
       display: block;
       height: 50%;
       margin: auto;
+      @media(max-width: 500px) {
+        height: 100%;
+        width: 150px;
+        margin: auto;
+      }
+      @media(max-width: 500px) {
+      height: 100%;
+      width: 100px;
+      margin: auto;
+      }
     }
   }
 
@@ -75,19 +93,33 @@ const HeaderStyled = styled.div`
 
 const MenuStyled = styled.div`
   align-self: center;
-
+  ul{
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+  }
   .link{
     align-content: center;
     text-decoration: none;
     color: white;
     text-align: center;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding: 0.5rem 2.5rem;
     font-size: 2rem;
+    width: 50px;
+    margin: 0 5px;
+    @media (max-width: 800px) {
+      font-size: 2rem;
+      padding: 1.5rem;
+    }
+    @media (max-width: 500px) {
+      font-size: 1.6rem;
+      padding: 10px;
+    }
   }
  
   .link:hover{
-      color: yellow;
+      color: #07a0c3;
+      transition: 0.3s ease-out;
   }
 
   @media (max-width: 500px){

@@ -144,22 +144,16 @@ Dashboard.propTypes = {
 
 const MainDiv = styled.div`
   justify-content: space-between;
-  padding: 1rem;
-  border: 2px solid white;
+  margin: 2.5rem 0;
   height: 100%;
   min-height: 100%;
-  background-color: rgb(233, 236, 240);
-  color: rgb(138, 146, 152);
+  background: #F9F9F9;
   text-align: left;
   display: flex;
-
-  @media (max-width: 500px){
-    display: flex;
+  @media(max-width: 600px) {
     flex-direction: column;
-    background: white;
-    /* align-self: center; */
-    max-width: 100%;
-    height: 100px;
+    margin: 0;
+    padding: 2.5rem;
   }
 `;
 
@@ -167,20 +161,21 @@ const EventsMainDiv = styled.div`
   width: 80%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   height: 350px;
   margin: 2rem;
-
-  @media (max-width: 500px){
-    width: 120%;
-    margin-top: 500px;
+  @media(max-width: 800px) {
+    width: 100%;
+    height: auto;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 1rem 0;
   }
 `;
 
 const LinkEventWrapper = styled.div`
-  width: 30%;
-
-  @media (max-width: 500px){
-    width: 150%;
-    margin-bottom: 5px;
+  width: 300px;
+  @media(max-width: 900px) {
+  width: 100%;
   }
 `;

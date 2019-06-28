@@ -117,7 +117,7 @@ export default class AddEvent extends Component {
   render() {
     return (
       <AddEventDiv>
-        <p>Create Event</p>
+        <h2>Create Event</h2>
 
         <input type="file" id="fileupload" onChange={this.handleImageUpload} />
 
@@ -187,18 +187,22 @@ AddEvent.defaultProps = {
 }
 
 const AddEventDiv = styled.div`
-  border-top: 2px solid teal;
   display: flex;
   flex-direction: column;
-  height: 600px;
   margin: 2rem;
-  margin-right: 0;
-  width: 25%;
-  background: #fff;
-  -webkit-box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  box-shadow: 0 10px 6px -6px #777;
+  width: 350px;
+  background: #F9F9F9;
+  box-shadow: 0 16px 48px rgba(32, 41, 50, 0.21);
   padding: 2rem;
+  @media(max-width: 800px) {
+    width: 95%;
+    margin: 0;
+  }
+  
+  h2 {
+  font-family: Overpass, sans-serif;
+  font-size: 2rem;
+  }
 
   p {
     text-align: center;
@@ -207,30 +211,41 @@ const AddEventDiv = styled.div`
   }
 
   input {
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid rgb(186, 192, 198);
-    width: 90%;
-    margin-left: 1rem;
-
-    &:focus {
-      outline: none;
+    border: 1px solid #F9F9F9;
+    background: #FFFFFF;
+    border-radius: 3px;
+    padding-left: 10px;
+    margin:10px 0;
+    width: 100%;
+    height: 48px;
+    font-size: 1.6rem;
+    color: #333;
+    @media(max-width: 500px) {
+      margin-top: 5px;
+      border: none;
+    }
+    &::placeholder {
+      color: #7a7a7a;
+      
     }
   }
 
   button {
-    padding: 1rem;
-    max-height: 43.5px;
-    background: rgb(81, 183, 176);
-    color: white;
-    flex: 1;
-    outline: none;
-    border: none;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    width: 90%;
-    margin: 1.4rem;
+    height: 48px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
+    border: 1px solid #EFEFEF;
+    color: #FFFFFF;
+    border-radius: 3px;
+    &:hover{
+      border: 1px solid #07a0c3;
+      color: #07a0c3;
+      background: #FFFFFF;
+      cursor: pointer;
+      transition: 0.3s ease-out;
+    }
   }
 
   @media (max-width: 500px){

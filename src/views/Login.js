@@ -2,6 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { login } from "../store/actions/auth";
 import styled from "styled-components";
+import GoogleLogin from "react-google-login";
+
+const appId =
+  "166782084422-7ri2398e2d8chhhnj883frh6ur7m50i1.apps.googleusercontent.com";
 
 class Login extends React.Component {
   emailRef = React.createRef();
@@ -16,32 +20,48 @@ class Login extends React.Component {
     });
   };
 
+  responseGoogle = async response => {
+    this.props.login(response.w3.U3, "Johnny555").then(res => {
+      this.props.history.push("/dashboard");
+    });
+  };
+
   render() {
     return (
       <div>
         <LoginWrapperStyled>
           <div className="log-in">
-          <h3>Log In Here</h3>
-          <p>To see all of your upcoming events </p>
-          <InputStyled>
-          <input
-            type="text"
-            name="Email"
-            ref={this.emailRef}
-            placeholder="Email"
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            ref={this.passRef}
-            placeholder="Password"
-            required
-          />
-          <button type="button" onClick={this.onLogin}>
-            Log in
-          </button>
-          </InputStyled>
+            <h3>Log In</h3>
+            <p>See all of your upcoming events </p>
+            <InputStyled>
+              <input
+                type="text"
+                name="Email"
+                ref={this.emailRef}
+                placeholder="Email"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                ref={this.passRef}
+                placeholder="Password"
+                required
+              />
+              <button className="button" type="button" onClick={this.onLogin}>
+                Log in
+              </button>
+              -------- OR ----------
+              <GoogleLoginDiv>
+                <GoogleLogin
+                  clientId={appId}
+                  buttonText="Log in with Google"
+                  onSuccess={this.responseGoogle}
+                  onFailure={this.responseGoogle}
+                  className="loginwithgoogle"
+                />
+              </GoogleLoginDiv>
+            </InputStyled>
           </div>
         </LoginWrapperStyled>
       </div>
@@ -54,73 +74,83 @@ export default connect(
   { login }
 )(Login);
 
+const GoogleLoginDiv = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
+
 const LoginWrapperStyled = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  background: rgb(233,236,240);
+  height: 100vh;
+  background: #FFFFFF;
   width: 100%;
-  color: black;
+  color: #333;
   align-items: center;
+
   
   .log-in{
-    background: white;
-    border: 1px solid grey;
+    background: #EFEFEF;
     margin-top: 50px;
+    padding: 3.5rem;
     height: 500px;
-    width: 500px;
-    -webkit-box-shadow: 0 10px 6px -6px #777; 
+    width: 450px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    @media (max-width: 500px){
+      width: 100%;
+      padding: 2.5rem;
+      height: 100vh;
+      margin: 0 auto;
+      justify-content: space-evenly;
+    }
 
     p{
-      font-size: 1.7rem;
+      font-size: 1.6rem;
+      text-align: left;
     }
     h3{
-      margin: 30px;
-      font-size: 2rem;
+      margin: 3rem auto;
+      font-size: 2.4rem;
+      font-family: Jaldi, sans-serif;
+      text-align: left;
+      font-weight: 700;
     }
   }
   
   input {
-    border: 1px solid grey;
-    border-radius: 2px;
+    border: 1px solid #F9F9F9;
+    background: #FFFFFF;
+    border-radius: 3px;
     padding-left: 10px;
-    margin:10px;
-    width: 350px;
-    height: 50px;
-    font-size: 1.5rem;
+    margin:10px 0;
+    width: 100%;
+    height: 48px;
+    font-size: 1.6rem;
+    color: #333;
+    @media(max-width: 500px) {
+      margin-top: 5px;
+      border: none;
+    }
+    &::placeholder {
+      color: #7a7a7a;
+    }
   }
 
-  button {
-        height: 50px;
-        width: 350px;
-        margin-top: 10px;
-        font-size: 2rem;
-        -webkit-box-shadow: 0 10px 6px -6px #777;
-        -moz-box-shadow: 0 10px 6px -6px #777;
-        box-shadow: 0 10px 6px -6px #777;
-    }
-    button:hover{
-      background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
-      border: 1px solid #FFFFFF;
-      color: #FFFFFF;
+  .button {
+    height: 48px;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #07a0c3 0%,#89bde5 100%);
+    border: 1px solid #EFEFEF;
+    color: #FFFFFF;
+    border-radius: 3px;
+    &:hover{
+      border: 1px solid #07a0c3;
+      color: #07a0c3;
+      background: #FFFFFF;
+      cursor: pointer;
       transition: 0.3s ease-out;
-    }
-
-    @media (max-width: 500px){
-    .log-in {
-      width: 100%;
-      padding: 20px;
-      min-height: 150vh;
-      margin: 0 auto;
-      justify-content: space-evenly;
-    }
-    input{
-      border: 1px solid grey;
-      width: 100%;
-    }
-    button{
-      border: 1px solid grey;
-      width: 100%;
     }
   }
 `;
